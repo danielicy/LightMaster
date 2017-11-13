@@ -20,9 +20,10 @@ class Selector
 {
 public:
 	Selector(int pin);
+	Selector();
 	void Select(int i);
 private:
-	void White();
+	/*void White();
 	void Blue();
 	void BlueWhite();
 	void Purple();
@@ -33,7 +34,7 @@ private:
 	void RedWhite();
 	void Yellow();
 	void YellowGreen();
-	void PurpleBlue();
+	void PurpleBlue();*/
 
 
 

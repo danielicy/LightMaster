@@ -2,7 +2,7 @@
 
 // constants won't change. They're used here to set pin numbers:
 const int buttonPin = 2;    // the number of the pushbutton pin
-const int ledPin = 8;      // the number of the LED pin
+const int ledPin = 3;      // the number of the LED pin
 
 						   // Variables will change:
 int ledState = HIGH;         // the current state of the output pin
@@ -15,6 +15,11 @@ int index = 0;
 // milliseconds, will quickly become a bigger number than can be stored in an int.
 unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 unsigned long debounceDelay = 10;    // the debounce time; increase if the output flickers
+
+
+           // the PWM pin the LED is attached to
+int brightness = 0;    // how bright the LED is
+int fadeAmount = 1;    // how many points to fade the LED by
 
 void setup() {
 	pinMode(buttonPin, INPUT);
@@ -120,6 +125,17 @@ void SelectProgram(int i)
 
 void Prog1()
 {
+	analogWrite(ledPin, brightness);
+
+	// change the brightness for next time through the loop:
+	brightness = brightness + fadeAmount;
+
+	// reverse the direction of the fading at the ends of the fade:
+	if (brightness <= 0 || brightness >= 255) {
+		fadeAmount = -fadeAmount;
+	}
+	// wait for 30 milliseconds to see the dimming effect
+	delay(30);
 	Serial.println(1);
 }
 
