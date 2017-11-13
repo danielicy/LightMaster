@@ -67,3 +67,49 @@ void Selector::Fade()
 	Serial.println(1);
 }
  
+
+
+/*
+
+
+void Prog2()
+{
+Serial.println(2);
+}
+
+
+void Prog3()
+{
+Serial.println(3);
+}
+
+
+void Prog4()
+{
+Serial.println(4);
+}
+
+
+void Prog5()
+{
+Serial.println(5);
+}
+void Prog6()
+{
+Serial.println(6);
+}
+
+void Prog7()
+{
+Serial.println(7);
+}
+
+void Prog8()
+{
+Serial.println(8);
+}
+
+
+
+
+*/
