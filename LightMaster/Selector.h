@@ -21,8 +21,10 @@ class Selector
 public:
 	Selector(int pin);
 	Selector();
+	~Selector();
 	void Select(int i);
 private:
+	void Fade();
 	/*void White();
 	void Blue();
 	void BlueWhite();

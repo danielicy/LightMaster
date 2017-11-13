@@ -21,6 +21,9 @@ unsigned long debounceDelay = 10;    // the debounce time; increase if the outpu
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 1;    // how many points to fade the LED by
 
+
+Selector* _selector = new Selector();
+
 void setup() {
 	pinMode(buttonPin, INPUT);
 	pinMode(ledPin, OUTPUT);
@@ -68,7 +71,9 @@ void DoWork()
 		}
 	}
 
-	SelectProgram(index);
+
+	_selector->Select(index);
+	 
 
 	// set the LED:
 	digitalWrite(ledPin, ledState);
@@ -89,55 +94,7 @@ void SetIndex()
 	}
 	Serial.println(index);
 }
-
-void SelectProgram(int i)
-{
-	switch (i)
-	{
-	case 1:
-		Prog1();
-		break;
-	case 2:
-		Prog2();
-		break;
-	case 3:
-		Prog3();
-		break;
-	case 4:
-		Prog4();
-		break;
-	case 5:
-		Prog5();
-		break;
-	case 6:
-		Prog6();
-		break;
-	case 7:
-		Prog7();
-		break;
-	case 8:
-		Prog8();
-		break;
-
-
-	}
-}
-
-void Prog1()
-{
-	analogWrite(ledPin, brightness);
-
-	// change the brightness for next time through the loop:
-	brightness = brightness + fadeAmount;
-
-	// reverse the direction of the fading at the ends of the fade:
-	if (brightness <= 0 || brightness >= 255) {
-		fadeAmount = -fadeAmount;
-	}
-	// wait for 30 milliseconds to see the dimming effect
-	delay(30);
-	Serial.println(1);
-}
+ 
 
 
 void Prog2()
