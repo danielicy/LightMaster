@@ -80,10 +80,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LM_System.h" />
     <ClInclude Include="Selector.h" />
     <ClInclude Include="__vm\.LightMaster.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LM_System.cpp" />
     <ClCompile Include="Selector.cpp" />
   </ItemGroup>
   <PropertyGroup>

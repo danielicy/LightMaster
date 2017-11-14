@@ -24,9 +24,15 @@
     <ClInclude Include="Selector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LM_System.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Selector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LM_System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

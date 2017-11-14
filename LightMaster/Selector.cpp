@@ -53,18 +53,18 @@ void Selector::Select(int i)
 
 void Selector::Fade()
 {
-	analogWrite(ledPin, brightness);
+	//analogWrite(ledPin, brightness);
 
-	// change the brightness for next time through the loop:
-	brightness = brightness + fadeAmount;
+	//// change the brightness for next time through the loop:
+	//brightness = brightness + fadeAmount;
 
-	// reverse the direction of the fading at the ends of the fade:
-	if (brightness <= 0 || brightness >= 255) {
-		fadeAmount = -fadeAmount;
-	}
-	// wait for 30 milliseconds to see the dimming effect
-	delay(30);
-	Serial.println(1);
+	//// reverse the direction of the fading at the ends of the fade:
+	//if (brightness <= 0 || brightness >= 255) {
+	//	fadeAmount = -fadeAmount;
+	//}
+	//// wait for 30 milliseconds to see the dimming effect
+	//delay(30);
+	//Serial.println(1);
 }
  
 
