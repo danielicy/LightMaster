@@ -1,11 +1,12 @@
+#include "Arduino.h"
+
 // LM_System.h
 #define BUTTONPIN 2
 #define REDPIN  3
 #define YELLOWPIN  4
 #define GREENPIN  5
-#define HIGH 1
-#define LOW 0
 
+ 
 #ifndef _LM_SYSTEM_h
 #define _LM_SYSTEM_h
 class LMSystem
