@@ -5,6 +5,12 @@
 
 
 
+#ifndef HIGH
+#define HIGH 0x1
+#define LOW  0x0
+#endif
+
+
 // LM_System.h
 #ifndef BUTTONPIN
 #define BUTTONPIN 2
@@ -20,8 +26,8 @@
 
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include "Arduino.h"
-#else
-	#include "WProgram.h"
+/*#else
+	#include "WProgram.h"*/
 #endif
 
 
@@ -31,12 +37,10 @@ class LMSystem
 {
 
 public:
-	LMSystem();
-
-	
-	
+	LMSystem();	
 	~LMSystem();
 	void DoWork();
+	
 
 private:
 	// Variables will change:
@@ -58,5 +62,6 @@ private:
 
 	void SetIndex();
 	void DigitalWrite(int pins[], int value);
+	bool IsButtonChanged();
 };
 

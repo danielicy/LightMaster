@@ -22,7 +22,14 @@ Selector::~Selector()
 
 void Selector::Select(int i)
 {
-	switch (i)
+
+	selectedProgram = i;
+	
+}
+
+void Selector::RunProgram()
+{
+	switch (selectedProgram)
 	{
 	case 1:
 		Fade(REDPIN);

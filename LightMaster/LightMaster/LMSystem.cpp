@@ -1,13 +1,15 @@
 // 
 // 
-// 
 
 #include "LMSystem.h"
 #include "Selector.h"
 
 
 Selector* _selector = new Selector();
+ 
+ 
 
+//void DoWork();
 
 LMSystem::LMSystem()
 {
@@ -28,6 +30,7 @@ LMSystem::LMSystem()
 	
 }
 
+
 void LMSystem::DigitalWrite(int  pins[],int value)
 {
 	int pinsCnt = 0;
@@ -40,13 +43,8 @@ void LMSystem::DigitalWrite(int  pins[],int value)
 	
 }
 
-LMSystem::~LMSystem()
+bool LMSystem::IsButtonChanged()
 {
-}
-
-void LMSystem::DoWork()
-{
-
 	// read the state of the switch into a local variable:
 	int reading = digitalRead(BUTTONPIN);
 
@@ -69,23 +67,42 @@ void LMSystem::DoWork()
 		if (reading != buttonState) {
 			buttonState = reading;
 
-			// only toggle the LED if the new button state is HIGH
-			if (buttonState == HIGH) {
-				ledState = !ledState;
-				SetIndex();
-			}
+			return true;
 		}
+
+		// set the LED:
+		//digitalWrite(REDPIN, ledState);
+
+		// save the reading. Next time through the loop, it'll be the lastButtonState:
+		lastButtonState = reading;
+	}
+
+	return false;
+}
+
+LMSystem::~LMSystem()
+{
+}
+
+void LMSystem::DoWork()
+{
+
+	if (IsButtonChanged())
+	{
+		SetIndex();
+		_selector->Select(index);
+		//TO Do: change Program acordingly
 	}
 
 
-	_selector->Select(index);
+	//TO DO: run selected Program
+	_selector->RunProgram();
+	
 
 
-	// set the LED:
-	//digitalWrite(REDPIN, ledState);
+	
 
-	// save the reading. Next time through the loop, it'll be the lastButtonState:
-	lastButtonState = reading;
+	
 }
 
 
