@@ -38,6 +38,8 @@ public:
 private:
 	void TurnOffPreviousPin();
 	void Fade(int pin);
+	void DisolveTwo(int pin1, int pin2);
+	void DisolveThree(int pin1, int pin2, int pin3);
 	/*void White();
 	void Blue();
 	void BlueWhite();

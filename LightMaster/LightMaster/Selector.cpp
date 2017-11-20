@@ -42,19 +42,19 @@ void Selector::RunProgram()
 	case 3:		 
 		Fade(GREENPIN);
 		break;
-		/*case 4:
-		Prog4();
+		 case 4:
+			 DisolveTwo(REDPIN, YELLOWPIN);
 		break;
 		case 5:
-		Prog5();
+			DisolveTwo(REDPIN, GREENPIN);
 		break;
 		case 6:
-		Prog6();
+			DisolveTwo(GREENPIN, YELLOWPIN);
 		break;
 		case 7:
-		Prog7();
+			DisolveThree(REDPIN, YELLOWPIN, GREENPIN);
 		break;
-		case 8:
+		/*case 8:
 		Prog8();
 		break;*/
 	}
@@ -68,8 +68,7 @@ void Selector::TurnOffPreviousPin()
 
 void Selector::Fade(int pin)
 {	 
-	brightness = 5;	
-
+	
 	analogWrite(pin, brightness);
 
 	// change the brightness for next time through the loop:
@@ -83,6 +82,16 @@ void Selector::Fade(int pin)
 	delay(30);
 	previouspin = pin;
 	 
+}
+
+void Selector::DisolveTwo(int pin1, int pin2)
+{
+
+}
+
+void Selector::DisolveThree(int pin1, int pin2,int pin3)
+{
+
 }
 
 
