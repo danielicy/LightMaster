@@ -22,22 +22,24 @@ Selector::~Selector()
 
 void Selector::Select(int i)
 {
-
+	TurnOffPreviousPin();
 	selectedProgram = i;
 	
 }
 
 void Selector::RunProgram()
 {
+	
+
 	switch (selectedProgram)
 	{
-	case 1:
+	case 1:		 
 		Fade(REDPIN);
 		break;
-	case 2:
+	case 2:		 
 		Fade(YELLOWPIN);
 		break;
-	case 3:
+	case 3:		 
 		Fade(GREENPIN);
 		break;
 		/*case 4:
@@ -58,13 +60,15 @@ void Selector::RunProgram()
 	}
 }
 
-int previousPin;
+void Selector::TurnOffPreviousPin()
+{
+	//turns off previouspin
+	analogWrite(previouspin, LOW);
+}
 
 void Selector::Fade(int pin)
-{
-	brightness = 5;
-	//turns off previouspin
-	analogWrite(previousPin, LOW);
+{	 
+	brightness = 5;	
 
 	analogWrite(pin, brightness);
 
@@ -77,7 +81,7 @@ void Selector::Fade(int pin)
 	}
 	// wait for 30 milliseconds to see the dimming effect
 	delay(30);
-	previousPin = pin;
+	previouspin = pin;
 	 
 }
 

@@ -34,7 +34,9 @@ public:
 	~Selector();
 	void Select(int i);
 	void RunProgram();
+	
 private:
+	void TurnOffPreviousPin();
 	void Fade(int pin);
 	/*void White();
 	void Blue();
@@ -52,7 +54,7 @@ private:
 	int brightness = 0;    // how bright the LED is
 	int fadeAmount = 5;    // how many points to fade the LED by
 	int selectedProgram = 0;
-
+	int previouspin = 0;
 
 };
 
