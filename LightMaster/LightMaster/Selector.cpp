@@ -25,15 +25,15 @@ void Selector::Select(int i)
 	switch (i)
 	{
 	case 1:
-		Fade();
+		Fade(REDPIN);
 		break;
-		/*case 2:
-		Prog2();
+	case 2:
+		Fade(YELLOWPIN);
 		break;
-		case 3:
-		Prog3();
+	case 3:
+		Fade(GREENPIN);
 		break;
-		case 4:
+		/*case 4:
 		Prog4();
 		break;
 		case 5:
@@ -51,20 +51,27 @@ void Selector::Select(int i)
 	}
 }
 
-void Selector::Fade()
+int previousPin;
+
+void Selector::Fade(int pin)
 {
-	//analogWrite(ledPin, brightness);
+	brightness = 5;
+	//turns off previouspin
+	analogWrite(previousPin, LOW);
 
-	//// change the brightness for next time through the loop:
-	//brightness = brightness + fadeAmount;
+	analogWrite(pin, brightness);
 
-	//// reverse the direction of the fading at the ends of the fade:
-	//if (brightness <= 0 || brightness >= 255) {
-	//	fadeAmount = -fadeAmount;
-	//}
-	//// wait for 30 milliseconds to see the dimming effect
-	//delay(30);
-	//Serial.println(1);
+	// change the brightness for next time through the loop:
+	brightness = brightness + fadeAmount;
+
+	// reverse the direction of the fading at the ends of the fade:
+	if (brightness <= 0 || brightness >= 255) {
+		fadeAmount = -fadeAmount;
+	}
+	// wait for 30 milliseconds to see the dimming effect
+	delay(30);
+	previousPin = pin;
+	 
 }
 
 

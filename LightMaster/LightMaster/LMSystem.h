@@ -4,11 +4,18 @@
 #define _LMSYSTEM_h
 
 
+
 // LM_System.h
+#ifndef BUTTONPIN
 #define BUTTONPIN 2
+#endif
+
+#ifndef REDPIN
 #define REDPIN  3
 #define YELLOWPIN  4
 #define GREENPIN  5
+#endif
+
 
 
 #if defined(ARDUINO) && ARDUINO >= 100
@@ -25,12 +32,15 @@ class LMSystem
 
 public:
 	LMSystem();
+
+	
+	
 	~LMSystem();
 	void DoWork();
 
 private:
 	// Variables will change:
-	int ledState = HIGH;         // the current state of the output pin
+	int ledState = LOW;         // the current state of the output pin
 	int buttonState;             // the current reading from the input pin
 	int lastButtonState = LOW;   // the previous reading from the input pin
 
@@ -47,5 +57,6 @@ private:
 	int fadeAmount = 1;    // how many points to fade the LED by
 
 	void SetIndex();
+	void DigitalWrite(int pins[], int value);
 };
 

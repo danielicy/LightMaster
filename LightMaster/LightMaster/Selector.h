@@ -9,6 +9,16 @@
 #include "WProgram.h"
 #endif
 
+#ifndef REDPIN
+#define REDPIN  3
+#define YELLOWPIN  4
+#define GREENPIN  5
+#endif
+
+#ifndef BUTTONPIN
+#define BUTTONPIN 2
+#endif
+
 
 #endif
 #ifndef Selector_h
@@ -24,7 +34,7 @@ public:
 	~Selector();
 	void Select(int i);
 private:
-	void Fade();
+	void Fade(int pin);
 	/*void White();
 	void Blue();
 	void BlueWhite();
@@ -37,6 +47,9 @@ private:
 	void Yellow();
 	void YellowGreen();
 	void PurpleBlue();*/
+
+	int brightness = 0;    // how bright the LED is
+	int fadeAmount = 5;    // how many points to fade the LED by
 
 
 

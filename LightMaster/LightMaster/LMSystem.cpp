@@ -11,7 +11,9 @@ Selector* _selector = new Selector();
 
 LMSystem::LMSystem()
 {
+	Serial.begin(9600);
 	pinMode(BUTTONPIN, INPUT);
+
 	pinMode(REDPIN, OUTPUT);
 	pinMode(YELLOWPIN, OUTPUT);
 	pinMode(GREENPIN, OUTPUT);
@@ -20,7 +22,22 @@ LMSystem::LMSystem()
 	digitalWrite(REDPIN, ledState);
 	digitalWrite(YELLOWPIN, ledState);
 	digitalWrite(GREENPIN, ledState);
-	Serial.begin(9600);
+	Serial.println("Writing pinArray");
+	//DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);
+
+	
+}
+
+void LMSystem::DigitalWrite(int  pins[],int value)
+{
+	int pinsCnt = 0;
+	while (pinsCnt <= sizeof(pins))
+	{
+		digitalWrite(pins[pinsCnt], value);
+		pinsCnt++;
+		Serial.println("pin: " + sizeof(pins));
+	}
+	
 }
 
 LMSystem::~LMSystem()

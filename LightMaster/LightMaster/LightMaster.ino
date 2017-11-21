@@ -7,6 +7,9 @@
 // the setup function runs once when you press reset or power the board
 #include "Selector.h"
 #include "LMSystem.h"
+
+LMSystem* _lightMasterSystem = new LMSystem();
+
 void setup() {
 
 }
@@ -14,4 +17,5 @@ void setup() {
 // the loop function runs over and over again until power down or reset
 void loop() {
   
+	_lightMasterSystem->DoWork();
 }
