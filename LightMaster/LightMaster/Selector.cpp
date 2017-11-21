@@ -22,6 +22,7 @@ Selector::~Selector()
 
 void Selector::Select(int i)
 {
+	Serial.println(i);
 	TurnOffPreviousPin();
 	selectedProgram = i;
 	
@@ -69,6 +70,7 @@ void Selector::TurnOffPreviousPin()
 void Selector::Fade(int pin)
 {	 
 	
+
 	analogWrite(pin, brightness);
 
 	// change the brightness for next time through the loop:
@@ -95,48 +97,4 @@ void Selector::DisolveThree(int pin1, int pin2,int pin3)
 }
 
 
-
-/*
-
-
-void Prog2()
-{
-Serial.println(2);
-}
-
-
-void Prog3()
-{
-Serial.println(3);
-}
-
-
-void Prog4()
-{
-Serial.println(4);
-}
-
-
-void Prog5()
-{
-Serial.println(5);
-}
-void Prog6()
-{
-Serial.println(6);
-}
-
-void Prog7()
-{
-Serial.println(7);
-}
-
-void Prog8()
-{
-Serial.println(8);
-}
-
-
-
-
-*/
+ 

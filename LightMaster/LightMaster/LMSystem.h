@@ -53,7 +53,7 @@ private:
 	// the following variables are unsigned longs because the time, measured in
 	// milliseconds, will quickly become a bigger number than can be stored in an int.
 	unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
-	unsigned long debounceDelay = 10;    // the debounce time; increase if the output flickers
+	unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
 
 
 										 // the PWM pin the LED is attached to

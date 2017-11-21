@@ -24,7 +24,7 @@ LMSystem::LMSystem()
 	digitalWrite(REDPIN, ledState);
 	digitalWrite(YELLOWPIN, ledState);
 	digitalWrite(GREENPIN, ledState);
-	Serial.println("Writing pinArray");
+	//Serial.println("Writing pinArray");
 	//DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);
 
 	
@@ -43,46 +43,44 @@ void LMSystem::DigitalWrite(int  pins[],int value)
 	
 }
 
+LMSystem::~LMSystem()
+{
+}
+
+
 bool LMSystem::IsButtonChanged()
 {
 	// read the state of the switch into a local variable:
 	int reading = digitalRead(BUTTONPIN);
 
 	// check to see if you just pressed the button
-	// (i.e. the input went from LOW to HIGH), and you've waited long enough
-	// since the last press to ignore any noise:
+	// (i.e. the input went from LOW to HIGH),  and you've waited
+	// long enough since the last press to ignore any noise:
 
 	// If the switch changed, due to noise or pressing:
 	if (reading != lastButtonState) {
 		// reset the debouncing timer
 		lastDebounceTime = millis();
-
 	}
 
 	if ((millis() - lastDebounceTime) > debounceDelay) {
-		// whatever the reading is at, it's been there for longer than the debounce
-		// delay, so take it as the actual current state:
+		// whatever the reading is at, it's been there for longer
+		// than the debounce delay, so take it as the actual current state:
 
 		// if the button state has changed:
 		if (reading != buttonState) {
 			buttonState = reading;
 
-			return true;
+			// only toggle the LED if the new button state is HIGH
+			if (buttonState == HIGH) {
+				return true;
+			}
 		}
-
-		// set the LED:
-		//digitalWrite(REDPIN, ledState);
-
-		// save the reading. Next time through the loop, it'll be the lastButtonState:
-		lastButtonState = reading;
 	}
-
-	return false;
+	else
+		return false;
 }
 
-LMSystem::~LMSystem()
-{
-}
 
 void LMSystem::DoWork()
 {
@@ -91,6 +89,7 @@ void LMSystem::DoWork()
 	{
 		SetIndex();
 		_selector->Select(index);
+		
 		//TO Do: change Program acordingly
 	}
 
@@ -116,7 +115,7 @@ void LMSystem::SetIndex()
 	{
 		index = 1;
 	}
-	Serial.println(index);
+	//Serial.println(index);
 }
 
 
