@@ -62,7 +62,7 @@ bool LMSystem::IsButtonChanged()
 			return true;
 			Serial.println("on");
 			Serial.print("number of button pushes: ");
-			Serial.println(buttonPushCounter);
+			//Serial.println(buttonPushCounter);
 		}
 		else {
 			// if the current state is LOW then the button went from on to off:
