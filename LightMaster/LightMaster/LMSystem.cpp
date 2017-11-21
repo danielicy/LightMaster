@@ -49,36 +49,32 @@ LMSystem::~LMSystem()
 
 
 bool LMSystem::IsButtonChanged()
-{
-	// read the state of the switch into a local variable:
-	int reading = digitalRead(BUTTONPIN);
+{ 
 
-	// check to see if you just pressed the button
-	// (i.e. the input went from LOW to HIGH),  and you've waited
-	// long enough since the last press to ignore any noise:
+	// read the pushbutton input pin:
+	buttonState = digitalRead(BUTTONPIN);
 
-	// If the switch changed, due to noise or pressing:
-	if (reading != lastButtonState) {
-		// reset the debouncing timer
-		lastDebounceTime = millis();
-	}
-
-	if ((millis() - lastDebounceTime) > debounceDelay) {
-		// whatever the reading is at, it's been there for longer
-		// than the debounce delay, so take it as the actual current state:
-
-		// if the button state has changed:
-		if (reading != buttonState) {
-			buttonState = reading;
-
-			// only toggle the LED if the new button state is HIGH
-			if (buttonState == HIGH) {
-				return true;
-			}
+	// compare the buttonState to its previous state
+	if (buttonState != lastButtonState) {
+		// if the state has changed, increment the counter
+		if (buttonState == HIGH) {
+			// if the current state is HIGH then the button went from off to on:
+			return true;
+			Serial.println("on");
+			Serial.print("number of button pushes: ");
+			Serial.println(buttonPushCounter);
 		}
+		else {
+			// if the current state is LOW then the button went from on to off:
+			return false;
+			Serial.println("off");
+		}
+		// Delay a little bit to avoid bouncing
+		delay(50);
 	}
-	else
-		return false;
+	// save the current state as the last state, for next time through the loop
+	lastButtonState = buttonState;
+
 }
 
 
@@ -102,6 +98,23 @@ void LMSystem::DoWork()
 	
 
 	
+}
+
+void LMSystem::Init()
+{
+	Serial.begin(9600);
+	pinMode(BUTTONPIN, INPUT);
+
+	pinMode(REDPIN, OUTPUT);
+	pinMode(YELLOWPIN, OUTPUT);
+	pinMode(GREENPIN, OUTPUT);
+
+	// set initial LED state
+	digitalWrite(REDPIN, ledState);
+	digitalWrite(YELLOWPIN, ledState);
+	digitalWrite(GREENPIN, ledState);
+	//Serial.println("Writing pinArray");
+	//DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);
 }
 
 

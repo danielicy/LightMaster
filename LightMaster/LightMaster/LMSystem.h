@@ -35,11 +35,12 @@
 
 class LMSystem
 {
-
+	 
 public:
 	LMSystem();	
 	~LMSystem();
 	void DoWork();
+	void Init();
 	
 
 private:
