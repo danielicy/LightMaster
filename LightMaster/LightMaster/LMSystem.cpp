@@ -50,38 +50,45 @@ LMSystem::~LMSystem()
 
 bool LMSystem::IsButtonChanged()
 { 
-
+	bool retval = false;
 	// read the pushbutton input pin:
-	buttonState = digitalRead(BUTTONPIN);
-
-	// compare the buttonState to its previous state
-	if (buttonState != lastButtonState) {
-		// if the state has changed, increment the counter
-		if (buttonState == HIGH) {
-			// if the current state is HIGH then the button went from off to on:
-			return true;
-			Serial.println("on");
-			Serial.print("number of button pushes: ");
-			//Serial.println(buttonPushCounter);
+	 buttonState = digitalRead(BUTTONPIN);
+	Serial.println("buttonState is:");
+	Serial.println(buttonState);
+		 
+	if (buttonState == HIGH)
+	{
+		if (buttonState != lastButtonState)
+		{
+			Serial.println("button ON");
+			retval = true;
 		}
-		else {
-			// if the current state is LOW then the button went from on to off:
-			return false;
-			Serial.println("off");
+		else
+		{
+			retval = false;
 		}
-		// Delay a little bit to avoid bouncing
-		delay(50);
 	}
-	// save the current state as the last state, for next time through the loop
+	else
+	{
+		Serial.println("off");
+		retval = false;
+	}
+	// Delay a little bit to avoid bouncing
+	delay(50);
 	lastButtonState = buttonState;
+
+	return retval;
 
 }
 
 
 void LMSystem::DoWork()
 {
+	bool buttonPushed = LMSystem::IsButtonChanged();
+	Serial.println("pushed:");
+	Serial.println(buttonPushed);
 
-	if (IsButtonChanged())
+	if (buttonPushed)
 	{
 		SetIndex();
 		_selector->Select(index);
@@ -99,28 +106,12 @@ void LMSystem::DoWork()
 
 	
 }
-
-void LMSystem::Init()
-{
-	Serial.begin(9600);
-	pinMode(BUTTONPIN, INPUT);
-
-	pinMode(REDPIN, OUTPUT);
-	pinMode(YELLOWPIN, OUTPUT);
-	pinMode(GREENPIN, OUTPUT);
-
-	// set initial LED state
-	digitalWrite(REDPIN, ledState);
-	digitalWrite(YELLOWPIN, ledState);
-	digitalWrite(GREENPIN, ledState);
-	//Serial.println("Writing pinArray");
-	//DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);
-}
+ 
 
 
 void LMSystem::SetIndex()
 {
-	if (index < 8)
+	if (index < 3)
 	{
 		index++;
 	}

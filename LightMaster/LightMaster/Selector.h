@@ -15,9 +15,7 @@
 #define GREENPIN  5
 #endif
 
-#ifndef BUTTONPIN
-#define BUTTONPIN 2
-#endif
+
 
 
 #endif

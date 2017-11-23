@@ -22,9 +22,11 @@ Selector::~Selector()
 
 void Selector::Select(int i)
 {
+	Serial.println("Selection changed:");
 	Serial.println(i);
 	TurnOffPreviousPin();
 	selectedProgram = i;
+	delay(1000);
 	
 }
 
@@ -70,6 +72,8 @@ void Selector::TurnOffPreviousPin()
 void Selector::Fade(int pin)
 {	 
 	
+	Serial.println("Fading:");
+	Serial.println(pin);
 
 	analogWrite(pin, brightness);
 

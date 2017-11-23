@@ -5,10 +5,6 @@
 
 
 
-#ifndef HIGH
-#define HIGH 0x1
-#define LOW  0x0
-#endif
 
 
 // LM_System.h
@@ -40,8 +36,7 @@ public:
 	LMSystem();	
 	~LMSystem();
 	void DoWork();
-	void Init();
-	
+ 
 
 private:
 	// Variables will change:
