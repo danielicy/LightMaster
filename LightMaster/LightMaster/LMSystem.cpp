@@ -14,7 +14,10 @@ Selector* _selector = new Selector();
 LMSystem::LMSystem()
 {
 	Serial.begin(9600);
-	pinMode(BUTTONPIN, INPUT);
+	pinMode(PRGBTN, INPUT);
+	pinMode(COLRBTN, INPUT);
+
+
 
 	pinMode(REDPIN, OUTPUT);
 	pinMode(YELLOWPIN, OUTPUT);
@@ -48,11 +51,11 @@ LMSystem::~LMSystem()
 }
 
 
-bool LMSystem::IsButtonChanged()
+bool LMSystem::IsPrgBtn()
 { 
 	bool retval = false;
 	// read the pushbutton input pin:
-	 buttonState = digitalRead(BUTTONPIN);
+	 buttonState = digitalRead(PRGBTN);
 	Serial.println("buttonState is:");
 	Serial.println(buttonState);
 		 
@@ -84,43 +87,19 @@ bool LMSystem::IsButtonChanged()
 
 void LMSystem::DoWork()
 {
-	bool buttonPushed = LMSystem::IsButtonChanged();
-	Serial.println("pushed:");
-	Serial.println(buttonPushed);
+	 
 
-	if (buttonPushed)
+	if (IsPrgBtn())
 	{
-		SetIndex();
-		_selector->Select(index);
-		
-		//TO Do: change Program acordingly
+		Serial.println("program selection changed:");
+		 		
+		_selector->Select();		
 	}
-
-
-	//TO DO: run selected Program
+		
 	_selector->RunProgram();
-	
-
-
-	
-
 	
 }
  
 
 
-void LMSystem::SetIndex()
-{
-	if (index < 3)
-	{
-		index++;
-	}
-	else
-	{
-		index = 1;
-	}
-	//Serial.println(index);
-}
-
-
-
+ 

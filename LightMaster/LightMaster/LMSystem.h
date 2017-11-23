@@ -8,8 +8,9 @@
 
 
 // LM_System.h
-#ifndef BUTTONPIN
-#define BUTTONPIN 2
+#ifndef PRGBTN
+#define PRGBTN 2
+#define COLRBTN 1
 #endif
 
 #ifndef REDPIN
@@ -44,7 +45,7 @@ private:
 	int buttonState;             // the current reading from the input pin
 	int lastButtonState = LOW;   // the previous reading from the input pin
 
-	int index = 0;
+	
 
 	// the following variables are unsigned longs because the time, measured in
 	// milliseconds, will quickly become a bigger number than can be stored in an int.
@@ -56,8 +57,9 @@ private:
 	int brightness = 0;    // how bright the LED is
 	int fadeAmount = 1;    // how many points to fade the LED by
 
-	void SetIndex();
+	 
 	void DigitalWrite(int pins[], int value);
-	bool IsButtonChanged();
+	bool IsPrgBtn();
+	bool IsColrBtn();
 };
 

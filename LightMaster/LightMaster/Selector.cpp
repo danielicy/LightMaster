@@ -20,12 +20,21 @@ Selector::~Selector()
 
 
 
-void Selector::Select(int i)
+void Selector::Select()
 {
-	Serial.println("Selection changed:");
-	Serial.println(i);
+	
 	TurnOffPreviousPin();
-	selectedProgram = i;
+	
+	if (m_prgidx < PRGCNT)
+	{
+		m_prgidx++;
+	}
+	else
+	{
+		m_prgidx = 1;
+	}
+	Serial.println("Selection changed:" + m_prgidx);
+ 
 	delay(1000);
 	
 }
@@ -34,7 +43,7 @@ void Selector::RunProgram()
 {
 	
 
-	switch (selectedProgram)
+	switch (m_prgidx)
 	{
 	case 1:		 
 		Fade(REDPIN);
@@ -88,6 +97,14 @@ void Selector::Fade(int pin)
 	delay(30);
 	previouspin = pin;
 	 
+}
+
+void Selector::Fade(int pins[])
+{
+	for (int i =0; i < sizeof(pins);i++)
+	{
+
+	}
 }
 
 void Selector::DisolveTwo(int pin1, int pin2)
