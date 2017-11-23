@@ -41,8 +41,6 @@ void Selector::Select()
 
 void Selector::RunProgram()
 {
-	
-
 	switch (m_prgidx)
 	{
 	case 1:		 

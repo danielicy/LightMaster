@@ -6,10 +6,6 @@
 
 
 Selector* _selector = new Selector();
- 
- 
-
-//void DoWork();
 
 LMSystem::LMSystem()
 {
@@ -17,17 +13,13 @@ LMSystem::LMSystem()
 	pinMode(PRGBTN, INPUT);
 	pinMode(COLRBTN, INPUT);
 
-
-
 	pinMode(REDPIN, OUTPUT);
 	pinMode(YELLOWPIN, OUTPUT);
 	pinMode(GREENPIN, OUTPUT);
 
 	// set initial LED state
 	 
-	DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);
-
-	
+	DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);	
 }
 
 
@@ -44,13 +36,11 @@ LMSystem::~LMSystem()
 }
 
 
-bool LMSystem::IsPrgBtn()
+bool LMSystem::IsPrgBtn(int btn)
 { 
 	bool retval = false;
 	// read the pushbutton input pin:
-	 buttonState = digitalRead(PRGBTN);
-	Serial.println("buttonState is:");
-	Serial.println(buttonState);
+	 buttonState = digitalRead(btn);	 
 		 
 	if (buttonState == HIGH)
 	{
@@ -77,20 +67,16 @@ bool LMSystem::IsPrgBtn()
 
 }
 
-
 void LMSystem::DoWork()
 {
-	 
-
-	if (IsPrgBtn())
+	if (IsPrgBtn(PRGBTN))
 	{
 		Serial.println("program selection changed:");
 		 		
 		_selector->Select();		
 	}
 		
-	_selector->RunProgram();
-	
+	_selector->RunProgram();	
 }
  
 
