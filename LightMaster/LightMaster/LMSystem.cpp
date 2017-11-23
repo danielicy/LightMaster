@@ -44,7 +44,7 @@ bool LMSystem::IsPrgBtn(int btn)
 		 
 	if (buttonState == HIGH)
 	{
-		if (buttonState != lastButtonState)
+		if (buttonState != lastButtonState || buttonState != lastcolorBtn)
 		{
 			Serial.println("button ON");
 			retval = true;
@@ -61,7 +61,11 @@ bool LMSystem::IsPrgBtn(int btn)
 	}
 	// Delay a little bit to avoid bouncing
 	delay(50);
+	if(btn == PRGBTN)
 	lastButtonState = buttonState;
+
+	if (btn == COLRBTN)
+		lastcolorBtn = buttonState;
 
 	return retval;
 
@@ -74,6 +78,12 @@ void LMSystem::DoWork()
 		Serial.println("program selection changed:");
 		 		
 		_selector->Select();		
+	}
+
+	if (IsPrgBtn(COLRBTN))
+	{
+		Serial.println("Color Button Pressed:");
+		delay(7000);
 	}
 		
 	_selector->RunProgram();	
