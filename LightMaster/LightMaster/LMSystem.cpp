@@ -24,26 +24,19 @@ LMSystem::LMSystem()
 	pinMode(GREENPIN, OUTPUT);
 
 	// set initial LED state
-	digitalWrite(REDPIN, ledState);
-	digitalWrite(YELLOWPIN, ledState);
-	digitalWrite(GREENPIN, ledState);
-	//Serial.println("Writing pinArray");
-	//DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);
+	 
+	DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);
 
 	
 }
 
 
 void LMSystem::DigitalWrite(int  pins[],int value)
-{
-	int pinsCnt = 0;
-	while (pinsCnt <= sizeof(pins))
+{	
+	for (int i = 0; i < sizeof(pins); i++)
 	{
-		digitalWrite(pins[pinsCnt], value);
-		pinsCnt++;
-		Serial.println("pin: " + sizeof(pins));
-	}
-	
+		digitalWrite(pins[i], value);		 
+	}	
 }
 
 LMSystem::~LMSystem()
