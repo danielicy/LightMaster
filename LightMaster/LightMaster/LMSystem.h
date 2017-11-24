@@ -52,6 +52,6 @@ private:
 	 
 	void DigitalWrite(int pins[], int value);
 	bool IsPrgBtn(int btn);
-	bool IsColrBtn();
+	
 };
 

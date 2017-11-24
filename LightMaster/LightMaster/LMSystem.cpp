@@ -23,16 +23,18 @@ LMSystem::LMSystem()
 }
 
 
-void LMSystem::DigitalWrite(int  pins[],int value)
-{	
-	for (int i = 0; i < sizeof(pins); i++)
-	{
-		digitalWrite(pins[i], value);		 
-	}	
-}
-
 LMSystem::~LMSystem()
 {
+}
+
+
+
+void LMSystem::DigitalWrite(int  pins[], int value)
+{
+	for (int i = 0; i < sizeof(pins); i++)
+	{
+		digitalWrite(pins[i], value);
+	}
 }
 
 

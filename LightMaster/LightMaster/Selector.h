@@ -26,8 +26,7 @@
 
 class Selector
 {
-public:
-	Selector(int pin);
+public:	
 	Selector();
 	~Selector();
 	void Select();

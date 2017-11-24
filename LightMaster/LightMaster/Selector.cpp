@@ -4,11 +4,6 @@
 
 #include "Selector.h"
 
-Selector::Selector(int pin)
-{
-
-}
-
 Selector::Selector()
 {
 
@@ -19,10 +14,8 @@ Selector::~Selector()
 }
 
 
-
 void Selector::Select()
-{
-	
+{	
 	TurnOffPreviousPin();
 	
 	if (m_prgidx < PRGCNT)
@@ -35,8 +28,7 @@ void Selector::Select()
 	}
 	Serial.println("Selection changed:" + m_prgidx);
  
-	delay(1000);
-	
+	delay(1000);	
 }
 
 void Selector::RunProgram()
