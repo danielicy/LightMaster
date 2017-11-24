@@ -16,7 +16,7 @@
 #endif
 
 #define PINCNT 20
-#define PRGCNT 3
+#define PROGRAMS_CNT 3
 
 #endif
 #ifndef Selector_h
@@ -29,10 +29,12 @@ class Selector
 public:	
 	Selector();
 	~Selector();
-	void Select();
-	void RunProgram();
+	void ChangeSelection(int &index, int param);
+	void SelectColors();
+	void RunProgram(int i);
 	
 private:
+	
 	void TurnOffPreviousPin();
 	void Fade(int pin);
 	void Fade(int pins[]);
@@ -40,11 +42,12 @@ private:
 	void DisolveThree(int pin1, int pin2, int pin3);
 	
 
-	int m_prgidx = 0;
+	int m_colorIndex = 0;
+	
 	int brightness = 0;    // how bright the LED is
 	
 	//two dimmentional array holding the led pins and their respective brightness value
-	int pinArray[PINCNT][2];
+	int m_pinBuffer[PINCNT][2];
 	int fadeAmount = 5;    // how many points to fade the LED by	 
 	int previouspin = 0;
 };

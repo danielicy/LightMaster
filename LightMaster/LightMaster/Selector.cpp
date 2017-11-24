@@ -13,27 +13,42 @@ Selector::~Selector()
 {
 }
 
-
-void Selector::Select()
-{	
+void Selector::ChangeSelection(int & index, int param)
+{
 	TurnOffPreviousPin();
-	
-	if (m_prgidx < PRGCNT)
+
+	if (index < param)
 	{
-		m_prgidx++;
+		index++;
 	}
 	else
 	{
-		m_prgidx = 1;
+		index = 1;
 	}
-	Serial.println("Selection changed:" + m_prgidx);
- 
-	delay(1000);	
+	Serial.println("Selection changed:" + index);
+
+	delay(1000);
+}
+  
+
+void Selector::SelectColors()
+{
+	switch (m_colorIndex)
+	{
+	case 1:
+
+		break;
+	case 2:
+
+		break;
+	default:
+		break;
+	}
 }
 
-void Selector::RunProgram()
+void Selector::RunProgram(int i)
 {
-	switch (m_prgidx)
+	switch (i)
 	{
 	case 1:		 
 		Fade(REDPIN);

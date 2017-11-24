@@ -27,8 +27,6 @@ LMSystem::~LMSystem()
 {
 }
 
-
-
 void LMSystem::DigitalWrite(int  pins[], int value)
 {
 	for (int i = 0; i < sizeof(pins); i++)
@@ -38,7 +36,7 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 }
 
 
-bool LMSystem::IsPrgBtn(int btn)
+bool LMSystem::IsBtnPressed(int btn)
 { 
 	bool retval = false;
 	// read the pushbutton input pin:
@@ -75,20 +73,22 @@ bool LMSystem::IsPrgBtn(int btn)
 
 void LMSystem::DoWork()
 {
-	if (IsPrgBtn(PRGBTN))
+	if (IsBtnPressed(PRGBTN))
 	{
 		Serial.println("program selection changed:");
 		 		
-		_selector->Select();		
+		_selector->ChangeSelection(m_progIndex, PROGRAMS_CNT);
 	}
 
-	if (IsPrgBtn(COLRBTN))
+	if (IsBtnPressed(COLRBTN))
 	{
+		
 		Serial.println("Color Button Pressed:");
+		_selector->SelectColors();
 		delay(7000);
 	}
 		
-	_selector->RunProgram();	
+	_selector->RunProgram(m_progIndex);
 }
  
 
