@@ -49,29 +49,29 @@ void Selector::SelectColors()
 		m_pinBuffer[i][0] = NULL;
 		m_pinBuffer[i][1] = NULL;
 	}
-
-
-	std::vector<int> col;
+		
+	int *col;  
+ 	 
 
 	switch (m_colorIndex)
 	{
 	case 1:
-		col = { REDPIN };
+		col = new int[1]{ REDPIN };		 
 		break;
 	case 2:
-		col = { YELLOWPIN };
+		col = new int[1]{ YELLOWPIN };	 
 		break;
 	case 3:
-		col = { GREENPIN };
+		col = new int[1]{ GREENPIN };		 
 		break;
 	case 4:
-		col = { REDPIN , YELLOWPIN };
+		col = new int[2]{ REDPIN , YELLOWPIN };		 
 		break;
 	case 5:
-		col = { REDPIN , GREENPIN };
+		col = new int[2]{ REDPIN , GREENPIN };		
 		break;
 	case 6:
-		col = { REDPIN , YELLOWPIN , GREENPIN };
+		col = new int[3]{ REDPIN , YELLOWPIN , GREENPIN };		
 		break;
 		
 	default:
