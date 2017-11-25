@@ -23,6 +23,9 @@
 #define Selector_h
 
 #include "Arduino.h"
+ 
+
+
 
 class Selector
 {
@@ -42,12 +45,12 @@ private:
 	void DisolveThree(int pin1, int pin2, int pin3);
 	
 
-	int m_colorIndex = 0;
+	int m_colorIndex = 0; //the currrent color combination
 	
 	int brightness = 0;    // how bright the LED is
 	
 	//two dimmentional array holding the led pins and their respective brightness value
-	int m_pinBuffer[PINCNT][2];
+	int m_pinBuffer[PINCNT][2];  //m_pinBuffer[Color][brightness]
 	int fadeAmount = 5;    // how many points to fade the LED by	 
 	int previouspin = 0;
 };

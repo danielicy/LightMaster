@@ -1,8 +1,16 @@
 // 
 // 
 // 
+//#include<stdio.h>
+
+ 
+//#include <stdio.h>
+//#include "stdafx.h"
+//#include <iostream>
+//using namespace std;
 
 #include "Selector.h"
+
 
 Selector::Selector()
 {
@@ -33,17 +41,50 @@ void Selector::ChangeSelection(int & index, int param)
 
 void Selector::SelectColors()
 {
+	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
+
+	//resets buffer
+	for (int i = 0; i < sizeof(m_pinBuffer); i++)
+	{
+		m_pinBuffer[i][0] = NULL;
+		m_pinBuffer[i][1] = NULL;
+	}
+
+
+	std::vector<int> col;
+
 	switch (m_colorIndex)
 	{
 	case 1:
-
+		col = { REDPIN };
 		break;
 	case 2:
-
+		col = { YELLOWPIN };
 		break;
+	case 3:
+		col = { GREENPIN };
+		break;
+	case 4:
+		col = { REDPIN , YELLOWPIN };
+		break;
+	case 5:
+		col = { REDPIN , GREENPIN };
+		break;
+	case 6:
+		col = { REDPIN , YELLOWPIN , GREENPIN };
+		break;
+		
 	default:
 		break;
 	}
+
+	for (int i = 0; i < sizeof(col); i++)
+	{
+		m_pinBuffer[i][0] = col[i];
+		m_pinBuffer[i][1] = LOW;
+	}
+ 
+	
 }
 
 void Selector::RunProgram(int i)
