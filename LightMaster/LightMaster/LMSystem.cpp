@@ -4,13 +4,16 @@
 #include "LMSystem.h"
 #include "Selector.h"
 #include "ColorManager.h"
+#include "ProgramManager.h"
 
 Selector* _selector = new Selector();
 
-
-
+ProgramManager* m_ProgramManager;
 LMSystem::LMSystem()
 {
+	m_ProgramManager = new ProgramManager(m_pinBuffer);
+ 
+
 	Serial.begin(9600);
 	pinMode(PRGBTN, INPUT);
 	pinMode(COLRBTN, INPUT);
@@ -90,9 +93,40 @@ void LMSystem::DoWork()
 		delay(7000);
 	}
 		
-	_selector->RunProgram(m_progIndex);
+	RunProgram(m_progIndex);
 }
  
+
+void LMSystem::RunProgram(int i)
+{
+	switch (i)
+	{
+	case 1:
+		//Fade();
+		break;
+	case 2:
+		//Fade(YELLOWPIN);
+		break;
+	case 3:
+		//Fade(GREENPIN);
+		break;
+	case 4:
+		//DisolveTwo(REDPIN, YELLOWPIN);
+		break;
+	case 5:
+		//DisolveTwo(REDPIN, GREENPIN);
+		break;
+	case 6:
+		//DisolveTwo(GREENPIN, YELLOWPIN);
+		break;
+	case 7:
+		//DisolveThree(REDPIN, YELLOWPIN, GREENPIN);
+		break;
+		/*case 8:
+		Prog8();
+		break;*/
+	}
+}
 
 
  

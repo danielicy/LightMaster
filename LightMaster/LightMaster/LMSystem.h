@@ -12,7 +12,7 @@
 #define COLRBTN 6
 #endif
 
-
+#define PINCNT 20
 
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include "Arduino.h"
@@ -30,6 +30,7 @@ public:
 	LMSystem();	
 	~LMSystem();
 	void DoWork();
+	void RunProgram(int i);
  
 
 private:
@@ -51,6 +52,9 @@ private:
 		 
 	void DigitalWrite(int pins[], int value);
 	bool IsBtnPressed(int btn);
+
+	//two dimmentional array holding the led pins and their respective brightness value
+	int m_pinBuffer[PINCNT][2];  //m_pinBuffer[Color][brightness]
 	
 };
 
