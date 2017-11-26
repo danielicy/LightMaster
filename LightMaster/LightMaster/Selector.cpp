@@ -38,18 +38,51 @@ void Selector::ChangeSelection(int & index, int param)
 	delay(1000);
 }
   
+
+
+int*  SetRed()
+{
+	int color[] = { REDPIN };
+	return color;
+}
+
+int* SetYellow()
+{
+	int color[] = { YELLOWPIN };
+	return color;
+}
+
+int*  SetGreen()
+{
+	int color[] = { GREENPIN };
+	return color;
+}
+
+int*  SetRedYellow()
+{
+	int color[] = { REDPIN, YELLOWPIN };
+	return color;
+}
+
+int*  SetRedGreen()
+{
+	int color[] = { REDPIN, GREENPIN };
+	return color;
+}
+
+int*  SetRedYellowGreen()
+{
+	int color[] = { REDPIN, YELLOWPIN   , GREENPIN };
+	return color;
+}
+
 void Selector::SelectColors()
 {
 	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
 
-	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
-
+	
 	//resets buffer
-	for (int i = 0; i < sizeof(m_pinBuffer); i++)
-	{
-		m_pinBuffer[i][0] = NULL;
-		m_pinBuffer[i][1] = NULL;
-	}
+	memset(m_pinBuffer, 0, sizeof(m_pinBuffer));
 
 	int *col = nullptr;
 	switch (m_colorIndex)
@@ -58,20 +91,19 @@ void Selector::SelectColors()
 		col = SetRed();
 		break;
 	case 2:
-
+		col = SetYellow();
 		break;
 	case 3:
-		//m_pinBuffer = { GREENPIN };
+		col = SetGreen();
 		break;
 	case 4:
-		//pow[1][2] = { REDPIN , YELLOWPIN };
+		col = SetRedYellow();
 		break;
 	case 5:
-		//	*y = { REDPIN , GREENPIN };
+		col = SetRedGreen();
 		break;
 	case 6:
-
-
+		col = SetRedYellowGreen();
 		break;
 
 	default:		
@@ -89,61 +121,6 @@ void Selector::SelectColors()
 	}
 }
 
-
-int*  SetRed()
-{
-	int color[] = { REDPIN, YELLOWPIN   , GREENPIN };
-	return color;
-}
-
-/*
-void Selector::SelectColors()
-{
-	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
-
-	//resets buffer
-	for (int i = 0; i < sizeof(m_pinBuffer); i++)
-	{
-		m_pinBuffer[i][0] = NULL;
-		m_pinBuffer[i][1] = NULL;
-	}
-		
-	int *col;  
- 	 
-
-	switch (m_colorIndex)
-	{
-	case 1:
-		col = new int[1]{ REDPIN };		 
-		break;
-	case 2:
-		col = new int[1]{ YELLOWPIN };	 
-		break;
-	case 3:
-		col = new int[1]{ GREENPIN };		 
-		break;
-	case 4:
-		col = new int[2]{ REDPIN , YELLOWPIN };		 
-		break;
-	case 5:
-		col = new int[2]{ REDPIN , GREENPIN };		
-		break;
-	case 6:
-		col = new int[3]{ REDPIN , YELLOWPIN , GREENPIN };		
-		break;
-		
-	default:
-		break;
-	}
-
-	for (int i = 0; i < sizeof(col); i++)
-	{
-		m_pinBuffer[i][0] = col[i];
-		m_pinBuffer[i][1] = LOW;
-	}
- 
-	
-}*/
 
 void Selector::RunProgram(int i)
 {
