@@ -43,41 +43,7 @@ void Selector::ChangeSelection(int & index, int param)
   
 
 
-int*  SetRed()
-{
-	int color[] = { REDPIN };
-	return color;
-}
 
-int* SetYellow()
-{
-	int color[] = { YELLOWPIN };
-	return color;
-}
-
-int*  SetGreen()
-{
-	int color[] = { GREENPIN };
-	return color;
-}
-
-int*  SetRedYellow()
-{
-	int color[] = { REDPIN, YELLOWPIN };
-	return color;
-}
-
-int*  SetRedGreen()
-{
-	int color[] = { REDPIN, GREENPIN };
-	return color;
-}
-
-int*  SetRedYellowGreen()
-{
-	int color[] = { REDPIN, YELLOWPIN   , GREENPIN };
-	return color;
-}
 
 void Selector::SelectColors()
 {
@@ -91,24 +57,25 @@ void Selector::SelectColors()
 	switch (m_colorIndex)
 	{
 	case 1:
-		//col = m_colorManager->SetRed();
+		col = m_colorManager->SetRed();
 		break;
 	case 2:
-		col = SetYellow();
+		col = m_colorManager->SetYellow();
 		break;
 	case 3:
-		col = SetGreen();
+		col = m_colorManager->SetGreen();
 		break;
 	case 4:
-		col = SetRedYellow();
+		col = m_colorManager->SetRedYellow();
 		break;
 	case 5:
-		col = SetRedGreen();
+		col = m_colorManager->SetRedGreen();
 		break;
 	case 6:
-		col = SetRedYellowGreen();
+		col = m_colorManager->SetYellowGreen();
 		break;
-
+	case 7:
+		col = m_colorManager->SetRedYellowGreen();
 	default:		
 		break;
 	}

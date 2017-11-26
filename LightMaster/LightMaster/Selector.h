@@ -9,12 +9,6 @@
 #include "WProgram.h"
 #endif
 
-#ifndef REDPIN
-#define REDPIN  3
-#define YELLOWPIN  4
-#define GREENPIN  5
-#endif
-
 #define PINCNT 20
 #define PROGRAMS_CNT 3
 
