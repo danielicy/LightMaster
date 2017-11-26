@@ -14,7 +14,7 @@
 
 Selector::Selector()
 {
-
+	 
 }
 
 Selector::~Selector()
@@ -38,7 +38,65 @@ void Selector::ChangeSelection(int & index, int param)
 	delay(1000);
 }
   
+void Selector::SelectColors()
+{
+	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
 
+	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
+
+	//resets buffer
+	for (int i = 0; i < sizeof(m_pinBuffer); i++)
+	{
+		m_pinBuffer[i][0] = NULL;
+		m_pinBuffer[i][1] = NULL;
+	}
+
+	int *col = nullptr;
+	switch (m_colorIndex)
+	{
+	case 1:
+		col = SetRed();
+		break;
+	case 2:
+
+		break;
+	case 3:
+		//m_pinBuffer = { GREENPIN };
+		break;
+	case 4:
+		//pow[1][2] = { REDPIN , YELLOWPIN };
+		break;
+	case 5:
+		//	*y = { REDPIN , GREENPIN };
+		break;
+	case 6:
+
+
+		break;
+
+	default:		
+		break;
+	}
+
+	int i = 0;
+	while (col[i] >= 0)
+	{
+
+		m_pinBuffer[i][0] = col[i];
+		m_pinBuffer[i][1] = LOW;
+
+		i++;
+	}
+}
+
+
+int*  SetRed()
+{
+	int color[] = { REDPIN, YELLOWPIN   , GREENPIN };
+	return color;
+}
+
+/*
 void Selector::SelectColors()
 {
 	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
@@ -85,7 +143,7 @@ void Selector::SelectColors()
 	}
  
 	
-}
+}*/
 
 void Selector::RunProgram(int i)
 {
