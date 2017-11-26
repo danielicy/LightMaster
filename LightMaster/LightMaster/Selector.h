@@ -23,7 +23,7 @@
 #define Selector_h
 
 #include "Arduino.h"
- 
+#include "ColorManager.h"
 
 
 
@@ -53,6 +53,7 @@ private:
 	int m_pinBuffer[PINCNT][2];  //m_pinBuffer[Color][brightness]
 	int fadeAmount = 5;    // how many points to fade the LED by	 
 	int previouspin = 0;
+	ColorManager* m_colorManager;
 };
 
 #endif

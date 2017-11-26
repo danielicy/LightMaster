@@ -9,12 +9,15 @@
 //#include <iostream>
 //using namespace std;
 
+#include "ColorManager.h"
 #include "Selector.h"
+
+
 
 
 Selector::Selector()
 {
-	 
+	m_colorManager = new ColorManager();
 }
 
 Selector::~Selector()
@@ -88,7 +91,7 @@ void Selector::SelectColors()
 	switch (m_colorIndex)
 	{
 	case 1:
-		col = SetRed();
+		//col = m_colorManager->SetRed();
 		break;
 	case 2:
 		col = SetYellow();

@@ -3,9 +3,11 @@
 
 #include "LMSystem.h"
 #include "Selector.h"
-
+#include "ColorManager.h"
 
 Selector* _selector = new Selector();
+
+
 
 LMSystem::LMSystem()
 {
