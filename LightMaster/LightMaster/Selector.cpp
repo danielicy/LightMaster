@@ -9,6 +9,9 @@
 //#include <iostream>
 //using namespace std;
 
+#define HIGH 0x1
+#define LOW  0x0
+
 #include "ColorManager.h"
 #include "Selector.h"
 
@@ -26,8 +29,7 @@ Selector::~Selector()
 
 void Selector::ChangeSelection(int & index, int param)
 {
-	TurnOffPreviousPin();
-
+	 
 	if (index < param)
 	{
 		index++;
@@ -36,9 +38,7 @@ void Selector::ChangeSelection(int & index, int param)
 	{
 		index = 1;
 	}
-	Serial.println("Selection changed:" + index);
-
-	delay(1000);
+	
 }
   
 
@@ -48,7 +48,7 @@ void Selector::SelectColors()
 	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
 		
 	//resets buffer
-	memset(m_pinBuffer, 0, sizeof(m_pinBuffer));
+	//memset(m_pinBuffer, 0, sizeof(m_pinBuffer));
 
 	int *col = nullptr;
 	switch (m_colorIndex)
@@ -88,12 +88,6 @@ void Selector::SelectColors()
 	}
 }
 
-
-void Selector::TurnOffPreviousPin()
-{
-	//turns off previouspin
-	analogWrite(previouspin, LOW);
-}
 
 
 

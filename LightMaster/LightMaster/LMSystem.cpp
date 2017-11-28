@@ -81,7 +81,9 @@ void LMSystem::DoWork()
 	if (IsBtnPressed(PRGBTN))
 	{
 		Serial.println("program selection changed:");
-		 		
+		
+		TurnOffPreviousPin();
+
 		_selector->ChangeSelection(m_progIndex, PROGRAMS_CNT);
 	}
 
@@ -126,6 +128,14 @@ void LMSystem::RunProgram(int i)
 		Prog8();
 		break;*/
 	}
+}
+
+
+
+void LMSystem::TurnOffPreviousPin()
+{
+	//turns off previouspin
+	analogWrite(previouspin, LOW);
 }
 
 

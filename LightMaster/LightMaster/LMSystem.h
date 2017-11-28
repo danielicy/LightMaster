@@ -31,6 +31,7 @@ public:
 	~LMSystem();
 	void DoWork();
 	void RunProgram(int i);
+	void TurnOffPreviousPin();
  
 
 private:
@@ -40,7 +41,8 @@ private:
 	int lastButtonState = LOW;   // the previous reading from the input pin
 	int lastcolorBtn = LOW;
 	int m_progIndex = 0;        //the current program selecte
-								
+		
+	int previouspin = 0;
 
 	// the following variables are unsigned longs because the time, measured in
 	// milliseconds, will quickly become a bigger number than can be stored in an int.
