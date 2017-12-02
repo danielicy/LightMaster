@@ -84,18 +84,17 @@ void LMSystem::DoWork()
 		
 		TurnOffPreviousPin();
 
-		_selector->ChangeSelection(m_progIndex, PROGRAMS_CNT);
+		_selector->SelectProgram();
 	}
 
 	if (IsBtnPressed(COLRBTN))
-	{
-		
+	{		
 		Serial.println("Color Button Pressed:");
 		_selector->SelectColors();
 		delay(7000);
 	}
 		
-	RunProgram(m_progIndex);
+	//RunProgram(m_progIndex);
 }
  
 

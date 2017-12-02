@@ -88,7 +88,11 @@ void Selector::SelectColors()
 	}
 }
 
+void Selector::SelectProgram()
+{
+	ChangeSelection(m_progIndex, PROGRAMS_CNT);
 
+}
 
 
  

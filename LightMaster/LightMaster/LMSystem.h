@@ -40,7 +40,7 @@ private:
 	int buttonState;             // the current reading from the input pin
 	int lastButtonState = LOW;   // the previous reading from the input pin
 	int lastcolorBtn = LOW;
-	int m_progIndex = 0;        //the current program selecte
+	
 		
 	int previouspin = 0;
 
