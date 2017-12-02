@@ -24,9 +24,12 @@ public:
 	~Selector();
 	void ChangeSelection(int &index, int param);
 	void SelectColors();
-
 	void SelectProgram();
 	
+	
+private:
+	void LoadColors();
+	void LoadProgram();
 
 	int m_colorIndex = 0; //the currrent color combination
 	int m_progIndex = 0;        //the current program selecte
