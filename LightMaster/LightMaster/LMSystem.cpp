@@ -4,14 +4,14 @@
 #include "LMSystem.h"
 #include "Selector.h"
 #include "ColorManager.h"
-#include "ProgramManager.h"
+#include "ActionManager.h"
 
-Selector* _selector = new Selector();
 
-ProgramManager* m_ProgramManager;
+
 LMSystem::LMSystem()
 {
-	m_ProgramManager = new ProgramManager(m_pinBuffer);
+	m_selector = new Selector();
+	m_ActionManager = new ActionManager(m_pinBuffer);
  
 
 	Serial.begin(9600);
@@ -84,13 +84,13 @@ void LMSystem::DoWork()
 		
 		TurnOffPreviousPin();
 
-		_selector->SelectProgram();
+		m_selector->SelectProgram();
 	}
 
 	if (IsBtnPressed(COLRBTN))
 	{		
 		Serial.println("Color Button Pressed:");
-		_selector->SelectColors();
+		m_selector->SelectColors();
 		delay(7000);
 	}
 		

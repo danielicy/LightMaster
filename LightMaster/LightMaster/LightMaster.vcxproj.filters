@@ -33,7 +33,7 @@
     <ClInclude Include="ColorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ProgramManager.h">
+    <ClInclude Include="ActionManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClCompile Include="ColorManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="ProgramManager.cpp">
+    <ClCompile Include="ActionManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,19 +1,19 @@
-#include "ProgramManager.h"
+#include "ActionManager.h"
 
 
 //https://stackoverflow.com/questions/8767166/passing-a-2d-array-to-a-c-function
-ProgramManager::ProgramManager(int buffer[][2])//int &buffer)
+ActionManager::ActionManager(int buffer[][2])//int &buffer)
 {
 	m_buffer = buffer[0];
 }
 
 
-ProgramManager::~ProgramManager()
+ActionManager::~ActionManager()
 {
 }
 
 
-void ProgramManager::Fade()
+void ActionManager::Fade()
 {
 	/*
 	Serial.println("Fading:");

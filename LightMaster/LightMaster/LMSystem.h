@@ -1,5 +1,8 @@
 // LMSystem.h
 
+#include "ActionManager.h"
+#include "Selector.h"
+
 #ifndef _LMSYSTEM_h
 #define _LMSYSTEM_h
 
@@ -35,6 +38,11 @@ public:
  
 
 private:
+
+	Selector* m_selector;
+
+	ActionManager* m_ActionManager;
+
 	// Variables will change:
 	int ledState = LOW;         // the current state of the output pin
 	int buttonState;             // the current reading from the input pin
