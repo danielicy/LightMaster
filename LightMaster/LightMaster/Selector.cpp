@@ -24,6 +24,12 @@ Selector::Selector()
 	m_colorManager = new ColorManager();
 }
 
+Selector::Selector(ColorManager* colorManager, ActionManager* actionManager)
+{
+	m_colorManager = colorManager;
+	m_actionManager = actionManager;
+}
+
 Selector::~Selector()
 {
 }

@@ -21,6 +21,7 @@ class Selector
 {
 public:	
 	Selector();
+	Selector(ColorManager* colorManager, ActionManager* actionManager);
 	~Selector();
 	void ChangeSelection(int &index, int param);
 	void SelectColors();
