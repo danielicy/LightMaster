@@ -10,8 +10,10 @@
 
 LMSystem::LMSystem()
 {
-	m_selector = new Selector();
+	
 	m_ActionManager = new ActionManager(m_pinBuffer);
+	m_colorManager = new ColorManager();
+	m_selector = new Selector(m_colorManager,m_ActionManager);
  
 
 	Serial.begin(9600);

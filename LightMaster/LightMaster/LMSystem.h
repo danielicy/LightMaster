@@ -42,7 +42,7 @@ private:
 	Selector* m_selector;
 
 	ActionManager* m_ActionManager;
-
+	ColorManager* m_colorManager;
 	// Variables will change:
 	int ledState = LOW;         // the current state of the output pin
 	int buttonState;             // the current reading from the input pin
