@@ -16,6 +16,21 @@
     <Filter Include="Source Files\Managers">
       <UniqueIdentifier>{089dcfa0-708e-4b94-a154-5072855f40f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Managers">
+      <UniqueIdentifier>{5572582c-ad56-4578-bae9-218e9dad93a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actions">
+      <UniqueIdentifier>{a94bbf8a-5341-41c3-8ccf-b05efda082cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actions\Source">
+      <UniqueIdentifier>{1a5497f7-ff44-46ae-bc96-cf9cdc4261e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actions\Header">
+      <UniqueIdentifier>{fbb51f54-7ec2-4152-ac19-69e76f28f742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{1b7920ad-1d6b-4f2f-a40f-3abb8752961f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="LightMaster.ino" />
@@ -30,11 +45,20 @@
     <ClInclude Include="Selector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ColorManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ActionManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="IAction.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionBase.h">
+      <Filter>Actions\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>Actions\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +73,12 @@
     </ClCompile>
     <ClCompile Include="ActionManager.cpp">
       <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionBase.cpp">
+      <Filter>Actions\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>Actions\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
