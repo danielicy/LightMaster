@@ -1,11 +1,19 @@
 #pragma once
+#include "IAction.h"
+#include "ActionBase.h"
+
 class ActionManager
 {
 public:
 	ActionManager(int buffer[][2]);//int &pinbuffer);
 	~ActionManager();
-private:
-	void Fade();
-	int* m_buffer;// [][2];
+
+	ActionBase* LoadAction(int index);
+	void Execute();
+	
+
+private:	
+	int* m_buffer;
+	IAction* m_action;
 };
 
