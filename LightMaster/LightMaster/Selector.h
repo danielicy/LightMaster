@@ -14,7 +14,7 @@
 
 
 #include "ColorManager.h"
-
+#include "ActionManager.h"
 
 
 class Selector
@@ -43,6 +43,7 @@ private:
 	int fadeAmount = 5;    // how many points to fade the LED by	 
 	
 	ColorManager* m_colorManager;
+	ActionManager* m_actionManager;
 };
 
 #endif

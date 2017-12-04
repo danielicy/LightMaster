@@ -104,33 +104,7 @@ void Selector::LoadColors()
 
 void Selector::LoadProgram()
 {
-	switch (m_progIndex)
-	{
-	case 1:
-		//Fade();
-		break;
-	case 2:
-		//Fade(YELLOWPIN);
-		break;
-	case 3:
-		//Fade(GREENPIN);
-		break;
-	case 4:
-		//DisolveTwo(REDPIN, YELLOWPIN);
-		break;
-	case 5:
-		//DisolveTwo(REDPIN, GREENPIN);
-		break;
-	case 6:
-		//DisolveTwo(GREENPIN, YELLOWPIN);
-		break;
-	case 7:
-		//DisolveThree(REDPIN, YELLOWPIN, GREENPIN);
-		break;
-		/*case 8:
-		Prog8();
-		break;*/
-	}
+	m_actionManager->LoadAction(m_progIndex);
 }
 
 
