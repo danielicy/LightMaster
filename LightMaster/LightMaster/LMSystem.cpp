@@ -96,16 +96,11 @@ void LMSystem::DoWork()
 		delay(7000);
 	}
 		
-	//RunProgram(m_progIndex);
+	m_ActionManager->Execute();
 }
  
 
-void LMSystem::RunProgram(int i)
-{
-	m_ActionManager->Execute();
-}
-
-
+ 
 
 void LMSystem::TurnOffPreviousPin()
 {
