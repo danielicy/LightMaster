@@ -77,7 +77,7 @@ bool LMSystem::IsBtnPressed(int btn)
 
 }
 
-void LMSystem::DoWork()
+void LMSystem::DoWork(char c)
 {
 	if (IsBtnPressed(PRGBTN))
 	{

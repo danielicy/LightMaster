@@ -33,7 +33,7 @@ class LMSystem
 public:
 	LMSystem();	
 	~LMSystem();
-	void DoWork();	
+	void DoWork(char c);	
 	void TurnOffPreviousPin();
  
 
