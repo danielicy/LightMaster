@@ -13,8 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Actions">
+    <Filter Include="LightMaster">
       <UniqueIdentifier>{6b56b3c9-81e2-4772-9227-84e5b4107560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightMaster\Headers">
+      <UniqueIdentifier>{c73ce951-c2ac-43ff-8890-1861b70aedf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightMaster\Source">
+      <UniqueIdentifier>{dd2070ed-7cc9-4028-8de7-ac8c3d3dbd99}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +33,30 @@
     <ClInclude Include="DummySystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ActionBase.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionManager.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorManager.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="IAction.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="LMSystem.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgramSelector.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Selector.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -37,6 +67,27 @@
     </ClCompile>
     <ClCompile Include="DummySystem.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionBase.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionManager.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorManager.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LMSystem.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgramSelector.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Selector.cpp">
+      <Filter>LightMaster\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

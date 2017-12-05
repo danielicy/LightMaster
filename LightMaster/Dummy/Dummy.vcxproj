@@ -203,13 +203,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ActionBase.h" />
+    <ClInclude Include="ActionManager.h" />
+    <ClInclude Include="ColorManager.h" />
     <ClInclude Include="DummySystem.h" />
+    <ClInclude Include="Fade.h" />
+    <ClInclude Include="IAction.h" />
+    <ClInclude Include="LMSystem.h" />
+    <ClInclude Include="ProgramSelector.h" />
+    <ClInclude Include="Selector.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActionBase.cpp" />
+    <ClCompile Include="ActionManager.cpp" />
+    <ClCompile Include="ColorManager.cpp" />
     <ClCompile Include="Dummy.cpp" />
     <ClCompile Include="DummySystem.cpp" />
+    <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="LMSystem.cpp" />
+    <ClCompile Include="ProgramSelector.cpp" />
+    <ClCompile Include="Selector.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">Create</PrecompiledHeader>
