@@ -1,6 +1,7 @@
 // LMSystem.h
 
 #include "ActionManager.h"
+#include "ColorManager.h"
 #include "Selector.h"
 
 #ifndef _LMSYSTEM_h

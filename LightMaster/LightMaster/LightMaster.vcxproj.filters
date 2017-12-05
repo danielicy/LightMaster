@@ -45,20 +45,17 @@
     <ClInclude Include="Selector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ActionManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
     <ClInclude Include="ColorManager.h">
       <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="IAction.h">
-      <Filter>Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="ActionBase.h">
       <Filter>Actions\Header</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
       <Filter>Actions\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionManager.h">
+      <Filter>Header Files\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -71,14 +68,14 @@
     <ClCompile Include="ColorManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="ActionManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="ActionBase.cpp">
       <Filter>Actions\Source</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
       <Filter>Actions\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionManager.cpp">
+      <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

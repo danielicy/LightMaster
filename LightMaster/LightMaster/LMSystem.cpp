@@ -4,14 +4,14 @@
 #include "LMSystem.h"
 #include "Selector.h"
 #include "ColorManager.h"
-#include "ActionManager.h"
+
 
 
 
 LMSystem::LMSystem()
 {
 	
-	m_ActionManager = new ActionManager(m_pinBuffer);
+	//m_ActionManager = new ActionManager(m_pinBuffer);
 	m_colorManager = new ColorManager();
 	m_selector = new Selector(m_colorManager,m_ActionManager);
  
@@ -96,7 +96,7 @@ void LMSystem::DoWork()
 		delay(7000);
 	}
 		
-	m_ActionManager->Execute();
+	//m_ActionManager->Execute();
 }
  
 

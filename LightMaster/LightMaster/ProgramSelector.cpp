@@ -5,15 +5,6 @@
 #include "ProgramSelector.h"
 
 
-ProgramSelector::ProgramSelector(int pin)
-{
-
-}
-
-ProgramSelector::ProgramSelector()
-{
-
-}
 
 ProgramSelector::~ProgramSelector()
 {

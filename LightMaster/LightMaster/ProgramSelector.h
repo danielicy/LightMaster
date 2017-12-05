@@ -15,8 +15,7 @@
 class ProgramSelector
 {
 public:
-	ProgramSelector(int pin);
-	ProgramSelector();
+	ProgramSelector(int pin);	
 	~ProgramSelector();
 	void Select(int i);
 private:

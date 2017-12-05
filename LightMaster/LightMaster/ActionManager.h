@@ -10,9 +10,9 @@ public:
 
 	ActionBase* LoadAction(int index);
 	void Execute();
-	
 
-private:	
+
+private:
 	int* m_buffer;
 	IAction* m_action;
 };
