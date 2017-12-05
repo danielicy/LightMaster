@@ -110,7 +110,7 @@ void Selector::LoadColors()
 
 void Selector::LoadProgram()
 {
-	//m_actionManager->LoadAction(m_progIndex);
+	m_actionManager->LoadAction(m_progIndex);
 }
 
 

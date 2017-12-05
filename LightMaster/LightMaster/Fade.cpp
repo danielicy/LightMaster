@@ -13,10 +13,10 @@ Fade::~Fade()
 
 void Fade::Execute()
 {
-	/*
+	 
 	Serial.println("Fading:");
-
-
+	delay(10000);
+	/*
 	analogWrite(pin, brightness);
 
 	// change the brightness for next time through the loop:

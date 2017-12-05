@@ -96,7 +96,7 @@ void LMSystem::DoWork()
 		delay(7000);
 	}
 		
-	//m_ActionManager->Execute();
+	m_ActionManager->Execute();
 }
  
 
