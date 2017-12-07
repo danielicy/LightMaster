@@ -3,6 +3,7 @@
 #include "ActionManager.h"
 #include "ColorManager.h"
 #include "Selector.h"
+#include "Lamp.h"
 
 #ifndef _LMSYSTEM_h
 #define _LMSYSTEM_h
@@ -66,7 +67,7 @@ private:
 	bool IsBtnPressed(int btn);
 
 	//two dimmentional array holding the led pins and their respective brightness value
-	int m_pinBuffer[PINCNT][2];  //m_pinBuffer[Color][brightness]
+	Lamp m_lamps[PINCNT];  //m_pinBuffer[Color][brightness]
 	
 };
 

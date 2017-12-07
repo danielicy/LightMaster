@@ -119,6 +119,7 @@
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="ColorManager.h" />
     <ClInclude Include="Fade.h" />
+    <ClInclude Include="Lamp.h" />
     <ClInclude Include="LMSystem.h" />
     <ClInclude Include="Selector.h" />
     <ClInclude Include="stdfax.h" />
