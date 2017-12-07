@@ -18,5 +18,5 @@ void setup() {
 // the loop function runs over and over again until power down or reset
 void loop() {
   
-	_lightMasterSystem->DoWork();
+	_lightMasterSystem->DoWork('0');
 }

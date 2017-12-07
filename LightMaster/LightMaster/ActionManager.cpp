@@ -1,3 +1,10 @@
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#else
+#include "stdfax.h"
+#endif
+
 #include "ActionManager.h"
 #include "Fade.h"
 

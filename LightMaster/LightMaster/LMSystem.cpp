@@ -1,10 +1,14 @@
-// 
-// 
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#else
+#include "stdfax.h"
+#endif
+
 
 #include "LMSystem.h"
 #include "Selector.h"
 #include "ColorManager.h"
-
 
 
 
@@ -15,6 +19,7 @@ LMSystem::LMSystem()
 	m_colorManager = new ColorManager();
 	m_selector = new Selector(m_colorManager,m_ActionManager);
  
+#if defined(ARDUINO) && ARDUINO >= 100
 
 	Serial.begin(9600);
 	pinMode(PRGBTN, INPUT);
@@ -27,6 +32,8 @@ LMSystem::LMSystem()
 	// set initial LED state
 	 
 	DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);	
+#endif
+
 }
 
 
@@ -36,17 +43,23 @@ LMSystem::~LMSystem()
 
 void LMSystem::DigitalWrite(int  pins[], int value)
 {
-	for (int i = 0; i < sizeof(pins); i++)
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+ 	for (int i = 0; i < sizeof(pins); i++)
 	{
 		digitalWrite(pins[i], value);
 	}
+#endif
+
 }
 
 
 bool LMSystem::IsBtnPressed(int btn)
 { 
 	bool retval = false;
-	// read the pushbutton input pin:
+#if defined(ARDUINO) && ARDUINO >= 100
+ // read the pushbutton input pin:
 	 buttonState = digitalRead(btn);	 
 		 
 	if (buttonState == HIGH)
@@ -73,16 +86,19 @@ bool LMSystem::IsBtnPressed(int btn)
 
 	if (btn == COLRBTN)
 		lastcolorBtn = buttonState;
+#endif
+
+	
 
 	return retval;
 
 }
 
-void LMSystem::DoWork()
+void LMSystem::DoWork(char c)
 {
-	if (IsBtnPressed(PRGBTN))
+ if (IsBtnPressed(PRGBTN))
 	{
-		Serial.println("program selection changed:");
+		//Serial.println("program selection changed:");
 		
 		TurnOffPreviousPin();
 
@@ -91,10 +107,17 @@ void LMSystem::DoWork()
 
 	if (IsBtnPressed(COLRBTN))
 	{		
-		Serial.println("Color Button Pressed:");
+		//Serial.println("Color Button Pressed:");
 		m_selector->SelectColors();
-		delay(7000);
+		//delay(7000);
 	}
+#if defined(ARDUINO) && ARDUINO >= 100
+
+#else
+ 
+#endif
+
+	
 		
 	m_ActionManager->Execute();
 }
@@ -104,8 +127,11 @@ void LMSystem::DoWork()
 
 void LMSystem::TurnOffPreviousPin()
 {
-	//turns off previouspin
+#if defined(ARDUINO) && ARDUINO >= 100
+ 	//turns off previouspin
 	analogWrite(previouspin, LOW);
+#endif
+
 }
 
 

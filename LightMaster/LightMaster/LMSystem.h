@@ -20,8 +20,8 @@
 
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include "Arduino.h"
-/*#else
-	#include "WProgram.h"*/
+#else
+#define LOW 0
 #endif
 
 
@@ -33,7 +33,7 @@ class LMSystem
 public:
 	LMSystem();	
 	~LMSystem();
-	void DoWork();	
+	void DoWork(char c);	
 	void TurnOffPreviousPin();
  
 
@@ -43,6 +43,8 @@ private:
 
 	ActionManager* m_ActionManager;
 	ColorManager* m_colorManager;
+
+
 	// Variables will change:
 	int ledState = LOW;         // the current state of the output pin
 	int buttonState;             // the current reading from the input pin

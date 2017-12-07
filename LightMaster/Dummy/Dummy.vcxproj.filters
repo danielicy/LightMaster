@@ -33,28 +33,25 @@
     <ClInclude Include="DummySystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ActionBase.h">
+    <ClInclude Include="..\LightMaster\Selector.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="ActionManager.h">
+    <ClInclude Include="..\LightMaster\LMSystem.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="ColorManager.h">
+    <ClInclude Include="..\LightMaster\ActionBase.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Fade.h">
+    <ClInclude Include="..\LightMaster\ActionManager.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="IAction.h">
+    <ClInclude Include="..\LightMaster\ColorManager.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="LMSystem.h">
+    <ClInclude Include="..\LightMaster\Fade.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="ProgramSelector.h">
-      <Filter>LightMaster\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Selector.h">
+    <ClInclude Include="..\LightMaster\IAction.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,25 +65,22 @@
     <ClCompile Include="DummySystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ActionBase.cpp">
+    <ClCompile Include="..\LightMaster\Selector.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ActionManager.cpp">
+    <ClCompile Include="..\LightMaster\LMSystem.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ColorManager.cpp">
+    <ClCompile Include="..\LightMaster\Fade.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Fade.cpp">
+    <ClCompile Include="..\LightMaster\ColorManager.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
-    <ClCompile Include="LMSystem.cpp">
+    <ClCompile Include="..\LightMaster\ActionManager.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ProgramSelector.cpp">
-      <Filter>LightMaster\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Selector.cpp">
+    <ClCompile Include="..\LightMaster\ActionBase.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
   </ItemGroup>

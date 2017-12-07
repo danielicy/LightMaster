@@ -1,7 +1,9 @@
-// 
-// 
-// 
-//#include<stdio.h>
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#else
+#include "stdfax.h"
+#endif
 
  
 #include <stdio.h>
@@ -16,6 +18,8 @@
 #include "ColorManager.h"
 #include "Selector.h"
 #include "ActionManager.h"
+
+
 
 
 

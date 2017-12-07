@@ -61,10 +61,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\LightMaster;F:\Program Files (x86)\Arduino\libraries;F:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;$(ProjectDir)..\..\..\libraries;F:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;F:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard;F:\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\;F:\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\avr\;F:\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include;F:\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;F:\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\LightMaster;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\libraries;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;$(ProjectDir)..\..\..\Arduino\libraries;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\avr;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\avr\;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.LightMaster.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=10803;ARDUINO_AVR_UNO;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;F_CPU=16000000L;ARDUINO=10805;ARDUINO_AVR_UNO;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -75,10 +75,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories></AdditionalIncludeDirectories>
-      <ForcedIncludeFiles> </ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\LightMaster;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\libraries;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;$(ProjectDir)..\..\..\Arduino\libraries;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\avr;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\avr\;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ProjectDir)__vm\.LightMaster.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;F_CPU=16000000L;ARDUINO=10805;ARDUINO_AVR_UNO;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -121,13 +121,14 @@
     <ClInclude Include="Fade.h" />
     <ClInclude Include="LMSystem.h" />
     <ClInclude Include="Selector.h" />
+    <ClInclude Include="stdfax.h" />
+    <ClInclude Include="targetver.h" />
     <ClInclude Include="__vm\.LightMaster.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionBase.cpp" />
     <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="ColorManager.cpp" />
-    <ClCompile Include="DummyConsole.cpp" />
     <ClCompile Include="Fade.cpp" />
     <ClCompile Include="LMSystem.cpp" />
     <ClCompile Include="Selector.cpp" />

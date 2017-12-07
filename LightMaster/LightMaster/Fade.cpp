@@ -1,3 +1,10 @@
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#else
+#include "stdfax.h"
+#endif
+
 #include "Fade.h"
 
 
@@ -14,8 +21,8 @@ Fade::~Fade()
 void Fade::Execute()
 {
 	 
-	Serial.println("Fading:");
-	delay(10000);
+	/*Serial.println("Fading:");
+	delay(10000);*/
 	/*
 	analogWrite(pin, brightness);
 
