@@ -1,9 +1,6 @@
 // LMSystem.h
+#pragma once
 
-#include "ActionManager.h"
-#include "ColorManager.h"
-#include "Selector.h"
-#include "Lamp.h"
 
 #ifndef _LMSYSTEM_h
 #define _LMSYSTEM_h
@@ -28,6 +25,21 @@
 
 #endif
 
+#include "ActionManager.h"
+
+
+#include "Selector.h"
+
+
+#include "ColorManager.h"
+
+
+#include "Lamp.h"
+
+class Selector;
+class ActionManager;
+class ColorManager;
+
 class LMSystem
 {
 	 
@@ -35,18 +47,14 @@ public:
 	LMSystem();	
 	~LMSystem();
 	void DoWork(char c);	
-	void TurnOffPreviousPin();
- 
+	void TurnOffPreviousPin(); 
 
 private:
-
-	Selector* m_selector;
-
 	ActionManager* m_ActionManager;
 	ColorManager* m_colorManager;
-
-	Lamp m_lamps[PINCNT];
-
+	Selector* m_selector;
+	
+	
 	// Variables will change:
 	int ledState = LOW;         // the current state of the output pin
 	int buttonState;             // the current reading from the input pin

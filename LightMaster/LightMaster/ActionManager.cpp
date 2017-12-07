@@ -10,9 +10,9 @@
 #include "Lamp.h"
 
 //https://stackoverflow.com/questions/8767166/passing-a-2d-array-to-a-c-function
-ActionManager::ActionManager(Lamp* lamps)
+ActionManager::ActionManager()
 {
-	m_lamps = lamps;
+	
 }
 
 

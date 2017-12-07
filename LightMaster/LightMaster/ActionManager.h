@@ -1,11 +1,12 @@
 #pragma once
 #include "IAction.h"
 #include "ActionBase.h"
+#include "LMSystem.h"
 
 class ActionManager
 {
 public:
-	ActionManager(Lamp* lamps);//int &pinbuffer);
+	ActionManager();//int &pinbuffer);
 	~ActionManager();
 
 	ActionBase* LoadAction(int index);
@@ -13,7 +14,7 @@ public:
 	Lamp Lamps();
 
 private:
-	Lamp *m_lamps;
+	Lamp m_lamps[PINCNT];
 	IAction* m_action;
 };
 

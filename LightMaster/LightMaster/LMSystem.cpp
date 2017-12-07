@@ -15,7 +15,7 @@
 LMSystem::LMSystem()
 {
 	
-	m_ActionManager = new ActionManager(m_lamps);
+	m_ActionManager = new ActionManager();
 	m_colorManager = new ColorManager();
 	m_selector = new Selector(m_colorManager,m_ActionManager);
  
@@ -94,7 +94,7 @@ bool LMSystem::IsBtnPressed(int btn)
 
 void LMSystem::DoWork(char c)
 {
- if (IsBtnPressed(PRGBTN))
+ if (IsBtnPressed(PRGBTN || c =='p'))
 	{
 		//Serial.println("program selection changed:");
 		
@@ -103,7 +103,7 @@ void LMSystem::DoWork(char c)
 		m_selector->SelectProgram();
 	}
 
-	if (IsBtnPressed(COLRBTN))
+	if (IsBtnPressed(COLRBTN || c == 'c'))
 	{		
 		//Serial.println("Color Button Pressed:");
 		m_selector->SelectColors();
@@ -114,8 +114,7 @@ void LMSystem::DoWork(char c)
 #else
  
 #endif
-
-	
+		
 		
 	m_ActionManager->Execute();
 }

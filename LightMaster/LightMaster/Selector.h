@@ -17,6 +17,12 @@
 #include "ActionManager.h"
 #include "Lamp.h"
 
+
+
+
+class ActionManager;
+class ColorManager;
+
 class Selector
 {
 public:	
@@ -38,8 +44,6 @@ private:
 
 	int brightness = 0;    // how bright the LED is
 	
-	//two dimmentional array holding the led pins and their respective brightness value
-	int m_pinBuffer[20][2];  //m_pinBuffer[Color][brightness]
 
 	int fadeAmount = 5;    // how many points to fade the LED by	 
 	

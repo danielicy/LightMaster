@@ -58,8 +58,8 @@ void Selector::SelectColors()
 {
 	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
 		
-	//resets buffer
-	memset(m_pinBuffer, 0, sizeof(m_pinBuffer));
+	//TO DO Reset Lamps
+	 
 
 	LoadColors();
 }
@@ -75,6 +75,7 @@ void Selector::SelectProgram()
 void Selector::LoadColors()
 {
 	int *col = nullptr;
+
 	switch (m_colorIndex)
 	{
 	case 1:
@@ -104,10 +105,8 @@ void Selector::LoadColors()
 	int i = 0;
 	while (col[i] >= 0)
 	{
-
-		m_pinBuffer[i][0] = col[i];
-		m_pinBuffer[i][1] = LOW;
-
+		//m_actionManager->Lamps[i] = new Lamp{ col[i],LOW };
+		
 		i++;
 	}
 }

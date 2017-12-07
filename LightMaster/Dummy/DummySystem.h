@@ -9,7 +9,6 @@ public:
 	DummySystem();
 	~DummySystem();
 	void DoWork(char c);
-
 private:
 	Lamp *m_lamps;
 };
