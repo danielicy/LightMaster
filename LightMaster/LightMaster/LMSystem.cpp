@@ -94,7 +94,7 @@ bool LMSystem::IsBtnPressed(int btn)
 
 void LMSystem::DoWork(char c)
 {
- if (IsBtnPressed(PRGBTN || c =='p'))
+ if (IsBtnPressed(PRGBTN) || c =='p')
 	{
 		//Serial.println("program selection changed:");
 		
@@ -103,7 +103,7 @@ void LMSystem::DoWork(char c)
 		m_selector->SelectProgram();
 	}
 
-	if (IsBtnPressed(COLRBTN || c == 'c'))
+	if (IsBtnPressed(COLRBTN) || c == 'c')
 	{		
 		//Serial.println("Color Button Pressed:");
 		m_selector->SelectColors();

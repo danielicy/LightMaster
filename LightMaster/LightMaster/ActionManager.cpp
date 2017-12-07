@@ -63,6 +63,7 @@ ActionBase* ActionManager::LoadAction(int index)
 
 void ActionManager::Execute()
 {
+	if(m_action != nullptr)
 	m_action->Execute();
 }
 

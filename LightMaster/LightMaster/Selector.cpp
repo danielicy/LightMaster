@@ -105,7 +105,7 @@ void Selector::LoadColors()
 	int i = 0;
 	while (col[i] >= 0)
 	{
-		//m_actionManager->Lamps[i] = new Lamp{ col[i],LOW };
+		//m_actionManager->Lamps[i] = new Lamp{ col[i],LOW };//DC###
 		
 		i++;
 	}
