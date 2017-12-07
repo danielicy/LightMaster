@@ -25,6 +25,11 @@ Lamp ActionManager::Lamps()
 	return *m_lamps;
 }
 
+void ActionManager::SetLamps(int *lamps)
+{
+	
+}
+
 
 ActionBase* ActionManager::LoadAction(int index)
 {

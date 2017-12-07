@@ -101,14 +101,8 @@ void Selector::LoadColors()
 	default:
 		break;
 	}
-
-	int i = 0;
-	while (col[i] >= 0)
-	{
-		//m_actionManager->Lamps[i] = new Lamp{ col[i],LOW };//DC###
 		
-		i++;
-	}
+	m_actionManager->SetLamps(col);	 
 }
 
 void Selector::LoadProgram()

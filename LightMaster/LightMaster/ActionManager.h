@@ -13,8 +13,10 @@ public:
 	void Execute();
 	Lamp Lamps();
 
+	void SetLamps(int *lamps);
+
 private:
-	Lamp m_lamps[PINCNT];
+	Lamp* m_lamps;
 	IAction* m_action;
 };
 
