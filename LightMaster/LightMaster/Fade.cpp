@@ -6,10 +6,10 @@
 #endif
 
 #include "Fade.h"
+#include "Lamp.h"
 
 
-
-Fade::Fade(int **arr) :ActionBase(arr)
+Fade::Fade(Lamp *lamps) :ActionBase(lamps)
 {
 }
 

@@ -1,16 +1,17 @@
 #pragma once
 
 #include "IAction.h"
+#include "Lamp.h"
 
 class ActionBase : public IAction
 {
 public:
-	ActionBase(int **arr);
+	ActionBase(Lamp *lamps);
 	~ActionBase();
 	 
 	virtual	void Execute() = 0;
 
 protected:
-	int** p_pinBuffer;
+	Lamp *m_lamps;
 };
 

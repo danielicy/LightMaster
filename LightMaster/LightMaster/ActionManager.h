@@ -5,7 +5,7 @@
 class ActionManager
 {
 public:
-	ActionManager(int buffer[][2]);//int &pinbuffer);
+	ActionManager(Lamp* lamps);//int &pinbuffer);
 	~ActionManager();
 
 	ActionBase* LoadAction(int index);
@@ -13,7 +13,7 @@ public:
 
 
 private:
-	int* m_buffer;
+	Lamp *m_lamps;
 	IAction* m_action;
 };
 

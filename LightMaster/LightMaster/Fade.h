@@ -1,12 +1,14 @@
 #pragma once
 #include "ActionBase.h"
+#include "Lamp.h"
+
 //#include "Arduino.h"
 
 class Fade :
 	public ActionBase
 {
 public:
-	Fade(int **arr);
+	Fade(Lamp *lamps);
 	~Fade();
 	 
 	// Inherited via ActionBase

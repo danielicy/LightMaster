@@ -6,12 +6,12 @@
 #endif
 
 #include "ActionBase.h"
+#include "Lamp.h"
 
-
-ActionBase::ActionBase(int **arr)
+ActionBase::ActionBase(Lamp *lamps)
 {
 	
-	p_pinBuffer = arr;
+	m_lamps = lamps;
 }
 
 

@@ -7,11 +7,12 @@
 
 #include "ActionManager.h"
 #include "Fade.h"
+#include "Lamp.h"
 
 //https://stackoverflow.com/questions/8767166/passing-a-2d-array-to-a-c-function
-ActionManager::ActionManager(int buffer[][2])//int &buffer)
+ActionManager::ActionManager(Lamp* lamps)
 {
-	m_buffer = buffer[0];
+	m_lamps = lamps;
 }
 
 
@@ -27,7 +28,7 @@ ActionBase* ActionManager::LoadAction(int index)
 	switch (index)
 	{
 	case 1:
-		m_action = new Fade(&m_buffer);
+		m_action = new Fade(m_lamps);
 		break;
 	case 2:
 		//Fade(YELLOWPIN);

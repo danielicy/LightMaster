@@ -66,8 +66,8 @@ private:
 	void DigitalWrite(int pins[], int value);
 	bool IsBtnPressed(int btn);
 
-	//two dimmentional array holding the led pins and their respective brightness value
-	Lamp m_lamps[PINCNT];  //m_pinBuffer[Color][brightness]
+	 
+	Lamp m_lamps[PINCNT];  
 	
 };
 
