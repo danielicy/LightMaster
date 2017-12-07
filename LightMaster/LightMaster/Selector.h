@@ -15,13 +15,13 @@
 
 #include "ColorManager.h"
 #include "ActionManager.h"
-
+#include "Lamp.h"
 
 class Selector
 {
 public:	
 	Selector();
-	Selector(ColorManager* colorManager, ActionManager* actionManager);
+	Selector(ColorManager* colorManager, ActionManager* actionManager );
 	~Selector();
 	void ChangeSelection(int &index, int param);
 	void SelectColors();

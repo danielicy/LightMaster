@@ -45,6 +45,7 @@ private:
 	ActionManager* m_ActionManager;
 	ColorManager* m_colorManager;
 
+	Lamp m_lamps[PINCNT];
 
 	// Variables will change:
 	int ledState = LOW;         // the current state of the output pin
@@ -67,7 +68,7 @@ private:
 	bool IsBtnPressed(int btn);
 
 	 
-	Lamp m_lamps[PINCNT];  
+	
 	
 };
 

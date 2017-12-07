@@ -15,7 +15,7 @@
 LMSystem::LMSystem()
 {
 	
-	//m_ActionManager = new ActionManager(m_pinBuffer);
+	m_ActionManager = new ActionManager(m_lamps);
 	m_colorManager = new ColorManager();
 	m_selector = new Selector(m_colorManager,m_ActionManager);
  
@@ -36,7 +36,6 @@ LMSystem::LMSystem()
 
 }
 
-
 LMSystem::~LMSystem()
 {
 }
@@ -53,7 +52,6 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 #endif
 
 }
-
 
 bool LMSystem::IsBtnPressed(int btn)
 { 
@@ -122,9 +120,6 @@ void LMSystem::DoWork(char c)
 	m_ActionManager->Execute();
 }
  
-
- 
-
 void LMSystem::TurnOffPreviousPin()
 {
 #if defined(ARDUINO) && ARDUINO >= 100

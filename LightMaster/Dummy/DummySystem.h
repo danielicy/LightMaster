@@ -1,10 +1,5 @@
 #pragma once
-//#include "ActionManager.h"
-//#include "ColorManager.h"
-//#include "Selector.h"
-
-
-//#define LMSYSIMP __declspec(dllimport)
+#include "../LightMaster/Lamp.h"
 
 #define PINCNT 20
 
@@ -13,10 +8,9 @@ class DummySystem
 public:
 	DummySystem();
 	~DummySystem();
-	//Selector* m_selector;
-	//ActionManager* m_ActionManager;
-	//ColorManager* m_colorManager;
+	void DoWork(char c);
+
 private:
-	int m_pinBuffer[PINCNT][2];
+	Lamp *m_lamps;
 };
 

@@ -19,3 +19,18 @@ DummySystem::DummySystem()
 DummySystem::~DummySystem()
 {
 }
+
+void DummySystem::DoWork(char c)
+{
+	switch (c)
+	{
+	case'c':
+
+		break;
+	case's':
+
+		break;
+	default:
+		break;
+	}
+}

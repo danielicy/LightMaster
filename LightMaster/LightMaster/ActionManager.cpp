@@ -20,6 +20,11 @@ ActionManager::~ActionManager()
 {
 }
 
+Lamp ActionManager::Lamps()
+{
+	return *m_lamps;
+}
+
 
 ActionBase* ActionManager::LoadAction(int index)
 {

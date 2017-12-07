@@ -10,7 +10,7 @@ public:
 
 	ActionBase* LoadAction(int index);
 	void Execute();
-
+	Lamp Lamps();
 
 private:
 	Lamp *m_lamps;
