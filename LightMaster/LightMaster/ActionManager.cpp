@@ -7,7 +7,12 @@
 
 #include "ActionManager.h"
 #include "Fade.h"
+
+
 #include "Lamp.h"
+#include "Lamps.h"
+
+
 
 //https://stackoverflow.com/questions/8767166/passing-a-2d-array-to-a-c-function
 ActionManager::ActionManager()
@@ -20,15 +25,36 @@ ActionManager::~ActionManager()
 {
 }
 
-Lamp ActionManager::Lamps()
-{
-	return *m_lamps;
-}
+ 
 
 void ActionManager::SetLamps(int *lamps)
 {
+	int i = 0;
+	while (lamps[i] > 0)
+	{
+		Lamp lamp;
+		lamp.LampName = lamps[i];
+		lamp.State = LOW;
+		//LampCollection->Add(&lamp);
+	}
+
+
 	
+	/*int i = 0;
+	while (col[i] >= 0)
+	{
+
+		m_pinBuffer[i][0] = col[i];
+		m_pinBuffer[i][1] = LOW;
+
+		i++;
+	}*/
 }
+
+//Lamps ActionManager::LampsCollection()
+//{
+//	return Lamps();
+//}
 
 
 ActionBase* ActionManager::LoadAction(int index)

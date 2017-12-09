@@ -66,6 +66,9 @@
     <ClInclude Include="Lamp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Lamps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LMSystem.cpp">
@@ -85,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="ActionManager.cpp">
       <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Lamps.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

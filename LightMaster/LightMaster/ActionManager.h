@@ -2,6 +2,9 @@
 #include "IAction.h"
 #include "ActionBase.h"
 #include "LMSystem.h"
+#include "Lamps.h"
+
+
 
 class ActionManager
 {
@@ -11,12 +14,12 @@ public:
 
 	ActionBase* LoadAction(int index);
 	void Execute();
-	Lamp Lamps();
-
+	
 	void SetLamps(int *lamps);
-
+	//Lamps LampsCollection();
 private:
 	Lamp* m_lamps;
 	IAction* m_action;
+	Lamps* LampCollection;
 };
 
