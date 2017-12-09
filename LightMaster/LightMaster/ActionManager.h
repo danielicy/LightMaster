@@ -12,10 +12,12 @@ public:
 	ActionManager();//int &pinbuffer);
 	~ActionManager();
 
+	void AddLamp(Lamp** lamp);
+
 	ActionBase* LoadAction(int index);
 	void Execute();
 	
-	void SetLamps(int *lamps);
+	 
 	//Lamps LampsCollection();
 private:
 	Lamp* m_lamps;

@@ -75,7 +75,7 @@ void Selector::SelectProgram()
 void Selector::LoadColors()
 {
 	int *col = nullptr;
-
+	int i = 0;
 	switch (m_colorIndex)
 	{
 	case 1:
@@ -101,8 +101,20 @@ void Selector::LoadColors()
 	default:
 		break;
 	}
-		
-	m_actionManager->SetLamps(col);	 
+	
+	while (col[i] >= 0)
+	{
+
+			Lamp* lamp = new Lamp();
+			lamp->LampName = col[i];
+			lamp->State = LOW;
+ 
+
+		m_actionManager->AddLamp(&lamp);
+
+		i++;
+	}
+	
 }
 
 void Selector::LoadProgram()

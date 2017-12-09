@@ -27,16 +27,14 @@ ActionManager::~ActionManager()
 
  
 
-void ActionManager::SetLamps(int *lamps)
+void ActionManager::AddLamp(Lamp** lamp)
 {
 	int i = 0;
-	while (lamps[i] > 0)
-	{
-		Lamp lamp;
-		lamp.LampName = lamps[i];
-		lamp.State = LOW;
-		//LampCollection->Add(&lamp);
-	}
+	//while (lamps[i] > 0)
+	//{
+	
+	//	//LampCollection->Add(&lamp);
+	//}
 
 
 	
