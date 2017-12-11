@@ -37,7 +37,7 @@ void ActionManager::AddLamp(Lamp** lamp)
 	//}
 
 
-	
+	LampCollection->Add(lamp);
 	/*int i = 0;
 	while (col[i] >= 0)
 	{
