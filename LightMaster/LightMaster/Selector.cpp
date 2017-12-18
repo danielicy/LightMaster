@@ -74,12 +74,13 @@ void Selector::SelectProgram()
 
 void Selector::LoadColors()
 {
+	int  size;
 	int *col = nullptr;
 	int i = 0;
 	switch (m_colorIndex)
 	{
 	case 1:
-		col = m_colorManager->SetRed();
+		col = m_colorManager->SetRed(size);
 		break;
 	case 2:
 		col = m_colorManager->SetYellow();

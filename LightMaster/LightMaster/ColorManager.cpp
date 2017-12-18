@@ -18,9 +18,10 @@ ColorManager::~ColorManager()
 {
 }
 
-int * ColorManager::SetRed()
+int * ColorManager::SetRed(int & size)
 {	
-	int color[] = { REDPIN };
+	int color[] = { REDPIN };	
+	size = sizeof(color) / sizeof(int);
 	return color;
 }
 

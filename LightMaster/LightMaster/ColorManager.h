@@ -15,7 +15,7 @@ public:
 	ColorManager();
 	~ColorManager();
 	
-	int*  SetRed();
+	int*  SetRed(int & size);
 	int*  SetYellow();
 	int*  SetGreen();
 	int*  SetRedYellow();
