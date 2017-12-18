@@ -76,46 +76,54 @@ void Selector::LoadColors()
 {
 	int  size;
 	int *col = nullptr;
-	int i = 0;
+	
 	switch (m_colorIndex)
 	{
 	case 1:
 		col = m_colorManager->SetRed(size);
 		break;
 	case 2:
-		col = m_colorManager->SetYellow();
+		col = m_colorManager->SetYellow(size);
 		break;
 	case 3:
-		col = m_colorManager->SetGreen();
+		col = m_colorManager->SetGreen(size);
 		break;
 	case 4:
-		col = m_colorManager->SetRedYellow();
+		col = m_colorManager->SetRedYellow(size);
 		break;
 	case 5:
-		col = m_colorManager->SetRedGreen();
+		col = m_colorManager->SetRedGreen(size);
 		break;
 	case 6:
-		col = m_colorManager->SetYellowGreen();
+		col = m_colorManager->SetYellowGreen(size);
 		break;
 	case 7:
-		col = m_colorManager->SetRedYellowGreen();
+		col = m_colorManager->SetRedYellowGreen(size);
 	default:
 		break;
 	}
 	
-	while (col[i] >= 0)
+	Lamp* lamps = new Lamp[size];
+
+	for (int i = 0; i < size; i++)
 	{
-
-			Lamp* lamp = new Lamp();
-			lamp->LampName = col[i];
-			lamp->State = LOW;
- 
-
-		m_actionManager->AddLamp(&lamp);
-
-		i++;
+		lamps[i].LampName = col[i];
+		lamps[i].State = LOW;
 	}
+
+	m_actionManager->AddLamp(&lamps);
 	
+}
+
+void resize(int size,Lamp arr[]) {
+	size_t newSize = size * 2;
+	Lamp* newArr = new Lamp[newSize];
+
+	memcpy(newArr, arr, size * sizeof(int));
+
+	size = newSize;
+	delete[] arr;
+	arr = newArr;
 }
 
 void Selector::LoadProgram()

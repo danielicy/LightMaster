@@ -16,12 +16,12 @@ public:
 	~ColorManager();
 	
 	int*  SetRed(int & size);
-	int*  SetYellow();
-	int*  SetGreen();
-	int*  SetRedYellow();
-	int*  SetRedGreen();
-	int*  SetYellowGreen();
-	int*  SetRedYellowGreen();
+	int*  SetYellow(int & size);
+	int*  SetGreen(int & size);
+	int*  SetRedYellow(int & size);
+	int*  SetRedGreen(int & size);
+	int*  SetYellowGreen(int & size);
+	int*  SetRedYellowGreen(int & size);
 	
 };
 
