@@ -3,6 +3,7 @@
 #include "Arduino.h"
 #else
 #include "stdfax.h"
+#include <stdlib.h>
 #endif
 
  
@@ -75,8 +76,11 @@ void Selector::SelectProgram()
 void Selector::LoadColors()
 {
 	int  size;
-	int *col = nullptr;
-	
+	int *col = new int[20];
+	Lamp* lBuffer = (Lamp*)malloc(sizeof(Lamp)*20);// new Lamp[size];
+	Lamp* lamps = lBuffer;// new Lamp[size];
+
+
 	switch (m_colorIndex)
 	{
 	case 1:
@@ -103,7 +107,6 @@ void Selector::LoadColors()
 		break;
 	}
 	
-	Lamp* lamps = new Lamp[size];
 
 	for (int i = 0; i < size; i++)
 	{
