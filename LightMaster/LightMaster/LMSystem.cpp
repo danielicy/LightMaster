@@ -7,6 +7,7 @@
 
 
 #include "LMSystem.h"
+#include "LampsManager.h"
 #include "Selector.h"
 #include "ColorManager.h"
 
@@ -17,7 +18,8 @@ LMSystem::LMSystem()
 	
 	m_ActionManager = new ActionManager();
 	m_colorManager = new ColorManager();
-	m_selector = new Selector(m_colorManager,m_ActionManager);
+	m_lampsManager = new LampsManager();
+	m_selector = new Selector(m_colorManager,m_ActionManager,m_lampsManager);
  
 #if defined(ARDUINO) && ARDUINO >= 100
 

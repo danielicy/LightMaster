@@ -33,12 +33,15 @@
 
 #include "ColorManager.h"
 
+#include "LampsManager.h"
+
 
 #include "Lamp.h"
 
 class Selector;
 class ActionManager;
 class ColorManager;
+class LampsManager;
 
 class LMSystem
 {
@@ -52,6 +55,7 @@ public:
 private:
 	ActionManager* m_ActionManager;
 	ColorManager* m_colorManager;
+	LampsManager* m_lampsManager;
 	Selector* m_selector;
 	
 	

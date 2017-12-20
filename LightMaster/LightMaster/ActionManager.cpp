@@ -27,7 +27,7 @@ ActionManager::~ActionManager()
 
  
 
-void ActionManager::AddLamp(Lamp** lamp)
+void ActionManager::AddLamp(int* arr,int size)
 {
 	int i = 0;
 	//while (lamps[i] > 0)
@@ -37,7 +37,7 @@ void ActionManager::AddLamp(Lamp** lamp)
 	//}
 
 
-	LampCollection->Add(lamp);
+//	LampCollection->Add(lamp);
 	/*int i = 0;
 	while (col[i] >= 0)
 	{

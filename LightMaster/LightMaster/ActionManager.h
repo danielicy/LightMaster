@@ -12,8 +12,9 @@ public:
 	ActionManager();//int &pinbuffer);
 	~ActionManager();
 
-	void AddLamp(Lamp** lamp);
+	void AddLamp(int * arr, int size);
 
+	
 	ActionBase* LoadAction(int index);
 	void Execute();
 	

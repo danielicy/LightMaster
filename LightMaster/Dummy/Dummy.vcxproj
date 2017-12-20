@@ -209,6 +209,7 @@
     <ClInclude Include="..\LightMaster\Fade.h" />
     <ClInclude Include="..\LightMaster\IAction.h" />
     <ClInclude Include="..\LightMaster\Lamps.h" />
+    <ClInclude Include="..\LightMaster\LampsManager.h" />
     <ClInclude Include="..\LightMaster\LMSystem.h" />
     <ClInclude Include="..\LightMaster\Selector.h" />
     <ClInclude Include="DummySystem.h" />
@@ -250,6 +251,10 @@
     </ClCompile>
     <ClCompile Include="..\LightMaster\Lamps.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\LightMaster\LampsManager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\LightMaster\LMSystem.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>

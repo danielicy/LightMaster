@@ -57,6 +57,9 @@
     <ClInclude Include="..\LightMaster\Lamps.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\LightMaster\LampsManager.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -87,6 +90,9 @@
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\LightMaster\Lamps.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LightMaster\LampsManager.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
   </ItemGroup>

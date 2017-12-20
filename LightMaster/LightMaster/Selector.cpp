@@ -17,6 +17,7 @@
 #define LOW  0x0
 
 #include "ColorManager.h"
+#include "LampsManager.h"
 #include "Selector.h"
 #include "ActionManager.h"
 
@@ -29,10 +30,11 @@ Selector::Selector()
 	m_colorManager = new ColorManager();
 }
 
-Selector::Selector(ColorManager* colorManager, ActionManager* actionManager)
+Selector::Selector(ColorManager* colorManager, ActionManager* actionManager , LampsManager* lampsManager)
 {
 	m_colorManager = colorManager;
 	m_actionManager = actionManager;
+	m_lampsManager = lampsManager;
 }
 
 Selector::~Selector()
@@ -76,11 +78,8 @@ void Selector::SelectProgram()
 void Selector::LoadColors()
 {
 	int  size;
-	int *col = new int[20];
-	Lamp* lBuffer = (Lamp*)malloc(sizeof(Lamp)*20);// new Lamp[size];
-	Lamp* lamps = lBuffer;// new Lamp[size];
-
-
+	int *col= nullptr;
+	
 	switch (m_colorIndex)
 	{
 	case 1:
@@ -106,15 +105,8 @@ void Selector::LoadColors()
 	default:
 		break;
 	}
-	
-
-	for (int i = 0; i < size; i++)
-	{
-		lamps[i].LampName = col[i];
-		lamps[i].State = LOW;
-	}
-
-	m_actionManager->AddLamp(&lamps);
+			
+	m_lampsManager->SetLamps(col, size);	 
 	
 }
 

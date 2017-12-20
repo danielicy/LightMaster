@@ -16,7 +16,7 @@
 #include "ColorManager.h"
 #include "ActionManager.h"
 #include "Lamp.h"
-
+#include "LampsManager.h"
 
 
 
@@ -27,7 +27,7 @@ class Selector
 {
 public:	
 	Selector();
-	Selector(ColorManager* colorManager, ActionManager* actionManager );
+	Selector(ColorManager* colorManager, ActionManager* actionManager, LampsManager* lampsManager);
 	~Selector();
 	void ChangeSelection(int &index, int param);
 	void SelectColors();
@@ -49,6 +49,7 @@ private:
 	
 	ColorManager* m_colorManager;
 	ActionManager* m_actionManager;
+	LampsManager* m_lampsManager;
 };
 
 #endif
