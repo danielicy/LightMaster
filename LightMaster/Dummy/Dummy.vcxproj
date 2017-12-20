@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
@@ -254,7 +254,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\LightMaster\LampsManager.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>
+       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\LightMaster\LMSystem.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>

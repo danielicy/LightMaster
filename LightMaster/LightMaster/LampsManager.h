@@ -1,6 +1,7 @@
 #pragma once
 #include "Lamp.h"
 
+
 class LampsManager
 {
 public:
