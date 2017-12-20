@@ -27,33 +27,6 @@ ActionManager::~ActionManager()
 
  
 
-void ActionManager::AddLamp(int* arr,int size)
-{
-	int i = 0;
-	//while (lamps[i] > 0)
-	//{
-	
-	//	//LampCollection->Add(&lamp);
-	//}
-
-
-//	LampCollection->Add(lamp);
-	/*int i = 0;
-	while (col[i] >= 0)
-	{
-
-		m_pinBuffer[i][0] = col[i];
-		m_pinBuffer[i][1] = LOW;
-
-		i++;
-	}*/
-}
-
-//Lamps ActionManager::LampsCollection()
-//{
-//	return Lamps();
-//}
-
 
 ActionBase* ActionManager::LoadAction(int index)
 {
