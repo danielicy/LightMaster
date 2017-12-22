@@ -11,6 +11,7 @@ public:
 	void SetLamps(int  *lampArray, int size);
 
 private:
+	int m_size;
 	Lamp lamps[];
 };
 

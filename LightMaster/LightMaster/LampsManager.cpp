@@ -13,6 +13,7 @@
 
 LampsManager::LampsManager()
 {
+	m_size = 0;
 }
 
 LampsManager::~LampsManager()
@@ -21,14 +22,16 @@ LampsManager::~LampsManager()
 
 void LampsManager::SetLamps(int *lampArray, int size)
 {
-	//TO DO: Clear lamps
+	 
+	//resets lamps
+	memset(lamps, 0, sizeof(Lamp)*m_size);
 	
-
 	for (int i = 0; i < size; i++)
 	{
 		  lamps[i].LampName = lampArray[i];
 		 lamps[i].State = 0;
 	}  
+	m_size = size;
 }
 
 void resize(int size, Lamp arr[]) {
