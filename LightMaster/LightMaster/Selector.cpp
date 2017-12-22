@@ -32,8 +32,8 @@ Selector::Selector()
 
 Selector::Selector(ColorManager* colorManager, ActionManager* actionManager , LampsManager* lampsManager)
 {
-	m_colorManager = colorManager;
 	m_actionManager = actionManager;
+	m_colorManager = colorManager;	
 	m_lampsManager = lampsManager;
 }
 
@@ -78,7 +78,9 @@ void Selector::SelectProgram()
 void Selector::LoadColors()
 {
 	int  size;
-	int *col= nullptr;
+	int *col = nullptr;
+	int* buffer = new int[20];
+
 	
 	switch (m_colorIndex)
 	{
@@ -105,21 +107,14 @@ void Selector::LoadColors()
 	default:
 		break;
 	}
-			
-	m_lampsManager->SetLamps(col, size);	 
+
+	memcpy(buffer, col, size * sizeof(int));
+	m_lampsManager->SetLamps(buffer, size);	
+	free( buffer);
 	
 }
 
-void resize(int size,Lamp arr[]) {
-	size_t newSize = size * 2;
-	Lamp* newArr = new Lamp[newSize];
 
-	memcpy(newArr, arr, size * sizeof(int));
-
-	size = newSize;
-	delete[] arr;
-	arr = newArr;
-}
 
 void Selector::LoadProgram()
 {

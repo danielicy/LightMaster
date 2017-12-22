@@ -8,7 +8,7 @@ public:
 	LampsManager();
 	~LampsManager();
 
-	void SetLamps(int * arr, int size);
+	void SetLamps(int  *lampArray, int size);
 
 private:
 	Lamp lamps[];
