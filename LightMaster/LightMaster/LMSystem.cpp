@@ -21,6 +21,10 @@ LMSystem::LMSystem()
 	m_lampsManager = new LampsManager();
 	m_selector = new Selector(m_colorManager,m_ActionManager,m_lampsManager);
  
+	m_selector->SelectColors();
+	m_selector->SelectProgram();
+	
+
 #if defined(ARDUINO) && ARDUINO >= 100
 
 	Serial.begin(9600);
@@ -96,6 +100,7 @@ bool LMSystem::IsBtnPressed(int btn)
 
 void LMSystem::DoWork(char c)
 {
+	int i = 0;
  if (IsBtnPressed(PRGBTN) || c =='p')
 	{
 		//Serial.println("program selection changed:");
@@ -116,9 +121,13 @@ void LMSystem::DoWork(char c)
 #else
  
 #endif
+	while (i<10)
+	{
+		m_ActionManager->Execute();
+		i++;
+	}
 		
-		
-	m_ActionManager->Execute();
+	
 }
  
 void LMSystem::TurnOffPreviousPin()

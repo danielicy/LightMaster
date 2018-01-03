@@ -12,7 +12,7 @@ public:
 	ActionManager();//int &pinbuffer);
 	~ActionManager();
 			
-	ActionBase* LoadAction(int index);
+	ActionBase* LoadAction(int index, Lamp * Lamp);
 	void Execute();
 	
 	 

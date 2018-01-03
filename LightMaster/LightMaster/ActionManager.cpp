@@ -6,6 +6,7 @@
 #endif
 
 #include "ActionManager.h"
+#include "LampsManager.h"
 #include "Fade.h"
 
 
@@ -28,14 +29,14 @@ ActionManager::~ActionManager()
  
 
 
-ActionBase* ActionManager::LoadAction(int index)
+ActionBase* ActionManager::LoadAction(int index,Lamp * lamp)
 {
 	ActionBase* _action = nullptr;
 
 	switch (index)
 	{
 	case 1:
-		m_action = new Fade(m_lamps);
+		m_action = new Fade(lamp);
 		break;
 	case 2:
 		//Fade(YELLOWPIN);

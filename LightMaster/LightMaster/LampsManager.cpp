@@ -34,6 +34,11 @@ void LampsManager::SetLamps(int *lampArray, int size)
 	m_size = size;
 }
 
+Lamp * LampsManager::GetLamps()
+{
+	return  lamps;
+}
+
 void resize(int size, Lamp arr[]) {
 	size_t newSize = size * 2;
 	Lamp* newArr = new Lamp[newSize];

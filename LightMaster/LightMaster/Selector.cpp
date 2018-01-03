@@ -110,7 +110,7 @@ void Selector::LoadColors()
 
 	memcpy(buffer, col, size * sizeof(int));
 	m_lampsManager->SetLamps(buffer, size);	
-	free( buffer);
+	//free( buffer);
 	
 }
 
@@ -118,7 +118,7 @@ void Selector::LoadColors()
 
 void Selector::LoadProgram()
 {
-	m_actionManager->LoadAction(m_progIndex);
+	m_actionManager->LoadAction(m_progIndex,m_lampsManager->GetLamps());
 }
 
 
