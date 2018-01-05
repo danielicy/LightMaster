@@ -8,10 +8,10 @@
 #include "ActionBase.h"
 #include "Lamp.h"
 
-ActionBase::ActionBase(Lamp *lamps)
+ActionBase::ActionBase(LampsManager* lampsManager)
 {
 	
-	m_lamps = lamps;
+	m_lampsManager = lampsManager;
 }
 
 

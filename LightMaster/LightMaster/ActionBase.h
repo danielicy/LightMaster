@@ -2,16 +2,17 @@
 
 #include "IAction.h"
 #include "Lamp.h"
+#include "LampsManager.h"
 
 class ActionBase : public IAction
 {
 public:
-	ActionBase(Lamp *lamps);
+	ActionBase(LampsManager* lampsManager);
 	~ActionBase();
 	 
 	virtual	void Execute() = 0;
 
 protected:
-	Lamp *m_lamps;
+	LampsManager* m_lampsManager;
 };
 

@@ -6,10 +6,10 @@
 #endif
 
 #include "Fade.h"
+#include "LampsManager.h"
 #include "Lamp.h"
 
-
-Fade::Fade(Lamp *lamps) :ActionBase(lamps)
+Fade::Fade(LampsManager* lampsNamager) :ActionBase(lampsNamager)
 {
 }
 
@@ -20,7 +20,7 @@ Fade::~Fade()
 
 void Fade::Execute()
 {
-	 
+	Lamp* lamp = m_lampsManager->GetLamps();
 	/*Serial.println("Fading:");
 	delay(10000);*/
 	/*

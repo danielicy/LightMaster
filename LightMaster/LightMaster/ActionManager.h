@@ -3,22 +3,20 @@
 #include "ActionBase.h"
 #include "LMSystem.h"
 #include "Lamps.h"
-
+#include "LampsManager.h"
 
 
 class ActionManager
 {
 public:
-	ActionManager();//int &pinbuffer);
+	ActionManager(LampsManager* m_lampManager);//int &pinbuffer);
 	~ActionManager();
 			
-	ActionBase* LoadAction(int index, Lamp * Lamp);
-	void Execute();
-	
-	 
+	ActionBase* LoadAction(int index);
+	void Execute();	 
 	
 private:
-	Lamp* m_lamps;
+	LampsManager* m_lampManager;
 	IAction* m_action;
 	
 };

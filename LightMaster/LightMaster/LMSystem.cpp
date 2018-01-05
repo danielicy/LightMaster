@@ -15,10 +15,10 @@
 
 LMSystem::LMSystem()
 {
-	
-	m_ActionManager = new ActionManager();
-	m_colorManager = new ColorManager();
 	m_lampsManager = new LampsManager();
+	m_ActionManager = new ActionManager(m_lampsManager);
+	m_colorManager = new ColorManager();
+	
 	m_selector = new Selector(m_colorManager,m_ActionManager,m_lampsManager);
  
 	m_selector->SelectColors();

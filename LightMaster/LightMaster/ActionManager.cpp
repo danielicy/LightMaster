@@ -16,9 +16,9 @@
 
 
 //https://stackoverflow.com/questions/8767166/passing-a-2d-array-to-a-c-function
-ActionManager::ActionManager()
+ActionManager::ActionManager(LampsManager* lampManager)
 {
-	
+	m_lampManager = lampManager;
 }
 
 
@@ -29,14 +29,14 @@ ActionManager::~ActionManager()
  
 
 
-ActionBase* ActionManager::LoadAction(int index,Lamp * lamp)
+ActionBase* ActionManager::LoadAction(int index)
 {
 	ActionBase* _action = nullptr;
-
+	 
 	switch (index)
 	{
 	case 1:
-		m_action = new Fade(lamp);
+		m_action = new Fade(m_lampManager);
 		break;
 	case 2:
 		//Fade(YELLOWPIN);
