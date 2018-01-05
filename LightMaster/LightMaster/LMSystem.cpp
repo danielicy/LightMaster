@@ -117,15 +117,15 @@ void LMSystem::DoWork(char c)
 		//delay(7000);
 	}
 #if defined(ARDUINO) && ARDUINO >= 100
-
+	m_ActionManager->Execute();
 #else
- 
-#endif
 	while (i<10)
 	{
 		m_ActionManager->Execute();
 		i++;
 	}
+#endif
+	
 		
 	
 }
