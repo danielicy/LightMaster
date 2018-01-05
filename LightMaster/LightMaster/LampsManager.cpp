@@ -14,6 +14,7 @@
 LampsManager::LampsManager()
 {
 	m_size = 0;
+	m_CurrentIndex = 0;
 }
 
 LampsManager::~LampsManager()
@@ -34,9 +35,18 @@ void LampsManager::SetLamps(int *lampArray, int size)
 	m_size = size;
 }
 
-Lamp * LampsManager::GetLamps()
+
+
+Lamp LampsManager::MoveNext()
 {
-	return  lamps;
+	m_CurrentIndex++;
+
+	if (m_CurrentIndex== m_size)
+	{
+		m_CurrentIndex = 0;
+	}
+ 
+	return lamps[m_CurrentIndex];
 }
 
 void resize(int size, Lamp arr[]) {

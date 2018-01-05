@@ -20,7 +20,7 @@ Fade::~Fade()
 
 void Fade::Execute()
 {
-	Lamp* lamp = m_lampsManager->GetLamps();
+	Lamp lamp = m_lampsManager->MoveNext();
 	/*Serial.println("Fading:");
 	delay(10000);*/
 	/*
