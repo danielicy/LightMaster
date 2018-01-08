@@ -3,6 +3,7 @@
 #include "IAction.h"
 #include "Lamp.h"
 #include "LampsManager.h"
+#include "OutputManger.h"
 
 class ActionBase : public IAction
 {
@@ -14,5 +15,7 @@ public:
 
 protected:
 	LampsManager* m_lampsManager;
+	COutputManger* m_outputManager;
+	int fadeAmount = 5;
 };
 

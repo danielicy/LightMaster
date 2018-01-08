@@ -35,6 +35,11 @@ void LampsManager::SetLamps(int *lampArray, int size)
 	m_size = size;
 }
 
+void LampsManager::SetCurrentLampState(int state)
+{
+	lamps[m_CurrentIndex].State = state;
+}
+
 
 
 Lamp LampsManager::MoveNext()
@@ -46,6 +51,11 @@ Lamp LampsManager::MoveNext()
 		m_CurrentIndex = 0;
 	}
  
+	return lamps[m_CurrentIndex];
+}
+
+Lamp LampsManager::GetCurrentLamp()
+{
 	return lamps[m_CurrentIndex];
 }
 

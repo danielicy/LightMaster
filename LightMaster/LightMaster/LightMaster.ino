@@ -5,6 +5,8 @@
 */
 
 // the setup function runs once when you press reset or power the board
+#include "OutputManger.h"
+
 #include "Selector.h"
 #include "LMSystem.h"
 

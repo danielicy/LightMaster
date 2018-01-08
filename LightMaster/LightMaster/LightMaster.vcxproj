@@ -123,6 +123,7 @@
     <ClInclude Include="Lamps.h" />
     <ClInclude Include="LampsManager.h" />
     <ClInclude Include="LMSystem.h" />
+    <ClInclude Include="OutputManger.h" />
     <ClInclude Include="Selector.h" />
     <ClInclude Include="stdfax.h" />
     <ClInclude Include="targetver.h" />
@@ -136,6 +137,7 @@
     <ClCompile Include="Lamps.cpp" />
     <ClCompile Include="LampsManager.cpp" />
     <ClCompile Include="LMSystem.cpp" />
+    <ClCompile Include="OutputManger.cpp" />
     <ClCompile Include="Selector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
