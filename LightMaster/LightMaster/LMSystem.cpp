@@ -116,18 +116,8 @@ void LMSystem::DoWork(char c)
 		m_selector->SelectColors();
 		//delay(7000);
 	}
-#if defined(ARDUINO) && ARDUINO >= 100
-	m_ActionManager->Execute();
-#else
-	while (i<10)
-	{
-		m_ActionManager->Execute();
-		i++;
-	}
-#endif
-	
-		
-	
+ 
+	m_ActionManager->Execute();	
 }
  
 void LMSystem::TurnOffPreviousPin()
