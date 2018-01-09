@@ -207,11 +207,13 @@
     <ClInclude Include="..\LightMaster\ActionManager.h" />
     <ClInclude Include="..\LightMaster\ColorManager.h" />
     <ClInclude Include="..\LightMaster\Fade.h" />
+    <ClInclude Include="..\LightMaster\Flicker.h" />
     <ClInclude Include="..\LightMaster\IAction.h" />
     <ClInclude Include="..\LightMaster\Lamps.h" />
     <ClInclude Include="..\LightMaster\LampsManager.h" />
     <ClInclude Include="..\LightMaster\LMSystem.h" />
     <ClInclude Include="..\LightMaster\OutputManger.h" />
+    <ClInclude Include="..\LightMaster\Runner.h" />
     <ClInclude Include="..\LightMaster\Selector.h" />
     <ClInclude Include="DummySystem.h" />
     <ClInclude Include="stdafx.h" />
@@ -250,6 +252,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\LightMaster\Flicker.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\LightMaster\Lamps.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>
@@ -276,6 +285,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\LightMaster\Runner.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\LightMaster\Selector.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Virtual|Win32'">NotUsing</PrecompiledHeader>

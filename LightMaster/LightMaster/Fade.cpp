@@ -36,6 +36,9 @@ void Fade::Execute()
 	}
 
 	m_lampsManager->SetCurrentLampState(lamp.State);
+
+
+	m_outputManager->Wait(30);
 	// wait for 30 milliseconds to see the dimming effect
 	//delay(30);
 

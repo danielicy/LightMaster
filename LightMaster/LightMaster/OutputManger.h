@@ -20,6 +20,7 @@ class COutputManger
  public:
 	void init();
 	void DigitalWrite(uint8_t pin,int value);
+	void Wait(int ticks);
 };
 
 extern COutputManger OutputManger;

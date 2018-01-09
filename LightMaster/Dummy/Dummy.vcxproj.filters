@@ -63,6 +63,12 @@
     <ClInclude Include="..\LightMaster\OutputManger.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\LightMaster\Flicker.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LightMaster\Runner.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -99,6 +105,12 @@
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\LightMaster\OutputManger.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LightMaster\Flicker.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LightMaster\Runner.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
   </ItemGroup>

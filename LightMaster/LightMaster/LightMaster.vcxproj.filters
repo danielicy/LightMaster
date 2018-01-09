@@ -75,6 +75,12 @@
     <ClInclude Include="OutputManger.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="Flicker.h">
+      <Filter>Actions\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Runner.h">
+      <Filter>Actions\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LMSystem.cpp">
@@ -103,6 +109,12 @@
     </ClCompile>
     <ClCompile Include="OutputManger.cpp">
       <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Flicker.cpp">
+      <Filter>Actions\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Runner.cpp">
+      <Filter>Actions\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

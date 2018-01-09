@@ -8,7 +8,8 @@
 #include "ActionManager.h"
 #include "LampsManager.h"
 #include "Fade.h"
-
+#include "Flicker.h"
+#include "Runner.h"
 
 #include "Lamp.h"
 #include "Lamps.h"
@@ -39,10 +40,10 @@ ActionBase* ActionManager::LoadAction(int index)
 		m_action = new Fade(m_lampManager);
 		break;
 	case 2:
-		//Fade(YELLOWPIN);
+		m_action = new Flicker(m_lampManager);
 		break;
 	case 3:
-		//Fade(GREENPIN);
+		m_action = new Runner(m_lampManager);
 		break;
 	case 4:
 		//DisolveTwo(REDPIN, YELLOWPIN);
