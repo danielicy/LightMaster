@@ -40,7 +40,10 @@ void LampsManager::SetCurrentLampState(int state)
 	lamps[m_CurrentIndex].State = state;
 }
 
-
+void LampsManager::SetLampState(int lamp, int state)
+{	 
+	lamps[lamp].State = state;
+}
 
 Lamp LampsManager::MoveNext()
 {
@@ -58,6 +61,23 @@ Lamp LampsManager::GetCurrentLamp()
 {
 	return lamps[m_CurrentIndex];
 }
+
+int LampsManager::GetSize()
+{
+	return m_size;
+}
+
+Lamp * LampsManager::GetLamps()
+{
+	return lamps;
+}
+
+Lamp LampsManager::GetLamp(int idx)
+{
+	return lamps[idx];
+}
+
+ 
 
 void resize(int size, Lamp arr[]) {
 	size_t newSize = size * 2;

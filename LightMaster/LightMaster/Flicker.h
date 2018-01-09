@@ -12,5 +12,8 @@ public:
 
 	// Inherited via ActionBase
 	virtual void Execute() override;
+
+private:
+	bool m_isEven;
 };
 
