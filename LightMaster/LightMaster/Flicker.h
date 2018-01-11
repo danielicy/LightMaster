@@ -14,6 +14,7 @@ public:
 	virtual void Execute() override;
 
 private:
-	bool m_isEven;
+	void ProcessLamp(int index);
+	int m_lastLampState;
 };
 

@@ -18,25 +18,34 @@ void Flicker::Execute()
 {
 
 	int size = m_lampsManager->GetSize();
-
-	m_isEven = !m_isEven;
-
-	Lamp* lamps = m_lampsManager->GetLamps();
-
-	if (size % 2 == 0)
-	{
 		
-	}
-	else
+
+	for (int indx = 0; indx < size; indx+=2)
 	{
-		
+		ProcessLamp(indx);
+
+		if (indx < size - 1)
+		{
+			ProcessLamp(indx + 1);
+		}		
 	}
 
-	for (int indx = 0; indx < size; indx++)
-	{
-		Lamp lamp = m_lampsManager->GetLamp(indx);
-
-		m_outputManager->DigitalWrite(lamp.LampName,lamp.State);
+	// reverse the direction of the fading at the ends of the fade:
+	if (m_lastLampState <= 0 || m_lastLampState >= 255) {
+		fadeAmount = -fadeAmount;
 	}
 
+
+}
+
+void Flicker::ProcessLamp(int index)
+{
+	Lamp lamp1 = m_lampsManager->GetLamp(index);
+
+	m_lastLampState = lamp1.State = lamp1.State + fadeAmount;
+
+	m_outputManager->DigitalWrite(lamp1.LampName, lamp1.State);
+
+	m_lampsManager->SetLampState(index, lamp1.State);
+	
 }
