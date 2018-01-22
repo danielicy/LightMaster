@@ -5,13 +5,39 @@
 #include "stdfax.h"
 #endif
 
-
+#include "Wire.h"
 #include "LMSystem.h"
 #include "LampsManager.h"
 #include "Selector.h"
 #include "ColorManager.h"
 
+//https://github.com/esp8266/Arduino
+//http://www.esp8266learning.com/esp8266-mcp23017-example.php
 
+
+void SetWire()
+{
+	Wire.begin(); // wake up I2C bus
+				  // set I/O pins to outputs
+	Wire.beginTransmission(0x20);
+	Wire.write(0x00); // IODIRA register
+	Wire.write(0x00); // set all of port A to outputs
+	Wire.endTransmission();
+}
+
+void WriteWire()
+{
+	Wire.beginTransmission(0x20);
+	Wire.write(0x12); // address bank A
+	Wire.write((byte)0xAA); // value to send
+	Wire.endTransmission();
+	delay(500);
+	Wire.beginTransmission(0x20);
+	Wire.write(0x12); // address bank A
+	Wire.write((byte)0x55); // value to send
+	Wire.endTransmission();
+	delay(500);
+}
 
 LMSystem::LMSystem()
 {
@@ -39,6 +65,8 @@ LMSystem::LMSystem()
 	 
 	DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);	
 #endif
+
+	SetWire();
 
 }
 
@@ -128,6 +156,3 @@ void LMSystem::TurnOffPreviousPin()
 #endif
 
 }
-
-
- 
