@@ -22,8 +22,8 @@
 
 // LM_System.h
 #ifndef PRGBTN
-#define PRGBTN 2
-#define COLRBTN 6
+#define PRGBTN 12 //D6
+#define COLRBTN 13 //D7
 #endif
 
 #define PINCNT 20

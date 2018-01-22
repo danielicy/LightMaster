@@ -15,9 +15,9 @@
 */
 
 #ifndef REDPIN
-#define REDPIN  3
-#define YELLOWPIN  4
-#define GREENPIN  5
+#define REDPIN  0 // D3
+#define YELLOWPIN  2 //D4
+#define GREENPIN  14 //D5
 #endif
 
 #define DELAY 1000
