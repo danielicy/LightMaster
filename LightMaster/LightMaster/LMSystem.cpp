@@ -12,11 +12,13 @@
 #include "ColorManager.h"
 
 //https://github.com/esp8266/Arduino
-//http://www.esp8266learning.com/esp8266-mcp23017-example.php
+
 
 
 void SetWire()
 {
+	//setup
+	//http://www.esp8266learning.com/esp8266-mcp23017-example.php
 	Wire.begin(); // wake up I2C bus
 				  // set I/O pins to outputs
 	Wire.beginTransmission(0x20);
@@ -27,6 +29,7 @@ void SetWire()
 
 void WriteWire()
 {
+	//loop
 	Wire.beginTransmission(0x20);
 	Wire.write(0x12); // address bank A
 	Wire.write((byte)0xAA); // value to send
