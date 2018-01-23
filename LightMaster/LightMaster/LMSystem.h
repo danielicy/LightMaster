@@ -5,7 +5,7 @@
 #ifndef _LMSYSTEM_h
 #define _LMSYSTEM_h
 
-/*
+ 
 #define D0 16
 #define D1 5 // I2C Bus SCL (clock)
 #define D2 4 // I2C Bus SDA (data)
@@ -17,13 +17,13 @@
 #define D8 15 // SPI Bus SS (CS)
 #define D9 3 // RX0 (Serial console)
 #define D10 1 // TX0 (Serial console)
-*/
+ 
 
 
 // LM_System.h
 #ifndef PRGBTN
-#define PRGBTN 12 //D6
-#define COLRBTN 13 //D7
+#define PRGBTN D6
+#define COLRBTN D8
 #endif
 
 #define PINCNT 20

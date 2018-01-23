@@ -60,13 +60,13 @@ LMSystem::LMSystem()
 	pinMode(PRGBTN, INPUT);
 	pinMode(COLRBTN, INPUT);
 
-	pinMode(REDPIN, OUTPUT);
+	pinMode(ORANGEPIN, OUTPUT);
 	pinMode(YELLOWPIN, OUTPUT);
 	pinMode(GREENPIN, OUTPUT);
 
 	// set initial LED state
 	 
-	DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);	
+	DigitalWrite(new int[3]{ ORANGEPIN,YELLOWPIN,GREENPIN }, LOW);	
 #endif
 
 	SetWire();

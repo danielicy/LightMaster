@@ -86,23 +86,39 @@ void Selector::LoadColors()
 	{
 	case 1:
 		col = m_colorManager->SetRed(size);
-		break;
+		break;		
 	case 2:
-		col = m_colorManager->SetYellow(size);
+		col = m_colorManager->SetOrange(size);
 		break;
 	case 3:
-		col = m_colorManager->SetGreen(size);
+		col = m_colorManager->SetYellow(size);
 		break;
 	case 4:
-		col = m_colorManager->SetRedYellow(size);
+		col = m_colorManager->SetGreen(size);
 		break;
 	case 5:
-		col = m_colorManager->SetRedGreen(size);
+		col = m_colorManager->SetRedYellow(size);
 		break;
 	case 6:
-		col = m_colorManager->SetYellowGreen(size);
+		col = m_colorManager->SetRedGreen(size);
 		break;
 	case 7:
+		col = m_colorManager->SetYellowGreen(size);
+		break;
+
+	case 8:
+		col = m_colorManager->SetOrangeYellow(size);
+		break;
+	case 9:
+		col = m_colorManager->SetOrangeGreen(size);
+		break;
+	case 10:
+		col = m_colorManager->SetOrangeRed(size);
+		break;
+	case 11:
+		col = m_colorManager->SetOrangeRedYellowGreen(size);
+		break;
+	case 12:
 		col = m_colorManager->SetRedYellowGreen(size);
 	default:
 		break;

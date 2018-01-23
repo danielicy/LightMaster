@@ -1,5 +1,5 @@
 #pragma once
-
+#include "LMSystem.h"
 /*
 #define D0 16
 #define D1 5 // I2C Bus SCL (clock)
@@ -14,10 +14,12 @@
 #define D10 1 // TX0 (Serial console)
 */
 
-#ifndef REDPIN
-#define REDPIN  0 // D3
-#define YELLOWPIN  2 //D4
-#define GREENPIN  14 //D5
+#ifndef ORANGEPIN
+#define REDPIN  D3
+#define ORANGEPIN  D4
+#define YELLOWPIN  D5
+#define GREENPIN  D6
+
 #endif
 
 #define DELAY 1000
@@ -29,11 +31,16 @@ public:
 	~ColorManager();
 	
 	int*  SetRed(int & size);
+	int*  SetOrange(int & size);
 	int*  SetYellow(int & size);
 	int*  SetGreen(int & size);
 	int*  SetRedYellow(int & size);
 	int*  SetRedGreen(int & size);
 	int*  SetYellowGreen(int & size);
+	int * SetOrangeYellow(int & size);
+	int * SetOrangeGreen(int & size);
+	int * SetOrangeRedYellowGreen(int & size);
+	int * SetOrangeRed(int & size);
 	int*  SetRedYellowGreen(int & size);
 	
 };
