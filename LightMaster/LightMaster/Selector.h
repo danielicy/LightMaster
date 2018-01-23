@@ -6,7 +6,7 @@
 
 
 
-#define PROGRAMS_CNT 7
+#define PROGRAMS_CNT 12
 
 #endif
 #ifndef Selector_h
