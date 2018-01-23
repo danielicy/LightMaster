@@ -1,20 +1,22 @@
 
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "Arduino.h"
+
+#include "Wire.h"
 #else
 #include "stdfax.h"
 #endif
 
-#include "Wire.h"
 #include "LMSystem.h"
 #include "LampsManager.h"
 #include "Selector.h"
 #include "ColorManager.h"
+#include "OutputManger.h"
 
 //https://github.com/esp8266/Arduino
 
 
-
+/*
 void SetWire()
 {
 	//setup
@@ -41,9 +43,11 @@ void WriteWire()
 	Wire.endTransmission();
 	delay(500);
 }
-
+*/
 LMSystem::LMSystem()
 {
+	m_outputManager = new COutputManger();
+
 	m_lampsManager = new LampsManager();
 	m_ActionManager = new ActionManager(m_lampsManager);
 	m_colorManager = new ColorManager();
@@ -69,7 +73,7 @@ LMSystem::LMSystem()
 	DigitalWrite(new int[3]{ ORANGEPIN,YELLOWPIN,GREENPIN }, LOW);	
 #endif
 
-	SetWire();
+	//SetWire();
 
 }
 
@@ -101,7 +105,7 @@ bool LMSystem::IsBtnPressed(int btn)
 	{
 		if (buttonState != lastButtonState || buttonState != lastcolorBtn)
 		{
-			Serial.println("button ON");
+			m_outputManager->Log("button ON");
 			retval = true;
 		}
 		else
@@ -111,7 +115,7 @@ bool LMSystem::IsBtnPressed(int btn)
 	}
 	else
 	{
-		Serial.println("off");
+		m_outputManager->Log("off");
 		retval = false;
 	}
 	// Delay a little bit to avoid bouncing
@@ -133,17 +137,17 @@ void LMSystem::DoWork(char c)
 {
 	int i = 0;
  if (IsBtnPressed(PRGBTN) || c =='p')
-	{
-		//Serial.println("program selection changed:");
+ {
+	 m_outputManager->Log("program selection changed:");
 		
-		TurnOffPreviousPin();
+		//TurnOffPreviousPin();
 
 		m_selector->SelectProgram();
 	}
 
 	if (IsBtnPressed(COLRBTN) || c == 'c')
 	{		
-		//Serial.println("Color Button Pressed:");
+		m_outputManager->Log("Color Button Pressed:");
 		m_selector->SelectColors();
 		//delay(7000);
 	}

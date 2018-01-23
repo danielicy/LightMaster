@@ -49,6 +49,7 @@
 
 
 #include "Lamp.h"
+#include "OutputManger.h"
 
 class Selector;
 class ActionManager;
@@ -68,6 +69,7 @@ private:
 	ActionManager* m_ActionManager;
 	ColorManager* m_colorManager;
 	LampsManager* m_lampsManager;
+	COutputManger* m_outputManager;
 	Selector* m_selector;
 	
 	
