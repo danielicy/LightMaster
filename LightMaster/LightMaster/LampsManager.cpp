@@ -13,8 +13,12 @@
 
 LampsManager::LampsManager()
 {
-	m_size = 0;
-	m_CurrentIndex = 0;
+
+	m_size = 1;
+	m_CurrentIndex = 0;	
+	Lamp* tlamps = new Lamp[20];
+	memset(tlamps, -1, sizeof(Lamp)*20);
+	memcpy( lamps, tlamps,20 * sizeof(int));
 }
 
 LampsManager::~LampsManager()
@@ -23,9 +27,19 @@ LampsManager::~LampsManager()
 
 void LampsManager::SetLamps(int *lampArray, int size)
 {
-	 
+	//Lamp* tLamps = new Lamp[size];
+
+	
 	//resets lamps
-	memset(lamps, 0, sizeof(Lamp)*m_size);
+	//memset(lamps, -1, sizeof(Lamp)*m_size);
+	
+	//clears lamps array
+	for (int i = 0; i < m_size; i++)
+	{
+		lamps[i].LampName = -1;
+		lamps[i].State = 0;
+	}
+
 	
 	for (int i = 0; i < size; i++)
 	{
