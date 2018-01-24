@@ -22,7 +22,7 @@
 
 // LM_System.h
 #ifndef PRGBTN
-#define PRGBTN D6
+#define PRGBTN D7
 #define COLRBTN D8
 #endif
 

@@ -47,7 +47,7 @@ void WriteWire()
 LMSystem::LMSystem()
 {
 	m_outputManager = new COutputManger();
-
+	
 	m_lampsManager = new LampsManager();
 	m_ActionManager = new ActionManager(m_lampsManager);
 	m_colorManager = new ColorManager();
@@ -105,7 +105,7 @@ bool LMSystem::IsBtnPressed(int btn)
 	{
 		if (buttonState != lastButtonState || buttonState != lastcolorBtn)
 		{
-			m_outputManager->Log("button ON");
+			m_outputManager->Log("button pressed");
 			retval = true;
 		}
 		else
@@ -116,6 +116,7 @@ bool LMSystem::IsBtnPressed(int btn)
 	else
 	{
 		m_outputManager->Log("off");
+
 		retval = false;
 	}
 	// Delay a little bit to avoid bouncing
@@ -139,8 +140,7 @@ void LMSystem::DoWork(char c)
  if (IsBtnPressed(PRGBTN) || c =='p')
  {
 	 m_outputManager->Log("program selection changed:");
-		
-		//TurnOffPreviousPin();
+	
 
 		m_selector->SelectProgram();
 	}
@@ -148,6 +148,7 @@ void LMSystem::DoWork(char c)
 	if (IsBtnPressed(COLRBTN) || c == 'c')
 	{		
 		m_outputManager->Log("Color Button Pressed:");
+		
 		m_selector->SelectColors();
 		//delay(7000);
 	}
