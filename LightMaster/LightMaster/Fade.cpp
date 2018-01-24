@@ -30,7 +30,7 @@ void Fade::Execute()
 	lamp.State = lamp.State + fadeAmount;
 
 	// reverse the direction of the fading at the ends of the fade:
-	if (lamp.State <= 0 || lamp.State >= 255) {
+	if (lamp.State <= 0 || lamp.State >= MAX_PMW_VAL) {
 		fadeAmount = -fadeAmount;
 		m_lampsManager->MoveNext();
 	}

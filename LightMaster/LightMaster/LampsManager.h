@@ -1,4 +1,7 @@
 #pragma once
+
+#define MAX_PMW_VAL 1023
+
 #include "Lamp.h"
 
 
