@@ -19,7 +19,7 @@ class COutputManger
 
  public:
 	void init();
-	void DigitalWrite(uint8_t pin,int value);
+	void DigitalWrite(int pin,int value);
 	void Wait(int ticks);
 	void Log(char *message);
 };

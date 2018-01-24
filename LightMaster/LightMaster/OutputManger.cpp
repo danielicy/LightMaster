@@ -20,10 +20,15 @@ void COutputManger::init()
 
 }
 
-void COutputManger::DigitalWrite(uint8_t pin, int value)
+void COutputManger::DigitalWrite(int pin, int value)
 {
 #if defined(ARDUINO) && ARDUINO >= 100
 	analogWrite(pin, value);
+	Serial.print("writing: ");
+	Serial.print(pin);
+	Serial.print('#');
+	Serial.println(value);
+	//delay(1000);
 #else
 
 #endif
@@ -33,6 +38,7 @@ void COutputManger::Wait(int ticks)
 {
 #if defined(ARDUINO) && ARDUINO >= 100
 	delay(ticks);
+
 #else
 	Sleep(ticks * 100);
 #endif
