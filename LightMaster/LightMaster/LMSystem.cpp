@@ -71,7 +71,7 @@ LMSystem::LMSystem()
 
 	// set initial LED state
 	 
-	DigitalWrite(new int[3]{ ORANGEPIN,YELLOWPIN,GREENPIN }, LOW);	
+	DigitalWrite(new int[4]{ REDPIN,ORANGEPIN,YELLOWPIN,GREENPIN }, LOW);
 #endif
 
 	//SetWire();
