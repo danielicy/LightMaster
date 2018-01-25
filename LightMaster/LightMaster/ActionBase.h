@@ -16,6 +16,6 @@ public:
 protected:
 	LampsManager* m_lampsManager;
 	COutputManger* m_outputManager;
-	int fadeAmount = 5;
+	int fadeAmount = 100;
 };
 
