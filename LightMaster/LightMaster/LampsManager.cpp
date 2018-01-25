@@ -16,9 +16,7 @@ LampsManager::LampsManager()
 
 	m_size = 1;
 	m_CurrentIndex = 0;	
-	Lamp* tlamps = new Lamp[20];
-	memset(tlamps, -1, sizeof(Lamp)*20);
-	memcpy( lamps, tlamps,20 * sizeof(int));
+	lamps = new Lamp[20];
 }
 
 LampsManager::~LampsManager()
@@ -32,7 +30,7 @@ void LampsManager::SetLamps(int *lampArray, int size)
 	
 	//resets lamps
 	//memset(lamps, -1, sizeof(Lamp)*m_size);
-	
+	//memcpy( lamps, tlamps,20 * sizeof(int));
 	//clears lamps array
 	for (int i = 0; i < m_size; i++)
 	{

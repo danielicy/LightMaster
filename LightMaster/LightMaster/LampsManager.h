@@ -22,6 +22,6 @@ public:
 private:
 	int m_size;
 	int m_CurrentIndex;
-	Lamp lamps[];
+	Lamp* lamps;
 };
 
