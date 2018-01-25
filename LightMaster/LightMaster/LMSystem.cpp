@@ -64,6 +64,7 @@ LMSystem::LMSystem()
 	pinMode(PRGBTN, INPUT);
 	pinMode(COLRBTN, INPUT);
 
+	pinMode(REDPIN, OUTPUT);
 	pinMode(ORANGEPIN, OUTPUT);
 	pinMode(YELLOWPIN, OUTPUT);
 	pinMode(GREENPIN, OUTPUT);
