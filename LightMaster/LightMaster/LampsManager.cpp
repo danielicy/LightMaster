@@ -11,11 +11,12 @@
 #include "LampsManager.h"
 
 
-LampsManager::LampsManager()
+LampsManager::LampsManager(ColorManager* colorManager )
 {
 
 	m_size = 1;
-	m_CurrentIndex = 0;	
+	m_CurrentIndex = 0;
+	m_colorManager = new ColorManager();
 	
 }
 
@@ -23,18 +24,66 @@ LampsManager::~LampsManager()
 {
 }
 
-void LampsManager::SetLamps(int *lampArray, int size)
+void LampsManager::SetLamps(int lampindex)
 {
+	int *col = nullptr;
+	int  size;
+	
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("lampindex: ");
+	Serial.println(lampindex);
+#endif
+	switch (lampindex)
+	{
+	case 1:
+		col = m_colorManager->SetRed(size);
+		break;
+	case 2:
+		col = m_colorManager->SetOrange(size);
+		break;
+	case 3:
+		col = m_colorManager->SetYellow(size);
+		break;
+	case 4:
+		col = m_colorManager->SetGreen(size);
+		break;
+	case 5:
+		col = m_colorManager->SetRedYellow(size);
+		break;
+	case 6:
+		col = m_colorManager->SetRedGreen(size);
+		break;
+	case 7:
+		col = m_colorManager->SetYellowGreen(size);
+		break;
+
+	case 8:
+		col = m_colorManager->SetOrangeYellow(size);
+		break;
+	case 9:
+		col = m_colorManager->SetOrangeGreen(size);
+		break;
+	case 10:
+		col = m_colorManager->SetOrangeRed(size);
+		break;
+	case 11:
+		col = m_colorManager->SetOrangeRedYellowGreen(size);
+		break;
+	case 12:
+		col = m_colorManager->SetRedYellowGreen(size);
+	default:
+		break;
+	}
 	//Lamp* tLamps = new Lamp[size];
 
 	
 	//resets lamps
 	//memset(lamps, -1, sizeof(Lamp)*m_size);
 	//memcpy( lamps, tlamps,20 * sizeof(int));
-	if(lamps != NULL)
-	delete[] lamps;
+	if(m_lamps != NULL)
+	delete[] m_lamps;
 
-	lamps = new Lamp[size];
+	m_lamps = new Lamp[size];
 
 
 
@@ -42,27 +91,27 @@ void LampsManager::SetLamps(int *lampArray, int size)
 	//clears lamps array
 	for (int i = 0; i < m_size; i++)
 	{
-		lamps[i].LampName = -1;
-		lamps[i].State = 0;
+		m_lamps[i].LampName = -1;
+		m_lamps[i].State = 0;
 	}
 
 	
 	for (int i = 0; i < size; i++)
 	{
-		  lamps[i].LampName = lampArray[i];
-		 lamps[i].State = 0;
+		m_lamps[i].LampName = col[i];
+		m_lamps[i].State = 0;
 	}  
 	m_size = size;
 }
 
 void LampsManager::SetCurrentLampState(int state)
 {
-	lamps[m_CurrentIndex].State = state;
+	m_lamps[m_CurrentIndex].State = state;
 }
 
 void LampsManager::SetLampState(int lamp, int state)
 {	 
-	lamps[lamp].State = state;
+	m_lamps[lamp].State = state;
 }
 
 Lamp LampsManager::MoveNext()
@@ -73,13 +122,14 @@ Lamp LampsManager::MoveNext()
 	{
 		m_CurrentIndex = 0;
 	}
+	Serial.println(m_CurrentIndex);
  
-	return lamps[m_CurrentIndex];
+	return m_lamps[m_CurrentIndex];
 }
 
 Lamp LampsManager::GetCurrentLamp()
 {
-	return lamps[m_CurrentIndex];
+	return m_lamps[m_CurrentIndex];
 }
 
 int LampsManager::GetSize()
@@ -89,12 +139,12 @@ int LampsManager::GetSize()
 
 Lamp * LampsManager::GetLamps()
 {
-	return lamps;
+	return m_lamps;
 }
 
 Lamp LampsManager::GetLamp(int idx)
 {
-	return lamps[idx];
+	return m_lamps[idx];
 }
 
  

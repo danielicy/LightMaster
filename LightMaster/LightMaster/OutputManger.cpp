@@ -20,14 +20,21 @@ void COutputManger::init()
 
 }
 
-void COutputManger::DigitalWrite(int pin, int value)
+void COutputManger::AnaloglWrite(int pin, int value)
 {
 #if defined(ARDUINO) && ARDUINO >= 100
-	analogWrite(pin, value);
 	Serial.print("writing: ");
 	Serial.print(pin);
 	Serial.print('#');
 	Serial.println(value);
+
+	analogWrite(pin, value);
+
+	Serial.print("wrote: ");
+	Serial.print(pin);
+	Serial.print('#');
+	Serial.println(value);
+	
 	//delay(1000);
 #else
 
@@ -48,7 +55,7 @@ void COutputManger::Log(char *message)
 {
 #if defined(ARDUINO) && ARDUINO >= 100
 	Serial.println(message);
-	delay(1000);
+//	delay(1000);
 #else
 	cout << message << endl;
 #endif

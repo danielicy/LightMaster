@@ -6,24 +6,24 @@
 #define _LMSYSTEM_h
 
  
-#define D0 16
-#define D1 5 // I2C Bus SCL (clock)
-#define D2 4 // I2C Bus SDA (data)
-#define D3 0
-#define D4 2 // Same as "LED_BUILTIN", but inverted logic
-#define D5 14 // SPI Bus SCK (clock)
-#define D6 12 // SPI Bus MISO
-#define D7 13 // SPI Bus MOSI
-#define D8 15 // SPI Bus SS (CS)
-#define D9 3 // RX0 (Serial console)
-#define D10 1 // TX0 (Serial console)
+#define D_0 16
+#define D_1 5 // I2C Bus SCL (clock)
+#define D_2 4 // I2C Bus SDA (data)
+#define D_3 0
+#define D_4 2 // Same as "LED_BUILTIN", but inverted logic
+#define D_5 14 // SPI Bus SCK (clock)
+#define D_6 12 // SPI Bus MISO
+#define D_7 13 // SPI Bus MOSI
+#define D_8 15 // SPI Bus SS (CS)
+#define D_9 3 // RX0 (Serial console)
+#define D_10 1 // TX0 (Serial console)
  
 
 
 // LM_System.h
 #ifndef PRGBTN
-#define PRGBTN D7
-#define COLRBTN D8
+#define PRGBTN D_7
+#define COLRBTN D_8
 #endif
 
 #define PINCNT 20
@@ -63,7 +63,7 @@ public:
 	LMSystem();	
 	~LMSystem();
 	void DoWork(char c);	
-	void TurnOffPreviousPin(); 
+	
 
 private:
 	ActionManager* m_ActionManager;
@@ -80,7 +80,7 @@ private:
 	int lastcolorBtn = LOW;
 	
 		
-	int previouspin = 0;
+	
 
 	// the following variables are unsigned longs because the time, measured in
 	// milliseconds, will quickly become a bigger number than can be stored in an int.

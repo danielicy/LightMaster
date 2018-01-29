@@ -47,12 +47,13 @@ void WriteWire()
 LMSystem::LMSystem()
 {
 	m_outputManager = new COutputManger();
-	
-	m_lampsManager = new LampsManager();
-	m_ActionManager = new ActionManager(m_lampsManager);
+
 	m_colorManager = new ColorManager();
+	m_lampsManager = new LampsManager(m_colorManager);
+	m_ActionManager = new ActionManager(m_lampsManager);
 	
-	m_selector = new Selector(m_colorManager,m_ActionManager,m_lampsManager);
+	
+	m_selector = new Selector(m_ActionManager,m_lampsManager);
  
 	m_selector->SelectColors();
 	m_selector->SelectProgram();
@@ -137,7 +138,7 @@ bool LMSystem::IsBtnPressed(int btn)
 
 void LMSystem::DoWork(char c)
 {
-	int i = 0;
+	/*int i = 0;
  if (IsBtnPressed(PRGBTN) || c =='p')
  {
 	 m_outputManager->Log("program selection changed:");
@@ -152,16 +153,9 @@ void LMSystem::DoWork(char c)
 		
 		m_selector->SelectColors();
 		//delay(7000);
-	}
+	}*/
  
 	m_ActionManager->Execute();	
 }
  
-void LMSystem::TurnOffPreviousPin()
-{
-#if defined(ARDUINO) && ARDUINO >= 100
- 	//turns off previouspin
-	analogWrite(previouspin, LOW);
-#endif
 
-}

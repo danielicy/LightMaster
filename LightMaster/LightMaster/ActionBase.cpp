@@ -7,6 +7,8 @@
 
 #include "ActionBase.h"
 #include "Lamp.h"
+#include "LampsManager.h"
+
 
 ActionBase::ActionBase(LampsManager* lampsManager)
 {

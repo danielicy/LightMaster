@@ -15,10 +15,10 @@
 */
 
 #ifndef ORANGEPIN
-#define REDPIN  D3
-#define ORANGEPIN  D4
-#define YELLOWPIN  D5
-#define GREENPIN  D6
+#define REDPIN  D_3
+#define ORANGEPIN  D_4
+#define YELLOWPIN  D_5
+#define GREENPIN  D_6
 
 #endif
 

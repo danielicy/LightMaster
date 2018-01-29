@@ -5,6 +5,8 @@
 #include "LampsManager.h"
 #include "OutputManger.h"
 
+class LampsManager;
+
 class ActionBase : public IAction
 {
 public:
@@ -16,6 +18,7 @@ public:
 protected:
 	LampsManager* m_lampsManager;
 	COutputManger* m_outputManager;
-	int fadeAmount = 100;
+	int fadeAmount = 5;
+	Lamp  m_currentLamp;
 };
 
