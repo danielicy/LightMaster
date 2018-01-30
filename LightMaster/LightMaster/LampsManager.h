@@ -21,7 +21,7 @@ public:
 	Lamp GetLamp(int idx);
 private:
 	int m_size;
-	int m_CurrentIndex;
-	Lamp* lamps;
+ 	volatile int m_CurrentIndex;
+	volatile Lamp* lamps;
 };
 
