@@ -31,10 +31,10 @@ void LampsManager::SetLamps(int *lampArray, int size)
 	//resets lamps
 	//memset(lamps, -1, sizeof(Lamp)*m_size);
 	//memcpy( lamps, tlamps,20 * sizeof(int));
-	if(lamps != NULL)
-	delete[] lamps;
+	if(m_lamps != NULL)
+	delete[] m_lamps;
 
-	lamps = new Lamp[size];
+	m_lamps = new Lamp[size];
 
 
 
@@ -42,27 +42,27 @@ void LampsManager::SetLamps(int *lampArray, int size)
 	//clears lamps array
 	for (int i = 0; i < m_size; i++)
 	{
-		lamps[i].LampName = -1;
-		lamps[i].State = 0;
+		m_lamps[i].LampName = -1;
+		m_lamps[i].State = 0;
 	}
 
 	
 	for (int i = 0; i < size; i++)
 	{
-		  lamps[i].LampName = lampArray[i];
-		 lamps[i].State = 0;
+		  m_lamps[i].LampName = lampArray[i];
+		 m_lamps[i].State = 0;
 	}  
 	m_size = size;
 }
 
 void LampsManager::SetCurrentLampState(int state)
 {
-	lamps[m_CurrentIndex].State = state;
+	m_lamps[m_CurrentIndex].State = state;
 }
 
 void LampsManager::SetLampState(int lamp, int state)
 {	 
-	lamps[lamp].State = state;
+	m_lamps[lamp].State = state;
 }
 
 Lamp LampsManager::MoveNext()
@@ -74,12 +74,12 @@ Lamp LampsManager::MoveNext()
 		m_CurrentIndex = 0;
 	}
  
-	return lamps[m_CurrentIndex];
+	return m_lamps[m_CurrentIndex];
 }
 
 Lamp LampsManager::GetCurrentLamp()
 {
-	return lamps[m_CurrentIndex];
+	return m_lamps[m_CurrentIndex];
 }
 
 int LampsManager::GetSize()
@@ -89,12 +89,12 @@ int LampsManager::GetSize()
 
 Lamp * LampsManager::GetLamps()
 {
-	return lamps;
+	return m_lamps;
 }
 
 Lamp LampsManager::GetLamp(int idx)
 {
-	return lamps[idx];
+	return m_lamps[idx];
 }
 
  

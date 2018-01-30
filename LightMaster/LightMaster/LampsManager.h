@@ -22,6 +22,6 @@ public:
 private:
 	int m_size;
  	volatile int m_CurrentIndex;
-	volatile Lamp* lamps;
+	Lamp* m_lamps;
 };
 
