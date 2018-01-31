@@ -44,6 +44,17 @@ void WriteWire()
 	delay(500);
 }
 */
+
+
+void handleProgramButton() {
+	// void (*)(void)
+	//LMSystem::ProgramBtnPressed();
+}
+
+void handleColorButton() {
+
+}
+
 LMSystem::LMSystem()
 {
 	m_outputManager = new COutputManger();
@@ -62,8 +73,16 @@ LMSystem::LMSystem()
 #if defined(ARDUINO) && ARDUINO >= 100
 
 	Serial.begin(9600);
-	pinMode(PRGBTN, INPUT);
-	pinMode(COLRBTN, INPUT);
+	pinMode(PRGBTN, INPUT_PULLUP);
+	pinMode(COLRBTN, INPUT_PULLUP);
+
+	attachInterrupt(digitalPinToInterrupt(PRGBTN), handleProgramButton, FALLING);  
+	attachInterrupt(digitalPinToInterrupt(COLRBTN), handleColorButton, FALLING);
+
+
+	/*
+  pinMode(interruptPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(interruptPin), handleInterrupt, FALLING);*/
 
 	pinMode(REDPIN, OUTPUT);
 	pinMode(ORANGEPIN, OUTPUT);
@@ -78,6 +97,9 @@ LMSystem::LMSystem()
 	//SetWire();
 
 }
+
+
+
 
 LMSystem::~LMSystem()
 {
@@ -135,6 +157,18 @@ bool LMSystem::IsBtnPressed(int btn)
 	return retval;
 
 }
+
+void LMSystem::ProgramBtnPressed()
+{
+	m_selector->SelectProgram();
+}
+
+void LMSystem::ColorBtnPressed()
+{
+	m_selector->SelectColors();
+}
+
+
 
 void LMSystem::DoWork(char c)
 {

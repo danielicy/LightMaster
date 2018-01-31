@@ -92,8 +92,8 @@ private:
 		 
 	void DigitalWrite(int pins[], int value);
 	bool IsBtnPressed(int btn);
-
-	 
+	void ProgramBtnPressed();
+	void ColorBtnPressed();
 	
 	
 };

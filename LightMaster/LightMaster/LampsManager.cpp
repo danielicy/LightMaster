@@ -122,6 +122,7 @@ Lamp LampsManager::MoveNext()
 	{
 		m_CurrentIndex = 0;
 	}
+
 	Serial.println(m_CurrentIndex);
  
 	return m_lamps[m_CurrentIndex];
