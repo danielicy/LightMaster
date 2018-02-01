@@ -123,8 +123,13 @@ Lamp LampsManager::MoveNext()
 		m_CurrentIndex = 0;
 	}
 
-	Serial.println(m_CurrentIndex);
  
+ 
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("m_CurrentIndex: ");
+	Serial.println(m_CurrentIndex);
+#endif
+
 	return m_lamps[m_CurrentIndex];
 }
 
