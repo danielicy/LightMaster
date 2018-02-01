@@ -135,6 +135,14 @@ Lamp LampsManager::MoveNext()
 
 Lamp LampsManager::GetCurrentLamp()
 {
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("m_CurrentIndex: ");
+	Serial.println(m_CurrentIndex);
+	Lamp i = m_lamps[m_CurrentIndex];
+	Serial.print("m_CurrentIndex: ");
+	Serial.println(i.LampName);
+#endif
+
 	return m_lamps[m_CurrentIndex];
 }
 
