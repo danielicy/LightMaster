@@ -45,13 +45,18 @@ void WriteWire()
 }
 */
 
+volatile byte programInterruptCnt=0;
+volatile byte colorInterruptCnt=0;
 
 void handleProgramButton() {
-	// void (*)(void)
-	//LMSystem::ProgramBtnPressed();
+
+	programInterruptCnt++;
+
 }
 
 void handleColorButton() {
+
+	colorInterruptCnt++;
 
 }
 
@@ -76,7 +81,7 @@ LMSystem::LMSystem()
 	pinMode(PRGBTN, INPUT_PULLUP);
 	pinMode(COLRBTN, INPUT_PULLUP);
 
-	attachInterrupt(digitalPinToInterrupt(PRGBTN), handleProgramButton, FALLING);  
+	attachInterrupt(digitalPinToInterrupt(PRGBTN), handleProgramButton, FALLING);
 	attachInterrupt(digitalPinToInterrupt(COLRBTN), handleColorButton, FALLING);
 
 
@@ -118,56 +123,6 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 
 }
 
-bool LMSystem::IsBtnPressed(int btn)
-{ 
-	bool retval = false;
-#if defined(ARDUINO) && ARDUINO >= 100
- // read the pushbutton input pin:
-	 buttonState = digitalRead(btn);	 
-		 
-	if (buttonState == HIGH)
-	{
-		if (buttonState != lastButtonState || buttonState != lastcolorBtn)
-		{
-			m_outputManager->Log("button pressed");
-			retval = true;
-		}
-		else
-		{
-			retval = false;
-		}
-	}
-	else
-	{
-		m_outputManager->Log("off");
-
-		retval = false;
-	}
-	// Delay a little bit to avoid bouncing
-	delay(50);
-	if(btn == PRGBTN)
-	lastButtonState = buttonState;
-
-	if (btn == COLRBTN)
-		lastcolorBtn = buttonState;
-#endif
-
-	
-
-	return retval;
-
-}
-
-void LMSystem::ProgramBtnPressed()
-{
-	m_selector->SelectProgram();
-}
-
-void LMSystem::ColorBtnPressed()
-{
-	m_selector->SelectColors();
-}
-
 
 
 void LMSystem::DoWork(char c)
@@ -189,6 +144,20 @@ void LMSystem::DoWork(char c)
 		//delay(7000);
 	}*/
  
+	if (programInterruptCnt > 0) {
+
+		programInterruptCnt--;
+		m_selector->SelectProgram();
+		
+	}
+
+	if (colorInterruptCnt > 0) {
+
+		colorInterruptCnt--;
+		m_selector->SelectColors();
+		
+	}
+
 	m_ActionManager->Execute();	
 }
  
