@@ -45,8 +45,8 @@ void WriteWire()
 }
 */
 
-volatile byte programInterruptCnt=0;
-volatile byte colorInterruptCnt=0;
+volatile byte programInterruptCnt = 1;
+volatile byte colorInterruptCnt = 1;
 
 void handleProgramButton() {
 
@@ -70,10 +70,7 @@ LMSystem::LMSystem()
 	
 	
 	m_selector = new Selector(m_ActionManager,m_lampsManager);
- 
-	m_selector->SelectColors();
-	m_selector->SelectProgram();
-	
+ 	
 
 #if defined(ARDUINO) && ARDUINO >= 100
 
@@ -85,20 +82,16 @@ LMSystem::LMSystem()
 	attachInterrupt(digitalPinToInterrupt(COLRBTN), handleColorButton, FALLING);
 
 
-	/*
-  pinMode(interruptPin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(interruptPin), handleInterrupt, FALLING);*/
-
 	pinMode(REDPIN, OUTPUT);
 	pinMode(ORANGEPIN, OUTPUT);
 	pinMode(YELLOWPIN, OUTPUT);
 	pinMode(GREENPIN, OUTPUT);
 
-	// set initial LED state
-	 
+	// set initial LED state	 
 	DigitalWrite(new int[4]{ REDPIN,ORANGEPIN,YELLOWPIN,GREENPIN }, LOW);
 #endif
 
+	
 	//SetWire();
 
 }
@@ -144,6 +137,13 @@ void LMSystem::DoWork(char c)
 		//delay(7000);
 	}*/
  
+	if (colorInterruptCnt > 0) {
+
+		colorInterruptCnt--;
+		m_selector->SelectColors();
+
+	}
+
 	if (programInterruptCnt > 0) {
 
 		programInterruptCnt--;
@@ -151,12 +151,7 @@ void LMSystem::DoWork(char c)
 		
 	}
 
-	if (colorInterruptCnt > 0) {
 
-		colorInterruptCnt--;
-		m_selector->SelectColors();
-		
-	}
 
 	m_ActionManager->Execute();	
 }
