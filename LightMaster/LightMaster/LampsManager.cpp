@@ -26,6 +26,8 @@ LampsManager::~LampsManager()
 
 void LampsManager::SetLamps(int lampindex)
 {
+	
+
 	int *col ;
 	int  size;
 	
@@ -91,10 +93,10 @@ void LampsManager::SetLamps(int lampindex)
 	//resets and disposes previous lamps
 	if (m_lamps != NULL)
 	{
-		for (int i = 0; i < m_size; i++)
-		{
-			m_lamps[i].State = 0;
-		}
+		if (m_size>0)
+			for (int ix = 0; ix < m_size; ix++)
+				m_lamps[ix].State = 0;
+
 		delete[] m_lamps;
 	}
 
