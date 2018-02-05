@@ -85,17 +85,20 @@ void LampsManager::SetLamps(int lampindex)
 
 	Serial.print("col_3: ");
 	Serial.println(col[3]);
-	delay(3500);
+	delay(1000);
 #endif
 	 
 
+	
 
 	//resets and disposes previous lamps
 	if (m_lamps != NULL)
 	{
-		if (m_size>0)
-			for (int ix = 0; ix < m_size; ix++)
-				m_lamps[ix].State = 0;
+		if (m_size > 0)
+	{
+		for (int ix = 0; ix < m_size; ix++)
+			m_lamps[ix].State = 0;
+	}
 
 		delete[] m_lamps;
 	}

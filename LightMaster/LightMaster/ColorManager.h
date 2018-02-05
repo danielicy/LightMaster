@@ -46,7 +46,7 @@ public:
 	int*  SetRedYellowGreen(int & size);
 
 private:
-	int * SetColor(int & size, int color[]);
+	int * SetColor(int  size, int  color[]);
 
 	
 };
