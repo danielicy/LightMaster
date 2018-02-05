@@ -26,56 +26,66 @@ LampsManager::~LampsManager()
 
 void LampsManager::SetLamps(int lampindex)
 {
-	int col[20] = { 0 };
+	int *col ;
 	int  size;
 	
-#if defined(ARDUINO) && ARDUINO >= 100
-	Serial.print("lampindex: ");
-	Serial.println(lampindex);
-#endif
+ 
 	switch (lampindex)
 	{
 	case 1:
-	//	col =   m_colorManager->SetRed(size);
-		memcpy( m_colorManager->SetRed(size),col, size * sizeof(int));
+		col =  m_colorManager->SetRed(size);
+	 
 		break;
 	case 2:
-		//col = { 2 }; m_colorManager->SetOrange(size);
-		memcpy( m_colorManager->SetOrange(size),col, size * sizeof(int));
+		col =   m_colorManager->SetOrange(size);		 
 		break;
 	case 3:
-		//col = m_colorManager->SetYellow(size);
+		col = m_colorManager->SetYellow(size);
 		break;
 	case 4:
-		//col = m_colorManager->SetGreen(size);
+		col = m_colorManager->SetGreen(size);
 		break;
 	case 5:
-		//col = m_colorManager->SetRedYellow(size);
+		col = m_colorManager->SetRedYellow(size);
 		break;
 	case 6:
-		//col = m_colorManager->SetRedGreen(size);
+		col = m_colorManager->SetRedGreen(size);
 		break;
 	case 7:
-		//col = m_colorManager->SetYellowGreen(size);
+		col = m_colorManager->SetYellowGreen(size);
 		break;
-
 	case 8:
-	//	col = m_colorManager->SetOrangeYellow(size);
+		col = m_colorManager->SetOrangeYellow(size);
 		break;
 	case 9:
-		//col = m_colorManager->SetOrangeGreen(size);
+		col = m_colorManager->SetOrangeGreen(size);
 		break;
 	case 10:
-		//col = m_colorManager->SetOrangeRed(size);
+		col = m_colorManager->SetOrangeRed(size);
 		break;
 	case 11:
-		//col = m_colorManager->SetOrangeRedYellowGreen(size);
+		col = m_colorManager->SetRedYellowGreen(size);
 		break;
 	case 12:
-	//	col = m_colorManager->SetRedYellowGreen(size);
+		col = m_colorManager->SetOrangeRedYellowGreen(size);
 	default:
 		break;
 	}
+
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("col: ");
+	Serial.println(col[0]);
+
+	Serial.print("col_1: ");
+	Serial.println(col[1]);
+
+	Serial.print("col_2: ");
+	Serial.println(col[2]);
+
+	Serial.print("col_3: ");
+	Serial.println(col[3]);
+	delay(5000);
+#endif
 	//Lamp* tLamps = new Lamp[size];
 
 	
@@ -88,14 +98,6 @@ void LampsManager::SetLamps(int lampindex)
 	m_lamps = new Lamp[size];
 
 
-
-
-	//clears lamps array
-	/*for (int i = 0; i < m_size; i++)
-	{
-		m_lamps[i].LampName = -1;
-		m_lamps[i].State = 0;
-	}*/
 
 	Serial.print("size:");
 	Serial.println(size);

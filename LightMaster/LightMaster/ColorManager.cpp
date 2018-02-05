@@ -20,9 +20,16 @@ ColorManager::~ColorManager()
 
 int * ColorManager::SetRed(int & size)
 {
-	int color[] = { REDPIN };
-	size = sizeof(color) / sizeof(int);
-	return color;
+
+	int info[] = {REDPIN}; 
+	size = sizeof(info) / sizeof(int);
+	
+	int *ret = new int[size];
+	
+	for (int a = 0; a < size; a++)
+		ret[a] = info[a];
+	
+	return ret;	
 }
 
 int * ColorManager::SetOrange(int & size)
