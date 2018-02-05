@@ -9,7 +9,7 @@
 
 #include "Lamp.h"
 #include "LampsManager.h"
-
+#include "ColorManager.h"
 
 LampsManager::LampsManager(ColorManager* colorManager )
 {
@@ -26,20 +26,20 @@ LampsManager::~LampsManager()
 
 void LampsManager::SetLamps(int lampindex)
 {
-	int *col = nullptr;
+	
+	
+
+	int *col ;
 	int  size;
 	
-#if defined(ARDUINO) && ARDUINO >= 100
-	Serial.print("lampindex: ");
-	Serial.println(lampindex);
-#endif
+ 
 	switch (lampindex)
 	{
 	case 1:
-		col = m_colorManager->SetRed(size);
+		col =  m_colorManager->SetRed(size);	 
 		break;
 	case 2:
-		col = m_colorManager->SetOrange(size);
+		col =   m_colorManager->SetOrange(size);		 
 		break;
 	case 3:
 		col = m_colorManager->SetYellow(size);
@@ -56,7 +56,6 @@ void LampsManager::SetLamps(int lampindex)
 	case 7:
 		col = m_colorManager->SetYellowGreen(size);
 		break;
-
 	case 8:
 		col = m_colorManager->SetOrangeYellow(size);
 		break;
@@ -67,41 +66,70 @@ void LampsManager::SetLamps(int lampindex)
 		col = m_colorManager->SetOrangeRed(size);
 		break;
 	case 11:
-		col = m_colorManager->SetOrangeRedYellowGreen(size);
+		col = m_colorManager->SetRedYellowGreen(size);
 		break;
 	case 12:
-		col = m_colorManager->SetRedYellowGreen(size);
+		col = m_colorManager->SetOrangeRedYellowGreen(size);
 	default:
 		break;
 	}
-	//Lamp* tLamps = new Lamp[size];
 
-	
-	//resets lamps
-	//memset(lamps, -1, sizeof(Lamp)*m_size);
-	//memcpy( lamps, tlamps,20 * sizeof(int));
-	if(m_lamps != NULL)
-	delete[] m_lamps;
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("col: ");
+	Serial.println(col[0]);
+
+	Serial.print("col_1: ");
+	Serial.println(col[1]);
+
+	Serial.print("col_2: ");
+	Serial.println(col[2]);
+
+	Serial.print("col_3: ");
+	Serial.println(col[3]);
+	delay(1000);
+#endif
+	 
+
+	 
+	//resets and disposes previous lamps
+	 if (m_lamps != NULL)
+	{ 
+		 SetCurrentLampState(0);
+		 m_CurrentIndex = 0;
+		
+		if (m_size > 0)
+		{
+			for (int ix = 0; ix < m_size; ix++)
+			{
+				analogWrite(m_lamps[ix].LampName, 0);
+				Serial.print("m_lamps[ix].LampName: ");
+				Serial.println(m_lamps[ix].LampName);
+				delay(1000);
+			}
+		}
+		delete[] m_lamps;
+	} 
 
 	m_lamps = new Lamp[size];
-
-
-
-
-	//clears lamps array
-	for (int i = 0; i < m_size; i++)
-	{
-		m_lamps[i].LampName = -1;
-		m_lamps[i].State = 0;
-	}
-
 	
+	Serial.print("size:");
+	Serial.println(size);
+	delay(1000);
 	for (int i = 0; i < size; i++)
 	{
+
 		m_lamps[i].LampName = col[i];
 		m_lamps[i].State = 0;
+#if defined(ARDUINO) && ARDUINO >= 100
+		Serial.print("i:");
+		Serial.println(i);
+		Serial.print("col[i]: ");
+		Serial.println(col[i]);
+		delay(1000);
+#endif
 	}  
 	m_size = size;
+	delete[] col;
 }
 
 void LampsManager::SetCurrentLampState(int state)
@@ -126,6 +154,7 @@ Lamp LampsManager::MoveNext()
  
  
 #if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("MoveNext: ");
 	Serial.print("m_CurrentIndex: ");
 	Serial.println(m_CurrentIndex);
 #endif
@@ -139,7 +168,7 @@ Lamp LampsManager::GetCurrentLamp()
 	Serial.print("m_CurrentIndex: ");
 	Serial.println(m_CurrentIndex);
 	Lamp i = m_lamps[m_CurrentIndex];
-	Serial.print("m_CurrentIndex: ");
+	Serial.print("lampName: ");
 	Serial.println(i.LampName);
 #endif
 
@@ -161,7 +190,6 @@ Lamp LampsManager::GetLamp(int idx)
 	return m_lamps[idx];
 }
 
- 
 
 void resize(int size, Lamp arr[]) {
 	size_t newSize = size * 2;

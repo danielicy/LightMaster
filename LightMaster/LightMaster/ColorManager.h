@@ -30,6 +30,8 @@ public:
 	ColorManager();
 	~ColorManager();
 	
+	
+
 	int*  SetRed(int & size);
 	int*  SetOrange(int & size);
 	int*  SetYellow(int & size);
@@ -42,6 +44,10 @@ public:
 	int * SetOrangeRedYellowGreen(int & size);
 	int * SetOrangeRed(int & size);
 	int*  SetRedYellowGreen(int & size);
+
+private:
+	int * SetColor(int  size, int  color[]);
+
 	
 };
 

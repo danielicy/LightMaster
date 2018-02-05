@@ -84,7 +84,9 @@ void Selector::LoadColors()
 	
 
 #if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("Loading Color: #");
 	Serial.print(m_colorIndex);
+	delay(3500);
 #endif
 
 
@@ -97,6 +99,11 @@ void Selector::LoadColors()
 
 void Selector::LoadProgram()
 {
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("Loading Program: #");
+	Serial.print(m_progIndex);
+	delay(3500);
+#endif
 	m_actionManager->LoadAction(m_progIndex);
 }
 
