@@ -33,8 +33,7 @@ void LampsManager::SetLamps(int lampindex)
 	switch (lampindex)
 	{
 	case 1:
-		col =  m_colorManager->SetRed(size);
-	 
+		col =  m_colorManager->SetRed(size);	 
 		break;
 	case 2:
 		col =   m_colorManager->SetOrange(size);		 
@@ -84,16 +83,20 @@ void LampsManager::SetLamps(int lampindex)
 
 	Serial.print("col_3: ");
 	Serial.println(col[3]);
-	delay(5000);
+	delay(3500);
 #endif
-	//Lamp* tLamps = new Lamp[size];
+	 
 
-	
-	//resets lamps
-	//memset(lamps, -1, sizeof(Lamp)*m_size);
-	//memcpy( lamps, tlamps,20 * sizeof(int));
-	if(m_lamps != NULL)
-	delete[] m_lamps;
+
+	//resets and disposes previous lamps
+	if (m_lamps != NULL)
+	{
+		for (int i = 0; i < m_size; i++)
+		{
+			m_lamps[i].State = 0;
+		}
+		delete[] m_lamps;
+	}
 
 	m_lamps = new Lamp[size];
 
@@ -112,7 +115,7 @@ void LampsManager::SetLamps(int lampindex)
 		Serial.println(i);
 		Serial.print("col[i]: ");
 		Serial.println(col[i]);
-		delay(7000);
+		delay(3500);
 #endif
 	}  
 	m_size = size;

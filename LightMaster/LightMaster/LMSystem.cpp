@@ -119,23 +119,7 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 
 
 void LMSystem::DoWork(char c)
-{
-	/*int i = 0;
- if (IsBtnPressed(PRGBTN) || c =='p')
- {
-	 m_outputManager->Log("program selection changed:");
-	
-
-		m_selector->SelectProgram();
-	}
-
-	if (IsBtnPressed(COLRBTN) || c == 'c')
-	{		
-		m_outputManager->Log("Color Button Pressed:");
-		
-		m_selector->SelectColors();
-		//delay(7000);
-	}*/
+{	
  
 	if (colorInterruptCnt > 0) {
 
