@@ -27,14 +27,16 @@
 
 Selector::Selector()
 {
-	m_colorManager = new ColorManager();
+	//m_colorManager = new ColorManager();
 }
 
-Selector::Selector(ColorManager* colorManager, ActionManager* actionManager , LampsManager* lampsManager)
+Selector::Selector(  ActionManager* actionManager , LampsManager* lampsManager)
 {
 	m_actionManager = actionManager;
-	m_colorManager = colorManager;	
+	
 	m_lampsManager = lampsManager;
+	m_colorIndex = 0;
+	m_progIndex = 0;
 }
 
 Selector::~Selector()
@@ -62,8 +64,10 @@ void Selector::SelectColors()
 	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
 		
 	//TO DO Reset Lamps
-	 
-
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.println("color index changed");
+	Serial.print(m_colorIndex);
+#endif
 	LoadColors();
 }
 
@@ -77,40 +81,17 @@ void Selector::SelectProgram()
 
 void Selector::LoadColors()
 {
-	int  size;
-	int *col = nullptr;
-	int* buffer = new int[20];
-
 	
-	switch (m_colorIndex)
-	{
-	case 1:
-		col = m_colorManager->SetRed(size);
-		break;
-	case 2:
-		col = m_colorManager->SetYellow(size);
-		break;
-	case 3:
-		col = m_colorManager->SetGreen(size);
-		break;
-	case 4:
-		col = m_colorManager->SetRedYellow(size);
-		break;
-	case 5:
-		col = m_colorManager->SetRedGreen(size);
-		break;
-	case 6:
-		col = m_colorManager->SetYellowGreen(size);
-		break;
-	case 7:
-		col = m_colorManager->SetRedYellowGreen(size);
-	default:
-		break;
-	}
 
-	memcpy(buffer, col, size * sizeof(int));
-	m_lampsManager->SetLamps(buffer, size);	
-	//free( buffer);
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("Loading Color: #");
+	Serial.print(m_colorIndex);
+	delay(3500);
+#endif
+
+
+	m_lampsManager->SetLamps(m_colorIndex);
+	
 	
 }
 
@@ -118,6 +99,11 @@ void Selector::LoadColors()
 
 void Selector::LoadProgram()
 {
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print("Loading Program: #");
+	Serial.print(m_progIndex);
+	delay(3500);
+#endif
 	m_actionManager->LoadAction(m_progIndex);
 }
 

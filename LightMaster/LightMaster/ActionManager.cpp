@@ -46,16 +46,16 @@ ActionBase* ActionManager::LoadAction(int index)
 		m_action = new Runner(m_lampManager);
 		break;
 	case 4:
-		//DisolveTwo(REDPIN, YELLOWPIN);
+		//DisolveTwo(ORANGEPIN, YELLOWPIN);
 		break;
 	case 5:
-		//DisolveTwo(REDPIN, GREENPIN);
+		//DisolveTwo(ORANGEPIN, GREENPIN);
 		break;
 	case 6:
 		//DisolveTwo(GREENPIN, YELLOWPIN);
 		break;
 	case 7:
-		//DisolveThree(REDPIN, YELLOWPIN, GREENPIN);
+		//DisolveThree(ORANGEPIN, YELLOWPIN, GREENPIN);
 		break;
 		/*case 8:
 		Prog8();

@@ -12,6 +12,7 @@
 
 Fade::Fade(LampsManager* lampsNamager) :ActionBase(lampsNamager)
 {
+	m_currentLamp = m_lampsManager->GetCurrentLamp();
 }
 
 
@@ -21,25 +22,38 @@ Fade::~Fade()
 
 void Fade::Execute()
 {
-	Lamp lamp = m_lampsManager->GetCurrentLamp();
+	
+	Serial.print("Fading Lamp:");
+	Serial.println( m_currentLamp.LampName);
+	Serial.print("state: ");
+	Serial.println( m_currentLamp.State);
+	Serial.println("----------------:");
+	
+
+	//m_outputManager->DigitalWrite(m_currentLamp.LampName, m_currentLamp.State);
 
 	
-	m_outputManager->DigitalWrite(lamp.LampName, lamp.State);
 
 	// change the brightness for next time through the loop:
-	lamp.State = lamp.State + fadeAmount;
-
+	m_currentLamp.State = m_currentLamp.State + fadeAmount;
+	
+	m_lampsManager->SetCurrentLampState(m_currentLamp.State);
+	
+	
+	analogWrite(m_currentLamp.LampName, m_currentLamp.State);
 	// reverse the direction of the fading at the ends of the fade:
-	if (lamp.State <= 0 || lamp.State >= 255) {
+	if (m_currentLamp.State <= 0 || m_currentLamp.State >= MAX_PMW_VAL) {
 		fadeAmount = -fadeAmount;
-		m_lampsManager->MoveNext();
+				
+		 m_currentLamp = m_lampsManager->MoveNext();
 	}
 
-	m_lampsManager->SetCurrentLampState(lamp.State);
-
-
+	// wait for 30 milliseconds to see the dimming effect	
 	m_outputManager->Wait(30);
-	// wait for 30 milliseconds to see the dimming effect
+
+	Serial.println("Faded:");
+
+	
 	//delay(30);
 
 	/*Serial.println("Fading:");

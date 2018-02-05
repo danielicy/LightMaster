@@ -1,14 +1,19 @@
 #pragma once
-#include "Lamp.h"
 
+#define MAX_PMW_VAL 255
+
+#include "Lamp.h"
+#include "ColorManager.h"
+
+class ColorManager;
 
 class LampsManager
 {
 public:
-	LampsManager();
+	LampsManager(ColorManager* colorManager );
 	~LampsManager();
 
-	void SetLamps(int  *lampArray, int size);	
+	void SetLamps(int  lampindex);
 	void SetCurrentLampState(int state);
 	void SetLampState(int lamp,int state);
 	Lamp MoveNext();
@@ -19,6 +24,7 @@ public:
 private:
 	int m_size;
 	int m_CurrentIndex;
-	Lamp lamps[];
+	Lamp* m_lamps;
+	ColorManager* m_colorManager;
 };
 

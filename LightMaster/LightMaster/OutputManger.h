@@ -19,8 +19,9 @@ class COutputManger
 
  public:
 	void init();
-	void DigitalWrite(uint8_t pin,int value);
+	void AnaloglWrite(int pin,int value);
 	void Wait(int ticks);
+	void Log(char *message);
 };
 
 extern COutputManger OutputManger;
