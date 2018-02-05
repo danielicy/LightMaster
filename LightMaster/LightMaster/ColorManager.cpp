@@ -21,13 +21,13 @@ ColorManager::~ColorManager()
 int * ColorManager::SetRed(int & size)
 {
 
-	int info[] = {REDPIN}; 
-	size = sizeof(info) / sizeof(int);
+	int color[] = {REDPIN};
+	size = sizeof(color) / sizeof(int);
 	
 	int *ret = new int[size];
 	
 	for (int a = 0; a < size; a++)
-		ret[a] = info[a];
+		ret[a] = color[a];
 	
 	return ret;	
 }
@@ -36,21 +36,39 @@ int * ColorManager::SetOrange(int & size)
 {	
 	int color[] = { ORANGEPIN };	
 	size = sizeof(color) / sizeof(int);
-	return color;
+
+	int *ret = new int[size];
+
+	for (int a = 0; a < size; a++)
+		ret[a] = color[a];
+
+	return ret;
 }
 
 int * ColorManager::SetYellow(int & size)
 {
 	int color[] = { YELLOWPIN };
 	size = sizeof(color) / sizeof(int);
-	return color;
+
+	int *ret = new int[size];
+
+	for (int a = 0; a < size; a++)
+		ret[a] = color[a];
+
+	return ret;
 }
 
 int * ColorManager::SetGreen(int & size)
 {
 	int color[] = { GREENPIN };
 	size = sizeof(color) / sizeof(int);
-	return color;
+
+	int *ret = new int[size];
+
+	for (int a = 0; a < size; a++)
+		ret[a] = color[a];
+
+	return ret;
 }
 
 int * ColorManager::SetRedYellow(int & size)
