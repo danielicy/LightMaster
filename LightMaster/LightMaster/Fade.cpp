@@ -33,25 +33,32 @@ void Fade::Execute()
 
 	//m_outputManager->DigitalWrite(m_currentLamp.LampName, m_currentLamp.State);
 
-	analogWrite(m_currentLamp.LampName, m_currentLamp.State);
+	
 
 	// change the brightness for next time through the loop:
 	m_currentLamp.State = m_currentLamp.State + fadeAmount;
-
+	
+	m_lampsManager->SetCurrentLampState(m_currentLamp.State);
+	
+	/*Serial.print("m_currentLamp.LampName: ");
+	Serial.println(m_currentLamp.LampName);
+	Serial.print("m_currentLamp.State: ");
+	Serial.println(m_currentLamp.State);
+	delay(1000);*/
+	analogWrite(m_currentLamp.LampName, m_currentLamp.State);
 	// reverse the direction of the fading at the ends of the fade:
 	if (m_currentLamp.State <= 0 || m_currentLamp.State >= MAX_PMW_VAL) {
 		fadeAmount = -fadeAmount;
+				
 		 m_currentLamp = m_lampsManager->MoveNext();
 	}
 
-	m_lampsManager->SetCurrentLampState(m_currentLamp.State);
-
-
+	// wait for 30 milliseconds to see the dimming effect	
 	m_outputManager->Wait(30);
 
 	Serial.println("Faded:");
 
-	// wait for 30 milliseconds to see the dimming effect
+	
 	//delay(30);
 
 	/*Serial.println("Fading:");

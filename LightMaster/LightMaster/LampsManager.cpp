@@ -27,6 +27,7 @@ LampsManager::~LampsManager()
 void LampsManager::SetLamps(int lampindex)
 {
 	
+	
 
 	int *col ;
 	int  size;
@@ -89,27 +90,31 @@ void LampsManager::SetLamps(int lampindex)
 #endif
 	 
 
-	
-
+	 
 	//resets and disposes previous lamps
-	if (m_lamps != NULL)
-	{
+	 if (m_lamps != NULL)
+	{ 
+		 SetCurrentLampState(0);
+		 m_CurrentIndex = 0;
+		
 		if (m_size > 0)
-	{
-		for (int ix = 0; ix < m_size; ix++)
-			m_lamps[ix].State = 0;
-	}
-
+		{
+			for (int ix = 0; ix < m_size; ix++)
+			{
+				analogWrite(m_lamps[ix].LampName, 0);
+				Serial.print("m_lamps[ix].LampName: ");
+				Serial.println(m_lamps[ix].LampName);
+				delay(1000);
+			}
+		}
 		delete[] m_lamps;
-	}
+	} 
 
 	m_lamps = new Lamp[size];
-
-
-
+	
 	Serial.print("size:");
 	Serial.println(size);
-	delay(3000);
+	delay(1000);
 	for (int i = 0; i < size; i++)
 	{
 
@@ -120,7 +125,7 @@ void LampsManager::SetLamps(int lampindex)
 		Serial.println(i);
 		Serial.print("col[i]: ");
 		Serial.println(col[i]);
-		delay(3500);
+		delay(1000);
 #endif
 	}  
 	m_size = size;
@@ -185,7 +190,6 @@ Lamp LampsManager::GetLamp(int idx)
 	return m_lamps[idx];
 }
 
- 
 
 void resize(int size, Lamp arr[]) {
 	size_t newSize = size * 2;
