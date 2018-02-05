@@ -28,8 +28,7 @@ void Fade::Execute()
 	Serial.print("state: ");
 	Serial.println( m_currentLamp.State);
 	Serial.println("----------------:");
-
-
+	
 
 	//m_outputManager->DigitalWrite(m_currentLamp.LampName, m_currentLamp.State);
 
@@ -40,11 +39,7 @@ void Fade::Execute()
 	
 	m_lampsManager->SetCurrentLampState(m_currentLamp.State);
 	
-	/*Serial.print("m_currentLamp.LampName: ");
-	Serial.println(m_currentLamp.LampName);
-	Serial.print("m_currentLamp.State: ");
-	Serial.println(m_currentLamp.State);
-	delay(1000);*/
+	
 	analogWrite(m_currentLamp.LampName, m_currentLamp.State);
 	// reverse the direction of the fading at the ends of the fade:
 	if (m_currentLamp.State <= 0 || m_currentLamp.State >= MAX_PMW_VAL) {
