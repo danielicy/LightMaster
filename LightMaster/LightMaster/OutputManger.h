@@ -23,6 +23,7 @@ class COutputManger
 	void Wait(int ticks);
 	void Log(char *message);
 	void Log(char * title, char * message);
+	void Log(char * title, int message);
 };
 
 extern COutputManger OutputManger;
