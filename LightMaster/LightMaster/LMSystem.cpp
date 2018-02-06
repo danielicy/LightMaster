@@ -2,7 +2,7 @@
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "Arduino.h"
 
-#include "Wire.h"
+
 #else
 #include "stdfax.h"
 #endif
@@ -44,9 +44,17 @@ void WriteWire()
 	delay(500);
 }
 */
-
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
 volatile byte programInterruptCnt = 1;
 volatile byte colorInterruptCnt = 1;
+
+
+#else
+volatile int programInterruptCnt = 1;
+volatile int colorInterruptCnt = 1;
+
+#endif
 
 void handleProgramButton() {
 
@@ -65,7 +73,7 @@ LMSystem::LMSystem()
 	m_outputManager = new COutputManger();
 
 	m_colorManager = new ColorManager();
-	m_lampsManager = new LampsManager(m_colorManager);
+	m_lampsManager = new LampsManager(m_colorManager, m_outputManager);
 	m_ActionManager = new ActionManager(m_lampsManager);
 	
 	
@@ -121,14 +129,14 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 void LMSystem::DoWork(char c)
 {	
  
-	if (colorInterruptCnt > 0) {
+	if (colorInterruptCnt > 0 || c == 'c') {
 
 		colorInterruptCnt--;
 		m_selector->SelectColors();
 
 	}
 
-	if (programInterruptCnt > 0) {
+	if (programInterruptCnt > 0 || c == 'p') {
 
 		programInterruptCnt--;
 		m_selector->SelectProgram();
@@ -140,4 +148,4 @@ void LMSystem::DoWork(char c)
 	m_ActionManager->Execute();	
 }
  
-
+ 

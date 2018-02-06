@@ -11,13 +11,12 @@
 #include "LampsManager.h"
 #include "ColorManager.h"
 
-LampsManager::LampsManager(ColorManager* colorManager )
+LampsManager::LampsManager(ColorManager* colorManager, COutputManger* outputManger)
 {
-
 	m_size = 1;
 	m_CurrentIndex = 0;
+	m_outputManager = outputManger;
 	m_colorManager = new ColorManager();
-	
 }
 
 LampsManager::~LampsManager()
@@ -26,12 +25,9 @@ LampsManager::~LampsManager()
 
 void LampsManager::SetLamps(int lampindex)
 {
-	
-	
 
-	int *col ;
-	int  size;
-	
+	int *col =nullptr;
+	int  size;	
  
 	switch (lampindex)
 	{
@@ -74,23 +70,11 @@ void LampsManager::SetLamps(int lampindex)
 		break;
 	}
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	Serial.print("col: ");
-	Serial.println(col[0]);
 
-	Serial.print("col_1: ");
-	Serial.println(col[1]);
-
-	Serial.print("col_2: ");
-	Serial.println(col[2]);
-
-	Serial.print("col_3: ");
-	Serial.println(col[3]);
-	//delay(1000);
-#endif
-	 
-
-	 
+	m_outputManager->Log("col 0: ", col[0]);
+	m_outputManager->Log("col 1: ", col[1]);
+	m_outputManager->Log("col 2: ", col[2]);
+	m_outputManager->Log("col 3: ", col[3]);
 	//resets and disposes previous lamps
 	 if (m_lamps != NULL)
 	{ 
@@ -101,10 +85,11 @@ void LampsManager::SetLamps(int lampindex)
 		{
 			for (int ix = 0; ix < m_size; ix++)
 			{
-				analogWrite(m_lamps[ix].LampName, 0);
-				Serial.print("m_lamps[ix].LampName: ");
-				Serial.println(m_lamps[ix].LampName);
-				delay(1000);
+				m_outputManager->AnaloglWrite(m_lamps[ix].LampName, 0);
+
+				m_outputManager->Log("m_lamps[ix].LampName: ", m_lamps[ix].LampName);
+				m_outputManager->Wait(1000);			
+				
 			}
 		}
 		delete[] m_lamps;
@@ -112,8 +97,8 @@ void LampsManager::SetLamps(int lampindex)
 
 	m_lamps = new Lamp[size];
 	
-	Serial.print("size:");
-	Serial.println(size);
+	m_outputManager->Log("size ",size);
+
 	//delay(1000);
 	for (int i = 0; i < size; i++)
 	{

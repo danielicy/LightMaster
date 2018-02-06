@@ -47,7 +47,7 @@ void COutputManger::Wait(int ticks)
 	delay(ticks);
 
 #else
-	Sleep(ticks * 100);
+	Sleep(ticks/1000);
 #endif
 }
 
@@ -61,6 +61,27 @@ void COutputManger::Log(char *message)
 #endif
 }
  
+void COutputManger::Log(char *title,char *message)
+{
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print(title);
+	Serial.println(message);
+	//	delay(1000);
+#else
+	cout << message << endl;
+#endif
+}
+
+void COutputManger::Log(char *title, int message)
+{
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.print(title);
+	Serial.println(message);
+	//	delay(1000);
+#else
+	cout << message << endl;
+#endif
+}
 
 
 COutputManger  OutputManger;
