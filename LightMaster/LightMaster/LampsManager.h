@@ -4,13 +4,15 @@
 
 #include "Lamp.h"
 #include "ColorManager.h"
+#include "OutputManger.h"
 
 class ColorManager;
+class COutputManger;
 
 class LampsManager
 {
-public:
-	LampsManager(ColorManager* colorManager );
+public:	
+	LampsManager(ColorManager * colorManager, COutputManger * outputManger);
 	~LampsManager();
 
 	void SetLamps(int  lampindex);
@@ -26,5 +28,6 @@ private:
 	int m_CurrentIndex;
 	Lamp* m_lamps;
 	ColorManager* m_colorManager;
+	COutputManger* m_outputManager;
 };
 

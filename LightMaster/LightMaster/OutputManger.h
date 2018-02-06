@@ -22,6 +22,7 @@ class COutputManger
 	void AnaloglWrite(int pin,int value);
 	void Wait(int ticks);
 	void Log(char *message);
+	void Log(char * title, char * message);
 };
 
 extern COutputManger OutputManger;

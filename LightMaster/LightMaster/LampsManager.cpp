@@ -11,13 +11,12 @@
 #include "LampsManager.h"
 #include "ColorManager.h"
 
-LampsManager::LampsManager(ColorManager* colorManager )
+LampsManager::LampsManager(ColorManager* colorManager, COutputManger* outputManger)
 {
-
 	m_size = 1;
 	m_CurrentIndex = 0;
+	m_outputManager = outputManger;
 	m_colorManager = new ColorManager();
-	
 }
 
 LampsManager::~LampsManager()

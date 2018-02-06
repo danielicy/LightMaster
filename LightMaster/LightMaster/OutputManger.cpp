@@ -61,6 +61,15 @@ void COutputManger::Log(char *message)
 #endif
 }
  
+void COutputManger::Log(char *title,char *message)
+{
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.println(message);
+	//	delay(1000);
+#else
+	cout << message << endl;
+#endif
+}
 
 
 COutputManger  OutputManger;
