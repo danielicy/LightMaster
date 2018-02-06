@@ -129,14 +129,14 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 void LMSystem::DoWork(char c)
 {	
  
-	if (colorInterruptCnt > 0) {
+	if (colorInterruptCnt > 0 || c == 'c') {
 
 		colorInterruptCnt--;
 		m_selector->SelectColors();
 
 	}
 
-	if (programInterruptCnt > 0) {
+	if (programInterruptCnt > 0 || c == 'p') {
 
 		programInterruptCnt--;
 		m_selector->SelectProgram();
@@ -148,4 +148,4 @@ void LMSystem::DoWork(char c)
 	m_ActionManager->Execute();	
 }
  
-
+ 

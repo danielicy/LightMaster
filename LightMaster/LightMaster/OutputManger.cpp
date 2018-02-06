@@ -47,7 +47,7 @@ void COutputManger::Wait(int ticks)
 	delay(ticks);
 
 #else
-	Sleep(ticks * 100);
+	Sleep(ticks/1000);
 #endif
 }
 
