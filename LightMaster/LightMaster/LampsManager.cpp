@@ -48,13 +48,13 @@ void LampsManager::SetLamps(int lampindex)
 		col = m_colorManager->SetGreen(size);
 		break;
 	case 5:
-		col = m_colorManager->SetRedYellow(size);
+		col = m_colorManager->SetRedOrange(size);
 		break;
 	case 6:
-		col = m_colorManager->SetRedGreen(size);
+		col = m_colorManager->SetRedYellow(size);
 		break;
 	case 7:
-		col = m_colorManager->SetYellowGreen(size);
+		col = m_colorManager->SetRedGreen(size);
 		break;
 	case 8:
 		col = m_colorManager->SetOrangeYellow(size);
@@ -63,13 +63,13 @@ void LampsManager::SetLamps(int lampindex)
 		col = m_colorManager->SetOrangeGreen(size);
 		break;
 	case 10:
-		col = m_colorManager->SetOrangeRed(size);
+		col = m_colorManager->SetYellowGreen(size);
 		break;
 	case 11:
-		col = m_colorManager->SetRedYellowGreen(size);
+		col = m_colorManager->SetRedOrangeYellowGreen(size);
 		break;
 	case 12:
-		col = m_colorManager->SetOrangeRedYellowGreen(size);
+		col = m_colorManager->SetOrangeRedYellowOrange(size);
 	default:
 		break;
 	}
@@ -86,7 +86,7 @@ void LampsManager::SetLamps(int lampindex)
 
 	Serial.print("col_3: ");
 	Serial.println(col[3]);
-	delay(1000);
+	//delay(1000);
 #endif
 	 
 
@@ -114,7 +114,7 @@ void LampsManager::SetLamps(int lampindex)
 	
 	Serial.print("size:");
 	Serial.println(size);
-	delay(1000);
+	//delay(1000);
 	for (int i = 0; i < size; i++)
 	{
 
@@ -125,7 +125,7 @@ void LampsManager::SetLamps(int lampindex)
 		Serial.println(i);
 		Serial.print("col[i]: ");
 		Serial.println(col[i]);
-		delay(1000);
+		//delay(1000);
 #endif
 	}  
 	m_size = size;
@@ -157,6 +157,7 @@ Lamp LampsManager::MoveNext()
 	Serial.print("MoveNext: ");
 	Serial.print("m_CurrentIndex: ");
 	Serial.println(m_CurrentIndex);
+	//delay(1500);
 #endif
 
 	return m_lamps[m_CurrentIndex];

@@ -36,14 +36,14 @@ public:
 	int*  SetOrange(int & size);
 	int*  SetYellow(int & size);
 	int*  SetGreen(int & size);
+	int*  SetRedOrange(int & size);
 	int*  SetRedYellow(int & size);
 	int*  SetRedGreen(int & size);
-	int*  SetYellowGreen(int & size);
 	int * SetOrangeYellow(int & size);
 	int * SetOrangeGreen(int & size);
-	int * SetOrangeRedYellowGreen(int & size);
-	int * SetOrangeRed(int & size);
-	int*  SetRedYellowGreen(int & size);
+	int * SetOrangeRedYellowOrange(int & size);
+	int * SetYellowGreen(int & size);
+	int*  SetRedOrangeYellowGreen(int & size);
 
 private:
 	int * SetColor(int  size, int  color[]);

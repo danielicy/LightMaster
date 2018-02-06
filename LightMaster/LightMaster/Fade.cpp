@@ -45,6 +45,7 @@ void Fade::Execute()
 	if (m_currentLamp.State <= 0 || m_currentLamp.State >= MAX_PMW_VAL) {
 		fadeAmount = -fadeAmount;
 				
+		if (m_currentLamp.State <= 0)
 		 m_currentLamp = m_lampsManager->MoveNext();
 	}
 
