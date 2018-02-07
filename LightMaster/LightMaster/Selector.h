@@ -38,15 +38,9 @@ private:
 	void LoadColors();
 	void LoadProgram();
 
-	int m_colorIndex; //the currrent color combination
-	int m_progIndex  ;        //the current program selecte
+	short m_colorIndex; //the currrent color combination
+	short m_progIndex  ;        //the current program selected
 
-
-	int brightness = 0;    // how bright the LED is
-	
-
-	int fadeAmount = 5;    // how many points to fade the LED by	 
-	
 	
 	ActionManager* m_actionManager;
 	LampsManager* m_lampsManager;
