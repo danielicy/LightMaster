@@ -1,4 +1,0 @@
-
-
-arduino input/output extension:
-MCP23017 - http://tronixstuff.com/2011/08/26/tutorial-maximising-your-arduinos-io-ports/

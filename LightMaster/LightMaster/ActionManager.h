@@ -5,6 +5,8 @@
 #include "Lamps.h"
 #include "LampsManager.h"
 
+class LampsManager;
+class ActionBase;
 
 class ActionManager
 {

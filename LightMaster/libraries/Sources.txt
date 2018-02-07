@@ -1,0 +1,10 @@
+interrupts:
+https://techtutorialsx.com/2016/12/11/esp8266-external-interrupts/
+
+mcp23017:
+https://www.youtube.com/watch?v=RPHP4fAisz8
+http://www.microchip.com/forums/m630276.aspx
+http://www.g7smy.co.uk/2016/11/more-than-one-mcp23017/
+https://www.14core.com/wiring-nodemcu-esp8266-12e-with-i2c-16x2-lcd-screen/
+https://www.youtube.com/watch?v=yvaSPqVF2lg
+https://electronics.stackexchange.com/questions/341102/nodemcu-misses-interrupts-of-mcp23017

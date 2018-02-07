@@ -1,46 +1,111 @@
 
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "Arduino.h"
+
+
 #else
 #include "stdfax.h"
 #endif
-
 
 #include "LMSystem.h"
 #include "LampsManager.h"
 #include "Selector.h"
 #include "ColorManager.h"
+#include "OutputManger.h"
+
+//https://github.com/esp8266/Arduino
 
 
+/*
+void SetWire()
+{
+	//setup
+	//http://www.esp8266learning.com/esp8266-mcp23017-example.php
+	Wire.begin(); // wake up I2C bus
+				  // set I/O pins to outputs
+	Wire.beginTransmission(0x20);
+	Wire.write(0x00); // IODIRA register
+	Wire.write(0x00); // set all of port A to outputs
+	Wire.endTransmission();
+}
+
+void WriteWire()
+{
+	//loop
+	Wire.beginTransmission(0x20);
+	Wire.write(0x12); // address bank A
+	Wire.write((byte)0xAA); // value to send
+	Wire.endTransmission();
+	delay(500);
+	Wire.beginTransmission(0x20);
+	Wire.write(0x12); // address bank A
+	Wire.write((byte)0x55); // value to send
+	Wire.endTransmission();
+	delay(500);
+}
+*/
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+volatile byte programInterruptCnt = 1;
+volatile byte colorInterruptCnt = 1;
+
+
+#else
+volatile int programInterruptCnt = 1;
+volatile int colorInterruptCnt = 1;
+
+#endif
+
+void handleProgramButton() {
+
+	programInterruptCnt++;
+
+}
+
+void handleColorButton() {
+
+	colorInterruptCnt++;
+
+}
 
 LMSystem::LMSystem()
 {
-	m_lampsManager = new LampsManager();
-	m_ActionManager = new ActionManager(m_lampsManager);
+	m_outputManager = new COutputManger();
+
 	m_colorManager = new ColorManager();
+	m_lampsManager = new LampsManager(m_colorManager, m_outputManager);
+	m_ActionManager = new ActionManager(m_lampsManager);
 	
-	m_selector = new Selector(m_colorManager,m_ActionManager,m_lampsManager);
- 
-	m_selector->SelectColors();
-	m_selector->SelectProgram();
 	
+	m_selector = new Selector(m_ActionManager,m_lampsManager);
+ 	
 
 #if defined(ARDUINO) && ARDUINO >= 100
 
 	Serial.begin(9600);
-	pinMode(PRGBTN, INPUT);
-	pinMode(COLRBTN, INPUT);
+	pinMode(PRGBTN, INPUT_PULLUP);
+	pinMode(COLRBTN, INPUT_PULLUP);
+
+	attachInterrupt(digitalPinToInterrupt(PRGBTN), handleProgramButton, FALLING);
+	attachInterrupt(digitalPinToInterrupt(COLRBTN), handleColorButton, FALLING);
+
 
 	pinMode(REDPIN, OUTPUT);
+	pinMode(ORANGEPIN, OUTPUT);
 	pinMode(YELLOWPIN, OUTPUT);
 	pinMode(GREENPIN, OUTPUT);
 
-	// set initial LED state
-	 
-	DigitalWrite(new int[3]{ REDPIN,YELLOWPIN,GREENPIN }, LOW);	
+	// set initial LED state	 
+	DigitalWrite(new int[4]{ REDPIN,ORANGEPIN,YELLOWPIN,GREENPIN }, LOW);
 #endif
 
+	
+	//SetWire();
+
 }
+
+
+
 
 LMSystem::~LMSystem()
 {
@@ -59,75 +124,28 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 
 }
 
-bool LMSystem::IsBtnPressed(int btn)
-{ 
-	bool retval = false;
-#if defined(ARDUINO) && ARDUINO >= 100
- // read the pushbutton input pin:
-	 buttonState = digitalRead(btn);	 
-		 
-	if (buttonState == HIGH)
-	{
-		if (buttonState != lastButtonState || buttonState != lastcolorBtn)
-		{
-			Serial.println("button ON");
-			retval = true;
-		}
-		else
-		{
-			retval = false;
-		}
-	}
-	else
-	{
-		Serial.println("off");
-		retval = false;
-	}
-	// Delay a little bit to avoid bouncing
-	delay(50);
-	if(btn == PRGBTN)
-	lastButtonState = buttonState;
 
-	if (btn == COLRBTN)
-		lastcolorBtn = buttonState;
-#endif
-
-	
-
-	return retval;
-
-}
 
 void LMSystem::DoWork(char c)
-{
-	int i = 0;
- if (IsBtnPressed(PRGBTN) || c =='p')
-	{
-		//Serial.println("program selection changed:");
-		
-		TurnOffPreviousPin();
-
-		m_selector->SelectProgram();
-	}
-
-	if (IsBtnPressed(COLRBTN) || c == 'c')
-	{		
-		//Serial.println("Color Button Pressed:");
-		m_selector->SelectColors();
-		//delay(7000);
-	}
+{	
  
+	if (colorInterruptCnt > 0 || c == 'c') {
+
+		colorInterruptCnt--;
+		m_selector->SelectColors();
+
+	}
+
+	if (programInterruptCnt > 0 || c == 'p') {
+
+		programInterruptCnt--;
+		m_selector->SelectProgram();
+		
+	}
+
+
+
 	m_ActionManager->Execute();	
 }
  
-void LMSystem::TurnOffPreviousPin()
-{
-#if defined(ARDUINO) && ARDUINO >= 100
- 	//turns off previouspin
-	analogWrite(previouspin, LOW);
-#endif
-
-}
-
-
  
