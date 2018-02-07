@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClInclude Include="ActionBase.h" />
     <ClInclude Include="ActionManager.h" />
+    <ClInclude Include="Chaser.h" />
     <ClInclude Include="ColorManager.h" />
     <ClInclude Include="Fade.h" />
     <ClInclude Include="Flicker.h" />
@@ -134,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="ActionBase.cpp" />
     <ClCompile Include="ActionManager.cpp" />
+    <ClCompile Include="Chaser.cpp" />
     <ClCompile Include="ColorManager.cpp" />
     <ClCompile Include="Fade.cpp" />
     <ClCompile Include="Flicker.cpp" />
