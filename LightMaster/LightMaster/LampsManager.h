@@ -15,17 +15,17 @@ public:
 	LampsManager(ColorManager * colorManager, COutputManger * outputManger);
 	~LampsManager();
 
-	void SetLamps(int  lampindex);
-	void SetCurrentLampState(int state);
-	void SetLampState(int lamp,int state);
+	void SetLamps(short  lampindex);
+	void SetCurrentLampState(short state);
+	void SetLampState(short lamp, short state);
 	Lamp MoveNext();
 	Lamp GetCurrentLamp();
 	int GetSize();
 	Lamp* GetLamps();
-	Lamp GetLamp(int idx);
+	Lamp GetLamp(short idx);
 private:
-	int m_size;
-	int m_CurrentIndex;
+	short m_size;
+	short m_CurrentIndex;
 	Lamp* m_lamps;
 	ColorManager* m_colorManager;
 	COutputManger* m_outputManager;

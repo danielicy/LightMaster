@@ -2,6 +2,6 @@
 
 struct Lamp
 {
-	int LampName;
-	int State;
+	short LampName;
+	short State;
 };

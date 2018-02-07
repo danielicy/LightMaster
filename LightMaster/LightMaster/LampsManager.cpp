@@ -23,11 +23,11 @@ LampsManager::~LampsManager()
 {
 }
 
-void LampsManager::SetLamps(int lampindex)
+void LampsManager::SetLamps(short lampindex)
 {
 
 	int *col =nullptr;
-	int  size;	
+	short  size;
  
 	switch (lampindex)
 	{
@@ -117,12 +117,12 @@ void LampsManager::SetLamps(int lampindex)
 	delete[] col;
 }
 
-void LampsManager::SetCurrentLampState(int state)
+void LampsManager::SetCurrentLampState(short state)
 {
 	m_lamps[m_CurrentIndex].State = state;
 }
 
-void LampsManager::SetLampState(int lamp, int state)
+void LampsManager::SetLampState(short lamp, short state)
 {	 
 	m_lamps[lamp].State = state;
 }
@@ -171,7 +171,7 @@ Lamp * LampsManager::GetLamps()
 	return m_lamps;
 }
 
-Lamp LampsManager::GetLamp(int idx)
+Lamp LampsManager::GetLamp(short idx)
 {
 	return m_lamps[idx];
 }
