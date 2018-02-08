@@ -2,10 +2,12 @@
 
 #define MAX_PMW_VAL 255
 
+#include "LMSystem.h"
 #include "Lamp.h"
 #include "ColorManager.h"
 #include "OutputManger.h"
 
+struct Lamp;
 class ColorManager;
 class COutputManger;
 
@@ -15,17 +17,17 @@ public:
 	LampsManager(ColorManager * colorManager, COutputManger * outputManger);
 	~LampsManager();
 
-	void SetLamps(int  lampindex);
-	void SetCurrentLampState(int state);
-	void SetLampState(int lamp,int state);
+	void SetLamps(byte  lampindex);
+	void SetCurrentLampState(byte state);
+	void SetLampState(byte lamp, byte state);
 	Lamp MoveNext();
 	Lamp GetCurrentLamp();
 	int GetSize();
 	Lamp* GetLamps();
-	Lamp GetLamp(int idx);
+	Lamp GetLamp(byte idx);
 private:
-	int m_size;
-	int m_CurrentIndex;
+	byte m_size;
+	byte m_CurrentIndex;
 	Lamp* m_lamps;
 	ColorManager* m_colorManager;
 	COutputManger* m_outputManager;

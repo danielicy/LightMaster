@@ -32,6 +32,7 @@
 	#include "Arduino.h"
 #else
 #define LOW 0
+typedef unsigned char byte;
 #endif
 
 

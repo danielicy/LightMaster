@@ -1,7 +1,13 @@
 #pragma once
 
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#else
+#include "LMSystem.h"
+#endif
+
 struct Lamp
 {
-	int LampName;
-	int State;
+	byte LampName;
+	byte State;
 };
