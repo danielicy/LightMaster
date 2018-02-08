@@ -7,7 +7,7 @@ class Chaser :
 	public ActionBase
 {
 public:
-	Chaser();
+	Chaser(LampsManager *lampsManager);
 	~Chaser();
 
 	// Inherited via ActionBase

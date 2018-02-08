@@ -82,7 +82,7 @@
       <Filter>Actions\Header</Filter>
     </ClInclude>
     <ClInclude Include="Chaser.h">
-      <Filter>Header Files</Filter>
+      <Filter>Actions\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -120,7 +120,7 @@
       <Filter>Actions\Source</Filter>
     </ClCompile>
     <ClCompile Include="Chaser.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Actions\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
