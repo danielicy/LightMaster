@@ -46,15 +46,14 @@ void WriteWire()
 */
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "Arduino.h"
-volatile byte programInterruptCnt = 1;
-volatile byte colorInterruptCnt = 1;
-
-
 #else
-volatile int programInterruptCnt = 1;
-volatile int colorInterruptCnt = 1;
+
 
 #endif
+
+
+volatile byte programInterruptCnt = 1;
+volatile byte colorInterruptCnt = 1;
 
 void handleProgramButton() {
 

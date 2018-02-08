@@ -1,11 +1,14 @@
 #pragma once
 
+#include "LMSystem.h"
 #include "IAction.h"
 #include "Lamp.h"
 #include "LampsManager.h"
 #include "OutputManger.h"
 
+class Lamp;
 class LampsManager;
+
 
 class ActionBase : public IAction
 {
@@ -18,7 +21,8 @@ public:
 protected:
 	LampsManager* m_lampsManager;
 	COutputManger* m_outputManager;
-	short fadeAmount = 5;
 	Lamp  m_currentLamp;
+	byte fadeAmount = 5;
+	
 };
 

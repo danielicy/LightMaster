@@ -19,99 +19,99 @@ ColorManager::~ColorManager()
 }
 
 
-int * ColorManager::SetColor(short  size, short  color[])
+int * ColorManager::SetColor(byte  size, byte  color[])
 {
 	int * ret = new int[size];
 
-	for (short a = 0; a < size; a++)
+	for (byte a = 0; a < size; a++)
 		ret[a] = color[a];
 
 	return ret;
 }
 
-int * ColorManager::SetRed(short & size)
+int * ColorManager::SetRed(byte & size)
 {
 
-	short color[] =  { REDPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] =  { REDPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 	
 }
 
-int * ColorManager::SetOrange(short & size)
+int * ColorManager::SetOrange(byte & size)
 {	
-	short color[] = { ORANGEPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { ORANGEPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);	
 }
 
-int * ColorManager::SetYellow(short & size)
+int * ColorManager::SetYellow(byte & size)
 {
-	short color[] = { YELLOWPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { YELLOWPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);	
 }
 
-int * ColorManager::SetGreen(short & size)
+int * ColorManager::SetGreen(byte & size)
 {
-	short color[] = { GREENPIN }; 
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { GREENPIN }; 
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);	
 }
 
-int * ColorManager::SetRedOrange(short & size)
+int * ColorManager::SetRedOrange(byte & size)
 {
-	short color[] = { REDPIN, ORANGEPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { REDPIN, ORANGEPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 }
 
-int * ColorManager::SetRedYellow(short & size)
+int * ColorManager::SetRedYellow(byte & size)
 {
-	short color[] = { REDPIN, YELLOWPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { REDPIN, YELLOWPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 }
 
-int * ColorManager::SetRedGreen(short & size)
+int * ColorManager::SetRedGreen(byte & size)
 {
-	short color[] = { REDPIN   , GREENPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { REDPIN   , GREENPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 }
 
 //
-int * ColorManager::SetOrangeYellow(short & size)
+int * ColorManager::SetOrangeYellow(byte & size)
 {
-	short color[] = { ORANGEPIN   , YELLOWPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { ORANGEPIN   , YELLOWPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 }
-int * ColorManager::SetOrangeGreen(short & size)
+int * ColorManager::SetOrangeGreen(byte & size)
 {
-	short color[] = { ORANGEPIN   , GREENPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { ORANGEPIN   , GREENPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 }
-int * ColorManager::SetYellowGreen(short & size)
+int * ColorManager::SetYellowGreen(byte & size)
 {
-	short color[] = { YELLOWPIN   , GREENPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { YELLOWPIN   , GREENPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 }
-int * ColorManager::SetOrangeRedYellowOrange(short & size)
+int * ColorManager::SetOrangeRedYellowOrange(byte & size)
 {
-	short color[] = { REDPIN, ORANGEPIN , YELLOWPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { REDPIN, ORANGEPIN , YELLOWPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 }
 
 //
 
-int * ColorManager::SetRedOrangeYellowGreen(short & size)
+int * ColorManager::SetRedOrangeYellowGreen(byte & size)
 {
-	short color[] = { REDPIN, ORANGEPIN , YELLOWPIN ,GREENPIN };
-	size = sizeof(color) / sizeof(short);
+	byte color[] = { REDPIN, ORANGEPIN , YELLOWPIN ,GREENPIN };
+	size = sizeof(color) / sizeof(byte);
 	return SetColor(size, color);
 }
 

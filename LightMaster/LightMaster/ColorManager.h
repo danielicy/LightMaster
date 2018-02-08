@@ -32,21 +32,21 @@ public:
 	
 	
 
-	int*  SetRed(short & size);
-	int*  SetOrange(short & size);
-	int*  SetYellow(short & size);
-	int*  SetGreen(short & size);
-	int*  SetRedOrange(short & size);
-	int*  SetRedYellow(short & size);
-	int*  SetRedGreen(short & size);
-	int * SetOrangeYellow(short & size);
-	int * SetOrangeGreen(short & size);
-	int * SetOrangeRedYellowOrange(short & size);
-	int * SetYellowGreen(short & size);
-	int*  SetRedOrangeYellowGreen(short & size);
+	int*  SetRed(byte & size);
+	int*  SetOrange(byte & size);
+	int*  SetYellow(byte & size);
+	int*  SetGreen(byte & size);
+	int*  SetRedOrange(byte & size);
+	int*  SetRedYellow(byte & size);
+	int*  SetRedGreen(byte & size);
+	int * SetOrangeYellow(byte & size);
+	int * SetOrangeGreen(byte & size);
+	int * SetOrangeRedYellowOrange(byte & size);
+	int * SetYellowGreen(byte & size);
+	int*  SetRedOrangeYellowGreen(byte & size);
 
 private:
-	int * SetColor(short  size, short  color[]);
+	int * SetColor(byte  size, byte  color[]);
 
 	
 };

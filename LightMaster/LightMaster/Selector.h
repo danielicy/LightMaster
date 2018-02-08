@@ -29,7 +29,7 @@ public:
 	Selector();
 	Selector(ActionManager* actionManager, LampsManager* lampsManager);
 	~Selector();
-	void ChangeSelection(int &index, int param);
+	void ChangeSelection(byte &index, byte param);
 	void SelectColors();
 	void SelectProgram();
 	
@@ -38,8 +38,8 @@ private:
 	void LoadColors();
 	void LoadProgram();
 
-	short m_colorIndex; //the currrent color combination
-	short m_progIndex  ;        //the current program selected
+	byte m_colorIndex; //the currrent color combination
+	byte m_progIndex  ;        //the current program selected
 
 	
 	ActionManager* m_actionManager;

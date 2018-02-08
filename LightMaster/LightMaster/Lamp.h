@@ -1,7 +1,9 @@
 #pragma once
 
+#include "LMSystem.h"
+
 struct Lamp
 {
-	short LampName;
-	short State;
+	byte LampName;
+	byte State;
 };

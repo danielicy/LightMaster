@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Lamp.h"
+#include "LMSystem.h"
+
+struct Lamp;
 
 class Lamps
 {
