@@ -5,6 +5,8 @@
 #include "stdfax.h"
 
 #endif
+
+#include "LMSystem.h"
 #include <stdlib.h>
 
 #include "Lamp.h"
@@ -23,11 +25,11 @@ LampsManager::~LampsManager()
 {
 }
 
-void LampsManager::SetLamps(int lampindex)
+void LampsManager::SetLamps(byte lampindex)
 {
 
 	int *col =nullptr;
-	int  size;	
+	byte  size;
  
 	switch (lampindex)
 	{
@@ -117,12 +119,12 @@ void LampsManager::SetLamps(int lampindex)
 	delete[] col;
 }
 
-void LampsManager::SetCurrentLampState(int state)
+void LampsManager::SetCurrentLampState(byte state)
 {
 	m_lamps[m_CurrentIndex].State = state;
 }
 
-void LampsManager::SetLampState(int lamp, int state)
+void LampsManager::SetLampState(byte lamp, byte state)
 {	 
 	m_lamps[lamp].State = state;
 }
@@ -171,7 +173,7 @@ Lamp * LampsManager::GetLamps()
 	return m_lamps;
 }
 
-Lamp LampsManager::GetLamp(int idx)
+Lamp LampsManager::GetLamp(byte idx)
 {
 	return m_lamps[idx];
 }

@@ -5,7 +5,7 @@
 #include "stdfax.h"
 #include <stdlib.h>
 #endif
-
+#include "LMSystem.h"
  
 #include <stdio.h>
 #include <string.h>
@@ -43,7 +43,7 @@ Selector::~Selector()
 {
 }
 
-void Selector::ChangeSelection(int & index, int param)
+void Selector::ChangeSelection(byte & index, byte param)
 {
 	 
 	if (index < param)

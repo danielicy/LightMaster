@@ -29,7 +29,7 @@ public:
 	Selector();
 	Selector(ActionManager* actionManager, LampsManager* lampsManager);
 	~Selector();
-	void ChangeSelection(int &index, int param);
+	void ChangeSelection(byte &index, byte param);
 	void SelectColors();
 	void SelectProgram();
 	
@@ -38,15 +38,9 @@ private:
 	void LoadColors();
 	void LoadProgram();
 
-	int m_colorIndex; //the currrent color combination
-	int m_progIndex  ;        //the current program selecte
+	byte m_colorIndex; //the currrent color combination
+	byte m_progIndex  ;        //the current program selected
 
-
-	int brightness = 0;    // how bright the LED is
-	
-
-	int fadeAmount = 5;    // how many points to fade the LED by	 
-	
 	
 	ActionManager* m_actionManager;
 	LampsManager* m_lampsManager;
