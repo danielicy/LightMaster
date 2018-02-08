@@ -34,7 +34,7 @@
 #define LOW 0
 typedef unsigned char byte;
 #endif
-typedef
+
 
 #endif
 
