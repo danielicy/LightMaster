@@ -105,6 +105,7 @@ void Selector::LoadProgram()
 	delay(3500);
 #endif
 	m_actionManager->LoadAction(m_progIndex);
+	
 }
 
 

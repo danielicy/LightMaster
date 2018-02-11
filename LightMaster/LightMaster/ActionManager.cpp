@@ -10,7 +10,7 @@
 #include "Fade.h"
 #include "Flicker.h"
 #include "Runner.h"
-
+#include "Chaser.h"
 #include "Lamp.h"
 #include "Lamps.h"
 
@@ -37,19 +37,20 @@ ActionBase* ActionManager::LoadAction(int index)
 	switch (index)
 	{
 	case 1:
-		m_action = new Fade(m_lampManager);
+		m_action = new Chaser(m_lampManager);
 		break;
 	case 2:
-		m_action = new Flicker(m_lampManager);
+		m_action = new Fade(m_lampManager);
+		
 		break;
 	case 3:
-		m_action = new Runner(m_lampManager);
+		
 		break;
 	case 4:
-		//DisolveTwo(ORANGEPIN, YELLOWPIN);
+		m_action = new Flicker(m_lampManager);
 		break;
 	case 5:
-		//DisolveTwo(ORANGEPIN, GREENPIN);
+		m_action = new Runner(m_lampManager);
 		break;
 	case 6:
 		//DisolveTwo(GREENPIN, YELLOWPIN);

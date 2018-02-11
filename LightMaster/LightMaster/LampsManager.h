@@ -1,6 +1,8 @@
 #pragma once
 
 #define MAX_PMW_VAL 255
+// evh_native.cpp  
+#include <stdio.h>  
 
 #include "LMSystem.h"
 #include "Lamp.h"
@@ -17,6 +19,7 @@ public:
 	LampsManager(ColorManager * colorManager, COutputManger * outputManger);
 	~LampsManager();
 
+	__event void ColorChangedEvent(int nValue);
 	void SetLamps(byte  lampindex);
 	void SetCurrentLampState(byte state);
 	void SetLampState(byte lamp, byte state);
@@ -25,6 +28,7 @@ public:
 	int GetSize();
 	Lamp* GetLamps();
 	Lamp GetLamp(byte idx);
+	
 private:
 	byte m_size;
 	byte m_CurrentIndex;

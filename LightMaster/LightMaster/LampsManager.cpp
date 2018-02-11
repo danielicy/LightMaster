@@ -25,6 +25,7 @@ LampsManager::~LampsManager()
 {
 }
 
+
 void LampsManager::SetLamps(byte lampindex)
 {
 
@@ -118,6 +119,7 @@ void LampsManager::SetLamps(byte lampindex)
 	}  
 	m_size = size;
 	delete[] col;
+	__raise ColorChangedEvent(999);
 }
 
 void LampsManager::SetCurrentLampState(byte state)

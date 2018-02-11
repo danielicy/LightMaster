@@ -1,4 +1,7 @@
 #pragma once
+
+#include <stdlib.h>
+
 #include "ActionBase.h"
 #include "Lamp.h"
 #include "LampsManager.h"
@@ -12,5 +15,10 @@ public:
 
 	// Inherited via ActionBase
 	virtual void Execute() override;
+
+	 void ColorChangedEventHandler(int nValue);
+private:
+	void hookEvent(LampsManager* nVal);
+	void unhookEvent(LampsManager* nVal);
 };
 
