@@ -91,14 +91,14 @@ void LMSystem::DoWork(char c)
  
 	if (colorInterruptCnt > 0 || c == 'c') {
 
-		colorInterruptCnt--;
+		colorInterruptCnt=0;
 		m_selector->SelectColors();
 
 	}
 
 	if (programInterruptCnt > 0 || c == 'p') {
 
-		programInterruptCnt--;
+		programInterruptCnt=0;
 		m_selector->SelectProgram();
 		
 	}

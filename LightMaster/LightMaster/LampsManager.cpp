@@ -87,17 +87,18 @@ void LampsManager::SetLamps(byte lampindex)
 		{
 			for (int ix = 0; ix < m_size; ix++)
 			{
-				m_outputManager->AnaloglWrite(m_lamps[ix].LampName, 0);
+				m_outputManager->AnaloglWrite(+m_lamps[ix].LampName, 0);
 
-				m_outputManager->Log("m_lamps[ix].LampName: ", m_lamps[ix].LampName);
+				m_outputManager->Log("m_lamps[ix].LampName: ",+m_lamps[ix].LampName);
 				m_outputManager->Wait(1000);			
 				
 			}
 		}
 		delete[] m_lamps;
+	
 	} 
-
-	m_lamps = new Lamp[size];
+	 
+		 m_lamps = new Lamp[size];
 	
 	m_outputManager->Log("size ",size);
 
