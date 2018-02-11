@@ -129,7 +129,7 @@ void LampsManager::SetLampState(byte lamp, byte state)
 	m_lamps[lamp].State = state;
 }
 
-Lamp LampsManager::MoveNext()
+Lamp* LampsManager::MoveNext()
 {
 	m_CurrentIndex++;
 
@@ -147,10 +147,10 @@ Lamp LampsManager::MoveNext()
 	//delay(1500);
 #endif
 
-	return m_lamps[m_CurrentIndex];
+	return &m_lamps[m_CurrentIndex];
 }
 
-Lamp LampsManager::GetCurrentLamp()
+Lamp* LampsManager::GetCurrentLamp()
 {
 #if defined(ARDUINO) && ARDUINO >= 100
 	Serial.print("m_CurrentIndex: ");
@@ -160,7 +160,7 @@ Lamp LampsManager::GetCurrentLamp()
 	Serial.println(i.LampName);
 #endif
 
-	return m_lamps[m_CurrentIndex];
+	return &m_lamps[m_CurrentIndex];
 }
 
 int LampsManager::GetSize()

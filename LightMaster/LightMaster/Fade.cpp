@@ -23,23 +23,23 @@ Fade::~Fade()
 void Fade::Execute()
 {	
 
-	m_outputManager->Log("Fading Lamp:", m_currentLamp.LampName);
-	m_outputManager->Log("state: ", m_currentLamp.State);
+	m_outputManager->Log("Fading Lamp:", m_currentLamp->LampName);
+	m_outputManager->Log("state: ", m_currentLamp->State);
 	m_outputManager->Log("----------------:");;
 			
 
 	// change the brightness for next time through the loop:
-	m_currentLamp.State = m_currentLamp.State + fadeAmount;
+	m_currentLamp->State = m_currentLamp->State + fadeAmount;
 	
-	m_lampsManager->SetCurrentLampState(m_currentLamp.State);
+	m_lampsManager->SetCurrentLampState(m_currentLamp->State);
 	
-	m_outputManager->AnaloglWrite(m_currentLamp.LampName, m_currentLamp.State);
+	m_outputManager->AnaloglWrite(m_currentLamp->LampName, m_currentLamp->State);
 	
 	// reverse the direction of the fading at the ends of the fade:
-	if (m_currentLamp.State <= 0 || m_currentLamp.State >= MAX_PMW_VAL) {
+	if (m_currentLamp->State <= 0 || m_currentLamp->State >= MAX_PMW_VAL) {
 		fadeAmount = -fadeAmount;
 				
-		if (m_currentLamp.State <= 0)
+		if (m_currentLamp->State <= 0)
 		 m_currentLamp = m_lampsManager->MoveNext();
 	}
 

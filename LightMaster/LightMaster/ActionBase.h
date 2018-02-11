@@ -23,7 +23,7 @@ public:
 	virtual	void Execute() = 0;
 
 protected:
-	Lamp m_currentLamp;
+	Lamp* m_currentLamp;
 	LampsManager* m_lampsManager;
 	COutputManger* m_outputManager;	
 	int * m_multiFadeAmount;

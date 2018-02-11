@@ -20,8 +20,8 @@ public:
 	void SetLamps(byte  lampindex);
 	void SetCurrentLampState(byte state);
 	void SetLampState(byte lamp, byte state);
-	Lamp MoveNext();
-	Lamp GetCurrentLamp();
+	Lamp* MoveNext();
+	Lamp* GetCurrentLamp();
 	int GetSize();
 	Lamp* GetLamps();
 	Lamp GetLamp(byte idx);
