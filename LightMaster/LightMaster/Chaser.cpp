@@ -14,10 +14,17 @@
 #include "OutputManger.h"
 
 
+void myEvent(int &iNum)
+{
+	printf("Value of property 'i' = %d.\n", iNum);
+}
  
 
 Chaser::Chaser(LampsManager* lampsNamager) :ActionBase(lampsNamager)
 {
+	m_currentLamp = m_lampsManager->GetCurrentLamp();
+	m_multiFadeAmount = new int[m_lampsManager->GetSize()];
+	
 }
 
 Chaser::~Chaser()
