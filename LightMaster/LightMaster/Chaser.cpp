@@ -34,7 +34,10 @@ Chaser::~Chaser()
 
 void Chaser::Execute()
 {
-
+	 
+	m_lampsManager->SetCurrentLampState(0);
+	m_currentLamp = m_lampsManager->MoveNext();
+	m_lampsManager->SetCurrentLampState(MAX_PMW_VAL);
 }
 void Chaser::ColorChangedEventHandler(int nValue) {
 	m_outputManager->Log("Color Changed Event", m_currentLamp->LampName);
