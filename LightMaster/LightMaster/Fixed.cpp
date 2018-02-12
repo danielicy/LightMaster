@@ -4,6 +4,7 @@
 #else
 #include "stdfax.h"
 #endif
+
 #include "Fixed.h"
 #include "LampsManager.h"
 #include "Lamp.h"
@@ -19,4 +20,7 @@ Fixed::~Fixed()
 
 void Fixed::Execute()
 {
+	//m_lampsManager->SetCurrentLampState(MAX_PMW_VAL);
+	if(m_lampsManager->GetCurrentLamp().State != MAX_PMW_VAL)
+	m_outputManager->AnaloglWrite(m_lampsManager->GetCurrentLamp().LampName, MAX_PMW_VAL);
 }

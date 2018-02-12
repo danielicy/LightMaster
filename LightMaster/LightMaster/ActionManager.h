@@ -11,7 +11,7 @@ class ActionBase;
 class ActionManager
 {
 public:
-	ActionManager(LampsManager* m_lampManager);//int &pinbuffer);
+	ActionManager(LampsManager* m_lampManager);
 	~ActionManager();
 			
 	ActionBase* LoadAction(int index);
