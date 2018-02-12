@@ -1,5 +1,5 @@
 #pragma once
-
+//https://www.codeguru.com/cpp/cpp/cpp_mfc/events/article.php/c4075/How-to-Work-with-Events-in-a-C-Class.htm
 #define MAX_PMW_VAL 255
 // evh_native.cpp  
 #include <stdio.h>  
