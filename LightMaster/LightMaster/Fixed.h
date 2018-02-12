@@ -3,16 +3,14 @@
 #include "Lamp.h"
 #include "LampsManager.h"
 
-
-class Fade :
+class Fixed :
 	public ActionBase
 {
 public:
-	Fade(LampsManager *lampsManager);
-	~Fade();
-	 
+	Fixed(LampsManager *lampsManager);
+	~Fixed();
+
 	// Inherited via ActionBase
 	virtual void Execute() override;
-
 };
 
