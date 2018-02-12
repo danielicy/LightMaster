@@ -14,7 +14,7 @@
 #include "OutputManger.h"
 
 
-void myEvent(int &iNum)
+void ColorChangedHandler(int &iNum)
 {
 	printf("Value of property 'i' = %d.\n", iNum);
 }
@@ -24,12 +24,12 @@ Chaser::Chaser(LampsManager* lampsNamager) :ActionBase(lampsNamager)
 {
 	m_currentLamp = m_lampsManager->GetCurrentLamp();
 	m_multiFadeAmount = new int[m_lampsManager->GetSize()];
-	hookEvent(m_lampsManager);
+	m_lampsManager->SetColorChangedEvent(ColorChangedHandler);
 }
 
 Chaser::~Chaser()
 {
-	unhookEvent(m_lampsManager);
+	m_lampsManager->DisposeColorChangedEvent();
 }
 
 void Chaser::Execute()
@@ -43,13 +43,13 @@ void Chaser::ColorChangedEventHandler(int nValue) {
 }
 
 
-
-void Chaser::hookEvent(LampsManager* pSource) {
-	__hook(&LampsManager::ColorChangedEvent, pSource, &Chaser::ColorChangedEventHandler);
-	
-}
-
-void Chaser::unhookEvent(LampsManager* pSource) {
-	(&LampsManager::ColorChangedEvent, pSource, &Chaser::ColorChangedEventHandler);
-	
-}
+//
+//void Chaser::hookEvent(LampsManager* pSource) {
+//	__hook(&LampsManager::ColorChangedEvent, pSource, &Chaser::ColorChangedEventHandler);
+//	
+//}
+//
+//void Chaser::unhookEvent(LampsManager* pSource) {
+//	(&LampsManager::ColorChangedEvent, pSource, &Chaser::ColorChangedEventHandler);
+//	
+//}

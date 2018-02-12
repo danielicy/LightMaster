@@ -17,8 +17,8 @@ public:
 	virtual void Execute() override;
 
 	 void ColorChangedEventHandler(int nValue);
-private:
-	void hookEvent(LampsManager* nVal);
-	void unhookEvent(LampsManager* nVal);
+//private:
+//	void hookEvent(LampsManager* nVal);
+//	void unhookEvent(LampsManager* nVal);
 };
 

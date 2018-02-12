@@ -18,8 +18,9 @@ class LampsManager
 public:	
 	LampsManager(ColorManager * colorManager, COutputManger * outputManger);
 	~LampsManager();
-
-	__event void ColorChangedEvent(int nValue);
+   
+	void SetColorChangedEvent(void(*iChange)(int &));
+	void DisposeColorChangedEvent();
 	void SetLamps(byte  lampindex);
 	void SetCurrentLampState(byte state);
 	void SetLampState(byte lamp, byte state);
@@ -30,6 +31,9 @@ public:
 	Lamp GetLamp(byte idx);
 	
 private:
+	void(*colorChangedEvent)(int &);
+	int i;
+
 	byte m_size;
 	byte m_CurrentIndex;
 	Lamp* m_lamps;

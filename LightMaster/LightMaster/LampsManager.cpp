@@ -26,6 +26,19 @@ LampsManager::~LampsManager()
 }
 
 
+void LampsManager::SetColorChangedEvent(void(*iChangeHandler)(int &))
+{
+	this->colorChangedEvent = iChangeHandler;
+	this->i = 0;
+}
+
+void LampsManager::DisposeColorChangedEvent()
+{
+	colorChangedEvent = nullptr;
+}
+
+
+
 void LampsManager::SetLamps(byte lampindex)
 {
 
@@ -119,7 +132,9 @@ void LampsManager::SetLamps(byte lampindex)
 	}  
 	m_size = size;
 	delete[] col;
-	__raise ColorChangedEvent(999);
+
+	if(colorChangedEvent != nullptr)
+	colorChangedEvent(i);
 }
 
 void LampsManager::SetCurrentLampState(byte state)
