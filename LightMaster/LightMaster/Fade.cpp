@@ -49,3 +49,7 @@ void Fade::Execute()
 
 }
 
+void Fade::Dispose()
+{
+}
+

@@ -17,3 +17,7 @@ Runner::~Runner()
 void Runner::Execute()
 {
 }
+
+void Runner::Dispose()
+{
+}

@@ -35,11 +35,14 @@ ActionManager::~ActionManager()
 void ActionManager::LoadAction(int index)
 {
 	if (m_action != NULL)
-	delete[] m_action;
+	{
+		m_action->Dispose();
+		delete[] m_action;
+	}
 	 
 	switch (index)
 	{
-	case 1:
+	case 1:		
 		m_action = new Fixed(m_lampManager);
 		break;
 	case 2:
@@ -49,10 +52,10 @@ void ActionManager::LoadAction(int index)
 		//m_action = new Chaser(m_lampManager);
 		break;
 	case 4:
-		m_action = new Flicker(m_lampManager);
+		//m_action = new Flicker(m_lampManager);
 		break;
 	case 5:
-		m_action = new Runner(m_lampManager);
+		//m_action = new Runner(m_lampManager);
 		break;
 	case 6:
 		//DisolveTwo(GREENPIN, YELLOWPIN);

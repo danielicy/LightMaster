@@ -46,6 +46,11 @@ void Fixed::Execute()
 	
 }
 
+void Fixed::Dispose()
+{
+	Fixed::~Fixed();
+}
+
 
 void  Fixed::setLampsState()
 {

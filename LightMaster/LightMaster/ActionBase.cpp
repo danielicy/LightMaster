@@ -19,4 +19,5 @@ ActionBase::ActionBase(LampsManager* lampsManager)
 
 ActionBase::~ActionBase()
 {
+	
 }

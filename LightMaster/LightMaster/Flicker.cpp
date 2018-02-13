@@ -49,3 +49,7 @@ void Flicker::ProcessLamp(int index)
 	m_lampsManager->SetLampState(index, lamp1.State);
 	
 }
+
+void Flicker::Dispose()
+{
+}

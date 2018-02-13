@@ -15,6 +15,7 @@ public:
 
 private:
 	void ProcessLamp(int index);
+	virtual void Dispose() override;
 	int m_lastLampState;
 };
 
