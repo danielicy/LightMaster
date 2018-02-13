@@ -88,24 +88,10 @@ void LampsManager::SetLamps(int lampindex)
 	m_outputManager->Log("col 2: ", col[2]);
 	m_outputManager->Log("col 3: ", col[3]);
 	//resets and disposes previous lamps
-	 if (m_lamps != NULL)
-	{ 
-		 SetCurrentLampState(0);
-		 m_CurrentIndex = 0;
-		
-		if (m_size > 0)
-		{
-			for (int ix = 0; ix < m_size; ix++)
-			{
-				m_outputManager->AnaloglWrite(m_lamps[ix].LampName, 0);
+	
+	ResetLamps();
 
-				m_outputManager->Log("m_lamps[ix].LampName: ", m_lamps[ix].LampName);
-				m_outputManager->Wait(1000);			
-				
-			}
-		}
-		delete[] m_lamps;
-	} 
+	delete[] m_lamps;
 
 	m_lamps = new Lamp[size];
 	
@@ -132,6 +118,29 @@ void LampsManager::SetLamps(int lampindex)
 
 	delete[] col;
 }
+
+void LampsManager::ResetLamps()
+{
+	if (m_lamps != NULL)
+	{
+		SetCurrentLampState(0);
+		m_CurrentIndex = 0;
+
+		if (m_size > 0)
+		{
+			for (int ix = 0; ix < m_size; ix++)
+			{
+				m_outputManager->AnaloglWrite(m_lamps[ix].LampName, 0);
+				SetLampState(m_lamps[ix].LampName, 0);
+				m_outputManager->Log("m_lamps[ix].LampName: ", m_lamps[ix].LampName);
+				m_outputManager->Wait(1000);
+
+			}
+		}
+		
+	}
+}
+
 
 void LampsManager::SetCurrentLampState(int state)
 {

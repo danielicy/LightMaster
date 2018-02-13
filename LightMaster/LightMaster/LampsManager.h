@@ -19,6 +19,7 @@ public:
 	void DisposeColorChangedEvent();
 
 	void SetLamps(int  lampindex);
+	void ResetLamps();
 	void SetCurrentLampState(int state);
 	void SetLampState(int lamp,int state);
 	Lamp MoveNext();
