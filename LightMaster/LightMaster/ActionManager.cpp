@@ -38,8 +38,11 @@ void ActionManager::LoadAction(int index)
 	{
 		m_action->Dispose();
 		delete[] m_action;
+		m_action = nullptr;
 	}
-	 
+
+	m_lampManager->ResetLamps();
+
 	switch (index)
 	{
 	case 1:		

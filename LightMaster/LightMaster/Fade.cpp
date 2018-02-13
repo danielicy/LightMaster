@@ -13,6 +13,9 @@
 Fade::Fade(LampsManager* lampsNamager) :ActionBase(lampsNamager)
 {
 	m_currentLamp = m_lampsManager->GetCurrentLamp();
+	m_outputManager->Log("Fade Program Chosen. Lamp:", m_currentLamp.LampName);
+	m_outputManager->Wait(30);
+
 }
 
 
