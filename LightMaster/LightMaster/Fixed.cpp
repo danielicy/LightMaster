@@ -30,7 +30,7 @@ Fixed::Fixed(LampsManager * lampsManager) :ActionBase(lampsManager)
 {
 	
 	m_lampsManager->SetColorChangedEvent(ColorChangedHandler);
-	//setLampsState();
+	ColorChangedHandler(lampsManager);
 }
 
 Fixed::~Fixed()
@@ -48,7 +48,7 @@ void Fixed::Execute()
 
 void Fixed::Dispose()
 {
-	Fixed::~Fixed();
+	m_lampsManager->DisposeColorChangedEvent();
 }
 
 
