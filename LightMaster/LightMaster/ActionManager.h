@@ -14,7 +14,7 @@ public:
 	ActionManager(LampsManager* m_lampManager);
 	~ActionManager();
 			
-	ActionBase* LoadAction(int index);
+	void LoadAction(int index);
 	void Execute();	 
 	
 private:

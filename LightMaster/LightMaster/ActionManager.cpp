@@ -32,9 +32,10 @@ ActionManager::~ActionManager()
  
 
 
-ActionBase* ActionManager::LoadAction(int index)
+void ActionManager::LoadAction(int index)
 {
-	ActionBase* _action = nullptr;
+	if (m_action != NULL)
+	delete[] m_action;
 	 
 	switch (index)
 	{
@@ -64,7 +65,7 @@ ActionBase* ActionManager::LoadAction(int index)
 		break;*/
 	}
 
-	return _action;
+	
 }
 
 void ActionManager::Execute()
