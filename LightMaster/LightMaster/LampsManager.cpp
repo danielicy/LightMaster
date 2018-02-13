@@ -32,7 +32,9 @@ void LampsManager::SetColorChangedEvent(void(*iChangeHandler)(LampsManager * lam
 
 void LampsManager::DisposeColorChangedEvent()
 {
-	colorChangedEvent = nullptr;
+	m_outputManager->Log("DisposeColorChangedEvent started ");
+	colorChangedEvent = NULL;
+	m_outputManager->Log("DisposeColorChangedEvent ended ");
 }
 
 void LampsManager::SetLamps(int lampindex)
@@ -123,6 +125,7 @@ void LampsManager::ResetLamps()
 {
 	if (m_lamps != NULL)
 	{
+		m_outputManager->Log("Reseting Lamps");
 		SetCurrentLampState(0);
 		m_CurrentIndex = 0;
 
@@ -137,6 +140,8 @@ void LampsManager::ResetLamps()
 
 			}
 		}
+
+		m_outputManager->Log("All Lamps Are Reset");
 		
 	}
 }

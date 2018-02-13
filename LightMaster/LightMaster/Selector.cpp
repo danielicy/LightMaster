@@ -46,9 +46,12 @@ Selector::~Selector()
 
 void Selector::ChangeSelection(int & index, int param)
 {
+
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.println("--------------------");
 	Serial.print("--------------------");
-	Serial.print("--------------------");
-	 
+	delay(1500);
+#endif
 	if (index < param)
 	{
 		index++;
@@ -70,6 +73,7 @@ void Selector::SelectColors()
 #if defined(ARDUINO) && ARDUINO >= 100
 	Serial.println("color index changed");
 	Serial.print(m_colorIndex);
+	delay(1500);
 #endif
 	m_lampsManager->SetLamps(m_colorIndex);
 	 
@@ -83,9 +87,9 @@ void Selector::SelectProgram()
 
 #if defined(ARDUINO) && ARDUINO >= 100
 	
-	Serial.print("Loading Program: #");
+	Serial.println("Loading Program: #");
 	Serial.print(m_progIndex);
-	delay(3500);
+	delay(1500);
 #endif
 	m_actionManager->LoadAction(m_progIndex);
 }

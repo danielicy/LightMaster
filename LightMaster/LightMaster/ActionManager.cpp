@@ -37,7 +37,7 @@ void ActionManager::LoadAction(int index)
 	if (m_action != NULL)
 	{
 		m_action->Dispose();
-		delete[] m_action;
+		//delete[] m_action;
 		m_action = nullptr;
 	}
 

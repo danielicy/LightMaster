@@ -35,7 +35,7 @@ Fixed::Fixed(LampsManager * lampsManager) :ActionBase(lampsManager)
 
 Fixed::~Fixed()
 {
-	m_lampsManager->DisposeColorChangedEvent();
+	
 }
 
 
@@ -49,7 +49,6 @@ void Fixed::Execute()
 void Fixed::Dispose()
 {
 	m_outputManager->Log("Disposing Fixed Program");
-
 	m_lampsManager->DisposeColorChangedEvent();
 	m_outputManager->Log("Disposed Fixed Program");
 }
