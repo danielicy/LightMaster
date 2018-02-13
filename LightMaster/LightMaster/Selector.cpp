@@ -43,6 +43,7 @@ Selector::~Selector()
 {
 }
 
+
 void Selector::ChangeSelection(int & index, int param)
 {
 	 
@@ -69,6 +70,8 @@ void Selector::SelectColors()
 	Serial.print(m_colorIndex);
 #endif
 	LoadColors();
+
+	 
 }
 
 
@@ -80,8 +83,7 @@ void Selector::SelectProgram()
 }
 
 void Selector::LoadColors()
-{
-	
+{	
 
 #if defined(ARDUINO) && ARDUINO >= 100
 	Serial.print("Loading Color: #");
@@ -89,9 +91,7 @@ void Selector::LoadColors()
 	delay(3500);
 #endif
 
-
-	m_lampsManager->SetLamps(m_colorIndex);
-	
+	m_lampsManager->SetLamps(m_colorIndex);	
 	
 }
 

@@ -6,14 +6,16 @@
 class Fixed :
 	public ActionBase
 {
-public:
-	
+public:	
 	Fixed(LampsManager *lampsManager);
 	~Fixed();
 
+	void  setLampsState();
+
 	// Inherited via ActionBase
 	virtual void Execute() override;
-private:
-	void setLampsState();
+
+	
+	 
 };
 

@@ -10,27 +10,55 @@
 #include "Lamp.h"
 #include "OutputManger.h"
 
-void Fixed::setLampsState()
+
+
+void ColorChangedHandler(LampsManager * lampsManager)
 {
-	for (int x=0; x < m_lampsManager->GetSize();x++)
+	COutputManger * m_outputManager = new COutputManger();
+	for (int x = 0; x < lampsManager->GetSize(); x++)
 	{
-		m_lampsManager->SetCurrentLampState(MAX_PMW_VAL);
-		m_outputManager->AnaloglWrite(m_lampsManager->GetCurrentLamp().LampName, MAX_PMW_VAL);
-		m_lampsManager->MoveNext();
+		lampsManager->SetCurrentLampState(MAX_PMW_VAL);
+		m_outputManager->AnaloglWrite(lampsManager->GetCurrentLamp().LampName, MAX_PMW_VAL);
+		lampsManager->MoveNext();
 	}
+
+	//m_outputManager->Log("Color Changed Event", m_currentLamp.LampName);
+	m_outputManager->Wait(2000);
 }
 
 Fixed::Fixed(LampsManager * lampsManager) :ActionBase(lampsManager)
 {
-	setLampsState();
+	
+	m_lampsManager->SetColorChangedEvent(ColorChangedHandler);
+	//setLampsState();
 }
 
 Fixed::~Fixed()
 {
+	m_lampsManager->DisposeColorChangedEvent();
 }
+
+
 
 void Fixed::Execute()
 {
 	
 	
 }
+
+
+void  Fixed::setLampsState()
+{
+	for (int x = 0; x < m_lampsManager->GetSize(); x++)
+	{
+		m_lampsManager->SetCurrentLampState(MAX_PMW_VAL);
+		m_outputManager->AnaloglWrite(m_lampsManager->GetCurrentLamp().LampName, MAX_PMW_VAL);
+		m_lampsManager->MoveNext();
+	}
+
+	m_outputManager->Log("Color Changed Event", m_currentLamp.LampName);
+	m_outputManager->Wait(2000);
+}
+
+
+

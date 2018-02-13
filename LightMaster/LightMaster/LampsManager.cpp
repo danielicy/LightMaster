@@ -23,6 +23,18 @@ LampsManager::~LampsManager()
 {
 }
 
+
+void LampsManager::SetColorChangedEvent(void(*iChangeHandler)(LampsManager * lampsManager))
+{
+	this->colorChangedEvent = iChangeHandler;
+	this->i = 0;
+}
+
+void LampsManager::DisposeColorChangedEvent()
+{
+	colorChangedEvent = nullptr;
+}
+
 void LampsManager::SetLamps(int lampindex)
 {
 
@@ -114,6 +126,10 @@ void LampsManager::SetLamps(int lampindex)
 #endif
 	}  
 	m_size = size;
+
+	if (colorChangedEvent != nullptr)
+		colorChangedEvent(this);
+
 	delete[] col;
 }
 

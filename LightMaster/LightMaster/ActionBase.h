@@ -9,7 +9,7 @@ class LampsManager;
 
 class ActionBase : public IAction
 {
-public:
+public:	
 	ActionBase(LampsManager* lampsManager);
 	~ActionBase();
 	 
