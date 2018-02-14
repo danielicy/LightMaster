@@ -37,8 +37,8 @@ void ActionManager::LoadAction(int index)
 	if (m_action != NULL)
 	{
 		m_action->Dispose();
-		//delete[] m_action;
-		m_action = nullptr;
+		delete[] m_action;
+		//m_action = nullptr;
 	}
 
 	m_lampManager->ResetLamps();

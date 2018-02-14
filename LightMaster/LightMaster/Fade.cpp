@@ -21,6 +21,7 @@ Fade::Fade(LampsManager* lampsNamager) :ActionBase(lampsNamager)
 
 Fade::~Fade()
 {
+	
 }
 
 void Fade::Execute()
@@ -54,5 +55,6 @@ void Fade::Execute()
 
 void Fade::Dispose()
 {
+	ActionBase::~ActionBase();
 }
 

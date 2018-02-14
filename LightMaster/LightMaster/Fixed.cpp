@@ -24,6 +24,8 @@ void ColorChangedHandler(LampsManager * lampsManager)
 
 	//m_outputManager->Log("Color Changed Event", m_currentLamp.LampName);
 	m_outputManager->Wait(2000);
+
+	delete[] m_outputManager;
 }
 
 Fixed::Fixed(LampsManager * lampsManager) :ActionBase(lampsManager)
@@ -48,6 +50,7 @@ void Fixed::Execute()
 
 void Fixed::Dispose()
 {
+	ActionBase::~ActionBase();
 	m_outputManager->Log("Disposing Fixed Program");
 	m_lampsManager->DisposeColorChangedEvent();
 	m_outputManager->Log("Disposed Fixed Program");
