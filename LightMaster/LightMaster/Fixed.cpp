@@ -50,7 +50,6 @@ void Fixed::Execute()
 
 void Fixed::Dispose()
 {
-	ActionBase::~ActionBase();
 	m_outputManager->Log("Disposing Fixed Program");
 	m_lampsManager->DisposeColorChangedEvent();
 	m_outputManager->Log("Disposed Fixed Program");

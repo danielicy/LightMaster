@@ -14,6 +14,14 @@
 
 using namespace std;
  
+COutputManger::COutputManger()
+{
+
+}
+COutputManger::~COutputManger()
+{
+}
+
 void COutputManger::init()
 {
 

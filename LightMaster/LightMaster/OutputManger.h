@@ -18,6 +18,9 @@ class COutputManger
 
 
  public:
+	 COutputManger();
+	 ~COutputManger();	
+
 	void init();
 	void AnaloglWrite(int pin,int value);
 	void Wait(int ticks);
