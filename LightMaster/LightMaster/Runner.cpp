@@ -18,6 +18,3 @@ void Runner::Execute()
 {
 }
 
-void Runner::Dispose()
-{
-}

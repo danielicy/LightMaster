@@ -14,8 +14,7 @@ public:
 	virtual void Execute() override;
 
 private:
-	void ProcessLamp(int index);
-	virtual void Dispose() override;
+	void ProcessLamp(int index);	
 	int m_lastLampState;
 };
 

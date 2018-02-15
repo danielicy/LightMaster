@@ -36,8 +36,11 @@ void ActionManager::LoadAction(int index)
 {
 	if (m_action != NULL)
 	{
-		m_action->Dispose();
+		//m_action->Dispose();
+		//Serial.println("Disposing m_action");
 		delete[] m_action;
+		//Serial.println("Disposed m_action");
+		//delay(1500);
 		//m_action = nullptr;
 	}
 

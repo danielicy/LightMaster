@@ -106,11 +106,11 @@ void LampsManager::SetLamps(int lampindex)
 		m_lamps[i].LampName = col[i];
 		m_lamps[i].State = 0;
 #if defined(ARDUINO) && ARDUINO >= 100
-		Serial.print("i:");
+		Serial.print("Loading: ");
 		Serial.println(i);
 		Serial.print("col[i]: ");
 		Serial.println(col[i]);
-		//delay(1000);
+		delay(1000);
 #endif
 	}  
 	m_size = size;
@@ -118,7 +118,11 @@ void LampsManager::SetLamps(int lampindex)
 	if (colorChangedEvent != nullptr)
 		colorChangedEvent(this);
 
+	m_outputManager->Log("deleting col");
 	delete[] col;
+	m_outputManager->Log("deleted col ");
+	m_outputManager->Wait(3000);
+
 }
 
 void LampsManager::ResetLamps()

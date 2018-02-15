@@ -21,7 +21,7 @@ class COutputManger
 	 COutputManger();
 	 ~COutputManger();	
 
-	void init();
+
 	void AnaloglWrite(int pin,int value);
 	void Wait(int ticks);
 	void Log(char *message);
@@ -29,7 +29,7 @@ class COutputManger
 	void Log(char * title, int message);
 };
 
-extern COutputManger OutputManger;
+//extern COutputManger OutputManger;
 
 #endif
 

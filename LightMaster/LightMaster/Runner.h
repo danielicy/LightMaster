@@ -13,6 +13,6 @@ public:
 
 	// Inherited via ActionBase
 	virtual void Execute() override;
-	void Dispose();
+	
 };
 

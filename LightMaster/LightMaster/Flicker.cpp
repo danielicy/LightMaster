@@ -50,6 +50,3 @@ void Flicker::ProcessLamp(int index)
 	
 }
 
-void Flicker::Dispose()
-{
-}

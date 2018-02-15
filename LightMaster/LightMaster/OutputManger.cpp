@@ -22,11 +22,7 @@ COutputManger::~COutputManger()
 {
 }
 
-void COutputManger::init()
-{
 
-
-}
 
 void COutputManger::AnaloglWrite(int pin, int value)
 {
@@ -92,5 +88,5 @@ void COutputManger::Log(char *title, int message)
 }
 
 
-COutputManger  OutputManger;
+//COutputManger  OutputManger;
 
