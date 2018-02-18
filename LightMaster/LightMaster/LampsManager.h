@@ -27,6 +27,7 @@ public:
 	Lamp GetLamp(int idx);
 	bool IsLampChanged();
 	void LampChanged();
+	void AnaloglWrite(int pin, int value);
 private:
 	bool m_isLampChanged;
 	int m_size;

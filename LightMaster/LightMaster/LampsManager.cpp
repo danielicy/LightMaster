@@ -80,6 +80,7 @@ void LampsManager::SetLamps(int lampindex)
 	
 	ResetLamps();
 
+	if(m_lamps != NULL)
 	delete[] m_lamps;
 
 	m_lamps = new Lamp[size];
@@ -191,7 +192,8 @@ Lamp * LampsManager::GetLamps()
 {
 	return m_lamps;
 }
-
+
+
 bool LampsManager::IsLampChanged()
 {
 	return m_isLampChanged;
@@ -199,7 +201,11 @@ bool LampsManager::IsLampChanged()
 
 void LampsManager::LampChanged()
 {
-	m_isLampChanged = !m_isLampChanged;
+	m_isLampChanged = false;
+}
+void LampsManager::AnaloglWrite(int pin, int value)
+{
+	m_outputManager->AnaloglWrite(pin, value);
 }
 Lamp LampsManager::GetLamp(int idx)
 {

@@ -13,8 +13,8 @@
 Fade::Fade(LampsManager* lampsNamager) :ActionBase(lampsNamager)
 {
 	m_currentLamp = m_lampsManager->GetCurrentLamp();
-	m_outputManager->Log("Fade Program Chosen. Lamp:", m_currentLamp.LampName);
-	m_outputManager->Wait(30);
+//	m_outputManager->Log("Fade Program Chosen. Lamp:", m_currentLamp.LampName);
+	//m_outputManager->Wait(30);
 
 }
 
@@ -27,9 +27,9 @@ Fade::~Fade()
 void Fade::Execute()
 {	
 
-	m_outputManager->Log("Fading Lamp:", m_currentLamp.LampName);
-	m_outputManager->Log("state: ", m_currentLamp.State);
-	m_outputManager->Log("----------------:");;
+	//m_outputManager->Log("Fading Lamp:", m_currentLamp.LampName);
+	//m_outputManager->Log("state: ", m_currentLamp.State);
+	//m_outputManager->Log("----------------:");;
 			
 
 	// change the brightness for next time through the loop:
@@ -37,7 +37,7 @@ void Fade::Execute()
 	
 	m_lampsManager->SetCurrentLampState(m_currentLamp.State);
 	
-	m_outputManager->AnaloglWrite(m_currentLamp.LampName, m_currentLamp.State);
+	m_lampsManager->AnaloglWrite(m_currentLamp.LampName, m_currentLamp.State);
 	
 	// reverse the direction of the fading at the ends of the fade:
 	if (m_currentLamp.State <= 0 || m_currentLamp.State >= MAX_PMW_VAL) {
@@ -48,7 +48,7 @@ void Fade::Execute()
 	}
 
 	// wait for 30 milliseconds to see the dimming effect	
-	m_outputManager->Wait(30);	
+	//m_outputManager->Wait(30);	
 
 
 }

@@ -44,7 +44,8 @@ void Flicker::ProcessLamp(int index)
 
 	m_lastLampState = lamp1.State = lamp1.State + fadeAmount;
 
-	m_outputManager->AnaloglWrite(lamp1.LampName, lamp1.State);
+
+	m_lampsManager->AnaloglWrite(lamp1.LampName, lamp1.State);
 
 	m_lampsManager->SetLampState(index, lamp1.State);
 	
