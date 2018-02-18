@@ -19,6 +19,6 @@ ActionBase::ActionBase(LampsManager* lampsManager)
 
 ActionBase::~ActionBase()
 {
-	delete[] m_outputManager;
+	delete m_outputManager;
 	
 }

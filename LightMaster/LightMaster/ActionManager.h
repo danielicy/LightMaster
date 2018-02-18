@@ -19,7 +19,7 @@ public:
 	
 private:
 	LampsManager* m_lampManager;
-	IAction* m_action;
+	ActionBase* m_action;
 	
 };
 
