@@ -14,13 +14,10 @@
 
 class COutputManger
 {
- protected:
-
 
  public:
 	 COutputManger();
 	 ~COutputManger();	
-
 
 	void AnaloglWrite(int pin,int value);
 	void Wait(int ticks);

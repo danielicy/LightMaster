@@ -15,9 +15,7 @@ public:
 	LampsManager(ColorManager * colorManager, COutputManger * outputManger);
 	~LampsManager();
 
-	void SetColorChangedEvent(void(*iChange)(LampsManager * lampsManager));
-	void DisposeColorChangedEvent();
-
+	
 	void SetLamps(int  lampindex);
 	void ResetLamps();
 	void SetCurrentLampState(int state);
