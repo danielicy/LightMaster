@@ -26,7 +26,7 @@ class COutputManger
 	void Log(char * title, int message);
 };
 
-//extern COutputManger OutputManger;
+extern COutputManger OutputManger;
 
 #endif
 

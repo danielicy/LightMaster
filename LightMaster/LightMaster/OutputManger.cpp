@@ -88,5 +88,5 @@ void COutputManger::Log(char *title, int message)
 }
 
 
-//COutputManger  OutputManger;
+COutputManger  OutputManger;
 
