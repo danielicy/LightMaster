@@ -24,19 +24,6 @@ LampsManager::~LampsManager()
 }
 
 
-void LampsManager::SetColorChangedEvent(void(*iChangeHandler)(LampsManager * lampsManager))
-{
-	this->colorChangedEvent = iChangeHandler;
-	this->i = 0;
-}
-
-void LampsManager::DisposeColorChangedEvent()
-{
-	m_outputManager->Log("DisposeColorChangedEvent started ");
-	colorChangedEvent = NULL;
-	m_outputManager->Log("DisposeColorChangedEvent ended ");
-}
-
 void LampsManager::SetLamps(int lampindex)
 {
 
@@ -115,8 +102,8 @@ void LampsManager::SetLamps(int lampindex)
 	}  
 	m_size = size;
 
-	if (colorChangedEvent != nullptr)
-		colorChangedEvent(this);
+	 
+	m_isLampChanged = true;
 
 	m_outputManager->Log("deleting col");
 	delete[] col;
@@ -204,7 +191,16 @@ Lamp * LampsManager::GetLamps()
 {
 	return m_lamps;
 }
+
+bool LampsManager::IsLampChanged()
+{
+	return m_isLampChanged;
+}
 
+void LampsManager::LampChanged()
+{
+	m_isLampChanged = !m_isLampChanged;
+}
 Lamp LampsManager::GetLamp(int idx)
 {
 	return m_lamps[idx];

@@ -27,9 +27,10 @@ public:
 	int GetSize();
 	Lamp* GetLamps();
 	Lamp GetLamp(int idx);
+	bool IsLampChanged();
+	void LampChanged();
 private:
-	void(*colorChangedEvent)(LampsManager * lampsManager);
-	int i;
+	bool m_isLampChanged;
 	int m_size;
 	int m_CurrentIndex;
 	Lamp* m_lamps;
