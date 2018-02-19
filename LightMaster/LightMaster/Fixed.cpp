@@ -36,7 +36,9 @@ void Fixed::Execute()
 		{
 			//m_outputManager->Log("Fixed colorchangedEvent handler", size);
 			m_lampsManager->SetCurrentLampState(MAX_PMW_VAL);
+
 			m_lampsManager->AnaloglWrite(m_lampsManager->GetCurrentLamp().LampName, MAX_PMW_VAL);
+
 			m_lampsManager->MoveNext();
 			//m_outputManager->Log("Fixxed colorchangedEvent Handled", x);
 			//m_outputManager->Wait(3000);
