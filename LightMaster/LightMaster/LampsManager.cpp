@@ -108,7 +108,9 @@ void LampsManager::SetLamps(int lampindex)
 
 	m_outputManager->Log("deleting col");
 	delete[] col;
+
 	m_outputManager->Log("deleted col ");
+
 	m_outputManager->Wait(3000);
 
 }
@@ -124,8 +126,7 @@ void LampsManager::ResetLamps()
 		if (m_size > 0)
 		{
 			for (int ix = 0; ix < m_size; ix++)
-			{
-				m_outputManager->AnaloglWrite(m_lamps[ix].LampName, 0);
+			{				
 				SetLampState(m_lamps[ix].LampName, 0);
 				m_outputManager->Log("m_lamps[ix].LampName: ", m_lamps[ix].LampName);
 				m_outputManager->Wait(1000);
@@ -142,11 +143,13 @@ void LampsManager::ResetLamps()
 void LampsManager::SetCurrentLampState(int state)
 {
 	m_lamps[m_CurrentIndex].State = state;
+	AnaloglWrite(GetCurrentLamp().LampName, state);
 }
 
 void LampsManager::SetLampState(int lamp, int state)
 {	 
 	m_lamps[lamp].State = state;
+	AnaloglWrite(lamp, state);
 }
 
 Lamp LampsManager::MoveNext()
@@ -185,6 +188,8 @@ Lamp LampsManager::GetCurrentLamp()
 
 int LampsManager::GetSize()
 {
+	m_outputManager->Log("Getting size", m_size);
+	
 	return m_size;
 }
 
@@ -196,6 +201,7 @@ Lamp * LampsManager::GetLamps()
 
 bool LampsManager::IsLampChanged()
 {
+	m_outputManager->Log("IsLampChanged", m_isLampChanged);
 	return m_isLampChanged;
 }
 

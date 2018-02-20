@@ -35,9 +35,8 @@ void Fade::Execute()
 	// change the brightness for next time through the loop:
 	m_currentLamp.State = m_currentLamp.State + fadeAmount;
 	
-	m_lampsManager->SetCurrentLampState(m_currentLamp.State);
+	m_lampsManager->SetCurrentLampState(m_currentLamp.State);	
 	
-	m_lampsManager->AnaloglWrite(m_currentLamp.LampName, m_currentLamp.State);
 	
 	// reverse the direction of the fading at the ends of the fade:
 	if (m_currentLamp.State <= 0 || m_currentLamp.State >= MAX_PMW_VAL) {

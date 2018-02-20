@@ -142,9 +142,7 @@ void LMSystem::DoWork(char c)
 		m_selector->SelectProgram();
 		
 	}
-
-
-
+	
 	m_ActionManager->Execute();	
 }
  

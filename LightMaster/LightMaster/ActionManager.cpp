@@ -64,10 +64,10 @@ void ActionManager::LoadAction(int index)
 		//m_action = new Runner(m_lampManager);
 		break;
 	case 6:
-		//DisolveTwo(GREENPIN, YELLOWPIN);
+		
 		break;
 	case 7:
-		//DisolveThree(ORANGEPIN, YELLOWPIN, GREENPIN);
+		
 		break;
 		/*case 8:
 		Prog8();
