@@ -13,9 +13,6 @@
 Fade::Fade(LampsManager* lampsNamager) :ActionBase(lampsNamager)
 {
 	m_currentLamp = m_lampsManager->GetCurrentLamp();
-//	m_outputManager->Log("Fade Program Chosen. Lamp:", m_currentLamp.LampName);
-	//m_outputManager->Wait(30);
-
 }
 
 
@@ -26,13 +23,6 @@ Fade::~Fade()
 
 void Fade::Execute()
 {	
-
-	//m_outputManager->Log("Fading Lamp:", m_currentLamp.LampName);
-	//m_outputManager->Log("state: ", m_currentLamp.State);
-	//m_outputManager->Log("----------------:");;
-			
-
-	// change the brightness for next time through the loop:
 	m_currentLamp.State = m_currentLamp.State + fadeAmount;
 	
 	m_lampsManager->SetCurrentLampState(m_currentLamp.State);	
@@ -45,10 +35,7 @@ void Fade::Execute()
 		if (m_currentLamp.State <= 0)
 		 m_currentLamp = m_lampsManager->MoveNext();
 	}
-
-	// wait for 30 milliseconds to see the dimming effect	
-	//m_outputManager->Wait(30);	
-
+	
 
 }
 

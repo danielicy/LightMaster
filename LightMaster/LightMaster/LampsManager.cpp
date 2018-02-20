@@ -201,7 +201,7 @@ Lamp * LampsManager::GetLamps()
 
 bool LampsManager::IsLampChanged()
 {
-	m_outputManager->Log("IsLampChanged", m_isLampChanged);
+	//m_outputManager->Log("IsLampChanged", m_isLampChanged);
 	return m_isLampChanged;
 }
 
