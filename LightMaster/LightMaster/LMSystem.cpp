@@ -59,13 +59,13 @@ void WriteWire()
 void handleProgramButton() {
 
 	programInterruptCnt++;
-
+	//delay(1500);
 }
 
 void handleColorButton() {
 
 	colorInterruptCnt++;
-
+	//delay(1500);
 }
 
 LMSystem::LMSystem()
@@ -129,14 +129,14 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 void LMSystem::DoWork(char c)
 {	
  
-	if (colorInterruptCnt > 0)// || c == 'c') 
+	if (colorInterruptCnt > 0 || c == 'c') 
 	{
 		colorInterruptCnt = 0;
 		m_selector->SelectColors();
 
 	}
 
-	if (programInterruptCnt > 0)// || c == 'p') 
+	if (programInterruptCnt > 0  || c == 'p') 
 	{
 		programInterruptCnt = 0;
 		m_selector->SelectProgram();

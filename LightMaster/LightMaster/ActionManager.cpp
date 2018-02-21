@@ -74,7 +74,7 @@ void ActionManager::LoadAction(int index)
 
 void ActionManager::Execute()
 {
-	if (m_action != nullptr)
+	if (m_action != NULL)
 	{
 		m_action->Execute();			
 	}

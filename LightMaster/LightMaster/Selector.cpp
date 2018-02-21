@@ -50,7 +50,7 @@ void Selector::ChangeSelection(int & index, int param)
 #if defined(ARDUINO) && ARDUINO >= 100
 	Serial.println("---------------------------");
 	Serial.println("---------------------------");
-	delay(1500);
+	delay(3000);
 #endif
 	if (index < param)
 	{

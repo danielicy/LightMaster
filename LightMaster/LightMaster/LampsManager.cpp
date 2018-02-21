@@ -94,7 +94,7 @@ void LampsManager::SetLamps(int lampindex)
 		m_lamps[i].State = 0;
 	} 
 	
-	delay(500);
+//	delay(500);
 	m_size = size;
 	 
 	m_isLampChanged = true;
@@ -135,9 +135,9 @@ void LampsManager::ResetLamps()
 void LampsManager::SetCurrentLampState(int state)
 {
 	 
-	m_outputManager->Log("LampsManager SettingCurrentLampState began\n LampState: ", m_lamps[m_CurrentIndex].State);
+	m_outputManager->Log("LampsManager SettingCurrentLampState began\n Current LampState: ", m_lamps[m_CurrentIndex].State);
 	m_lamps[m_CurrentIndex].State = state;
-	AnaloglWrite(GetCurrentLamp().LampName, state);
+	AnaloglWrite(GetCurrentLamp().LampName, m_lamps[m_CurrentIndex].State);
 	m_outputManager->Log("LampsManager SettingCurrentLampState ended\n LampName: ", GetCurrentLamp().LampName);
 	
 }

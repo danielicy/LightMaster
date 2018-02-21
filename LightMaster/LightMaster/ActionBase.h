@@ -19,6 +19,6 @@ protected:
 	LampsManager* m_lampsManager;
 	
 	int fadeAmount = 5;
-	Lamp  m_currentLamp;
+	
 };
 
