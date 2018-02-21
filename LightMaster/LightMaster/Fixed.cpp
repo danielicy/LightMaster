@@ -34,19 +34,7 @@ Fixed::~Fixed()
 
 
 void Fixed::Execute()
-{
-	/*if (m_lampsManager->IsLampChanged())
-	{		 
-		for (int x = 0; x < m_lampsManager->GetSize(); x++)
-		{					
-			m_lampsManager->SetCurrentLampState(MAX_PMW_VAL);	
-						
-			m_lampsManager->MoveNext();			
-		}
-	
-		m_lampsManager->LampChanged();
-
-	}*/
+{	
 	
 }
 
