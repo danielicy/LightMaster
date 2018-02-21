@@ -7,13 +7,15 @@
 
 #include "ActionManager.h"
 #include "LampsManager.h"
-#include "Fade.h"
-#include "Flicker.h"
-#include "Runner.h"
+
 
 #include "Lamp.h"
 #include "Lamps.h"
 
+#include "Fixed.h"
+#include "Fade.h"
+#include "Flicker.h"
+#include "Runner.h"
 
 
 //https://stackoverflow.com/questions/8767166/passing-a-2d-array-to-a-c-function
@@ -30,44 +32,51 @@ ActionManager::~ActionManager()
  
 
 
-ActionBase* ActionManager::LoadAction(int index)
+void ActionManager::LoadAction(int index)
 {
-	ActionBase* _action = nullptr;
-	 
+	if (m_action != NULL)
+	{		
+		delete m_action;		
+	}
+
+	//m_lampManager->ResetLamps();
+
 	switch (index)
 	{
-	case 1:
-		m_action = new Fade(m_lampManager);
+	case 1:		
+		m_action = new Fixed(m_lampManager);
 		break;
 	case 2:
-		m_action = new Flicker(m_lampManager);
+		m_action = new Fade(m_lampManager);
 		break;
 	case 3:
-		m_action = new Runner(m_lampManager);
+		//m_action = new Chaser(m_lampManager);
 		break;
 	case 4:
-		//DisolveTwo(ORANGEPIN, YELLOWPIN);
+		//m_action = new Flicker(m_lampManager);
 		break;
 	case 5:
-		//DisolveTwo(ORANGEPIN, GREENPIN);
+		//m_action = new Runner(m_lampManager);
 		break;
 	case 6:
-		//DisolveTwo(GREENPIN, YELLOWPIN);
+		
 		break;
 	case 7:
-		//DisolveThree(ORANGEPIN, YELLOWPIN, GREENPIN);
+		
 		break;
 		/*case 8:
 		Prog8();
 		break;*/
 	}
 
-	return _action;
+	
 }
 
 void ActionManager::Execute()
 {
-	if(m_action != nullptr)
-	m_action->Execute();
+	if (m_action != NULL)
+	{
+		m_action->Execute();			
+	}
 }
 

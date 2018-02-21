@@ -30,7 +30,7 @@ Selector::Selector()
 	//m_colorManager = new ColorManager();
 }
 
-Selector::Selector(  ActionManager* actionManager , LampsManager* lampsManager)
+Selector::Selector(ActionManager* actionManager , LampsManager* lampsManager)
 {
 	m_actionManager = actionManager;
 	
@@ -43,9 +43,15 @@ Selector::~Selector()
 {
 }
 
+
 void Selector::ChangeSelection(int & index, int param)
 {
-	 
+
+#if defined(ARDUINO) && ARDUINO >= 100
+	Serial.println("---------------------------");
+	Serial.println("---------------------------");
+	delay(3000);
+#endif
 	if (index < param)
 	{
 		index++;
@@ -61,14 +67,19 @@ void Selector::ChangeSelection(int & index, int param)
 //loads selected color in buffer
 void Selector::SelectColors()
 {
-	ChangeSelection(m_colorIndex, PROGRAMS_CNT);
+	ChangeSelection(m_colorIndex, COLORS_CNT);
 		
 	//TO DO Reset Lamps
 #if defined(ARDUINO) && ARDUINO >= 100
 	Serial.println("color index changed");
 	Serial.print(m_colorIndex);
+	delay(3000);
 #endif
-	LoadColors();
+
+	m_lampsManager->SetLamps(m_colorIndex);
+	
+	m_actionManager->LoadAction(m_progIndex);
+
 }
 
 
@@ -76,36 +87,16 @@ void Selector::SelectProgram()
 {
 	ChangeSelection(m_progIndex, PROGRAMS_CNT);
 
-	LoadProgram();
-}
-
-void Selector::LoadColors()
-{
-	
-
-#if defined(ARDUINO) && ARDUINO >= 100
-	Serial.print("Loading Color: #");
-	Serial.print(m_colorIndex);
-	delay(3500);
-#endif
-
-
-	m_lampsManager->SetLamps(m_colorIndex);
-	
-	
-}
-
-
-
-void Selector::LoadProgram()
-{
-#if defined(ARDUINO) && ARDUINO >= 100
+#if defined(ARDUINO) && ARDUINO >= 100	
 	Serial.print("Loading Program: #");
-	Serial.print(m_progIndex);
-	delay(3500);
+	Serial.println(m_progIndex);
+	//delay(1500);
 #endif
+
 	m_actionManager->LoadAction(m_progIndex);
 }
 
+ 
 
+ 
  

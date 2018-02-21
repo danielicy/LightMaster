@@ -11,13 +11,14 @@
 
 
 ActionBase::ActionBase(LampsManager* lampsManager)
-{
-	
+{	
 	m_lampsManager = lampsManager;
-	m_outputManager = new COutputManger();
+	
 }
 
 
 ActionBase::~ActionBase()
 {
+	
+	
 }

@@ -16,12 +16,13 @@ LampsManager::LampsManager(ColorManager* colorManager, COutputManger* outputMang
 	m_size = 1;
 	m_CurrentIndex = 0;
 	m_outputManager = outputManger;
-	m_colorManager = new ColorManager();
+	m_colorManager = colorManager;
 }
 
 LampsManager::~LampsManager()
 {
 }
+
 
 void LampsManager::SetLamps(int lampindex)
 {
@@ -76,24 +77,11 @@ void LampsManager::SetLamps(int lampindex)
 	m_outputManager->Log("col 2: ", col[2]);
 	m_outputManager->Log("col 3: ", col[3]);
 	//resets and disposes previous lamps
-	 if (m_lamps != NULL)
-	{ 
-		 SetCurrentLampState(0);
-		 m_CurrentIndex = 0;
-		
-		if (m_size > 0)
-		{
-			for (int ix = 0; ix < m_size; ix++)
-			{
-				m_outputManager->AnaloglWrite(m_lamps[ix].LampName, 0);
+	
+	ResetLamps();
 
-				m_outputManager->Log("m_lamps[ix].LampName: ", m_lamps[ix].LampName);
-				m_outputManager->Wait(1000);			
-				
-			}
-		}
-		delete[] m_lamps;
-	} 
+	if(m_lamps != NULL)
+	delete[] m_lamps;
 
 	m_lamps = new Lamp[size];
 	
@@ -102,67 +90,87 @@ void LampsManager::SetLamps(int lampindex)
 	//delay(1000);
 	for (int i = 0; i < size; i++)
 	{
-
 		m_lamps[i].LampName = col[i];
 		m_lamps[i].State = 0;
-#if defined(ARDUINO) && ARDUINO >= 100
-		Serial.print("i:");
-		Serial.println(i);
-		Serial.print("col[i]: ");
-		Serial.println(col[i]);
-		//delay(1000);
-#endif
-	}  
+	} 
+	
+//	delay(500);
 	m_size = size;
+	 
+	m_isLampChanged = true;
+	
+
 	delete[] col;
+
+	m_outputManager->Log("deleted col ");	
+
 }
+
+void LampsManager::ResetLamps()
+{
+	if (m_lamps != NULL)
+	{
+		m_outputManager->Log("Reseting Lamps");
+		SetCurrentLampState(0);
+		m_CurrentIndex = 0;
+
+		if (m_size > 0)
+		{
+			for (int ix = 0; ix < m_size; ix++)
+			{				
+				SetLampState(ix, 0);
+				m_outputManager->Log("reseted LampName: ", m_lamps[ix].LampName);				
+
+			}
+		}
+
+		m_outputManager->Log("All Lamps Are Reset");
+		
+	}
+}
+
 
 void LampsManager::SetCurrentLampState(int state)
 {
+	 
+	m_outputManager->Log("LampsManager SettingCurrentLampState began\n Current LampState: ", m_lamps[m_CurrentIndex].State);
 	m_lamps[m_CurrentIndex].State = state;
+	AnaloglWrite(GetCurrentLamp().LampName, m_lamps[m_CurrentIndex].State);
+	m_outputManager->Log("LampsManager SettingCurrentLampState ended\n LampName: ", GetCurrentLamp().LampName);
+	
 }
 
-void LampsManager::SetLampState(int lamp, int state)
+void LampsManager::SetLampState(int lampIndex, int state)
 {	 
-	m_lamps[lamp].State = state;
+	m_lamps[lampIndex].State = state;
+	AnaloglWrite(m_lamps[lampIndex].LampName, state);
 }
 
 Lamp LampsManager::MoveNext()
 {
 	m_CurrentIndex++;
 
-	if (m_CurrentIndex== m_size)
+	if (m_CurrentIndex == m_size)
 	{
 		m_CurrentIndex = 0;
 	}
 
+	m_outputManager->Log("Moving to Next Lamp\n ,m_CurrentIndex: ", m_CurrentIndex);
  
- 
-#if defined(ARDUINO) && ARDUINO >= 100
-	Serial.print("MoveNext: ");
-	Serial.print("m_CurrentIndex: ");
-	Serial.println(m_CurrentIndex);
-	//delay(1500);
-#endif
+	m_outputManager->Log("LampName: ", m_lamps[m_CurrentIndex].LampName);
 
 	return m_lamps[m_CurrentIndex];
 }
 
 Lamp LampsManager::GetCurrentLamp()
 {
-#if defined(ARDUINO) && ARDUINO >= 100
-	Serial.print("m_CurrentIndex: ");
-	Serial.println(m_CurrentIndex);
-	Lamp i = m_lamps[m_CurrentIndex];
-	Serial.print("lampName: ");
-	Serial.println(i.LampName);
-#endif
-
 	return m_lamps[m_CurrentIndex];
 }
 
 int LampsManager::GetSize()
 {
+	m_outputManager->Log("Getting size: ", m_size);
+	
 	return m_size;
 }
 
@@ -171,6 +179,20 @@ Lamp * LampsManager::GetLamps()
 	return m_lamps;
 }
 
+
+bool LampsManager::IsLampChanged()
+{	
+	return m_isLampChanged;
+}
+
+void LampsManager::LampChanged()
+{
+	m_isLampChanged = false;
+}
+void LampsManager::AnaloglWrite(int pin, int value)
+{
+	m_outputManager->AnaloglWrite(pin, value);
+}
 Lamp LampsManager::GetLamp(int idx)
 {
 	return m_lamps[idx];

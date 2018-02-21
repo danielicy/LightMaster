@@ -6,7 +6,8 @@
 
 
 
-#define PROGRAMS_CNT 12
+#define PROGRAMS_CNT 2
+#define COLORS_CNT 12
 
 #endif
 #ifndef Selector_h
@@ -29,25 +30,18 @@ public:
 	Selector();
 	Selector(ActionManager* actionManager, LampsManager* lampsManager);
 	~Selector();
-	void ChangeSelection(int &index, int param);
+	
 	void SelectColors();
 	void SelectProgram();
-	
-	
-private:
-	void LoadColors();
-	void LoadProgram();
 
+	
+	
+private: 
+
+	void ChangeSelection(int &index, int param);
 	int m_colorIndex; //the currrent color combination
 	int m_progIndex  ;        //the current program selecte
 
-
-	int brightness = 0;    // how bright the LED is
-	
-
-	int fadeAmount = 5;    // how many points to fade the LED by	 
-	
-	
 	ActionManager* m_actionManager;
 	LampsManager* m_lampsManager;
 };

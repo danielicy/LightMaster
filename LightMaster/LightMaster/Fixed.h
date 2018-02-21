@@ -3,18 +3,16 @@
 #include "Lamp.h"
 #include "LampsManager.h"
 
-class Flicker :
+class Fixed :
 	public ActionBase
 {
-public:
-	Flicker(LampsManager* lampsNamager);
-	~Flicker();
+public:	
+	Fixed(LampsManager *lampsManager);
+	~Fixed();
 
 	// Inherited via ActionBase
 	virtual void Execute() override;
-
-private:
-	void ProcessLamp(int index);	
-	int m_lastLampState;
+		
+	 
 };
 

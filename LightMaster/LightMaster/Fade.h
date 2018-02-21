@@ -2,7 +2,7 @@
 #include "ActionBase.h"
 #include "Lamp.h"
 #include "LampsManager.h"
-//#include "Arduino.h"
+
 
 class Fade :
 	public ActionBase
@@ -13,6 +13,6 @@ public:
 	 
 	// Inherited via ActionBase
 	virtual void Execute() override;
-
+	
 };
 

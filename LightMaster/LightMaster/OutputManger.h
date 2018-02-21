@@ -14,11 +14,11 @@
 
 class COutputManger
 {
- protected:
-
 
  public:
-	void init();
+	 COutputManger();
+	 ~COutputManger();	
+
 	void AnaloglWrite(int pin,int value);
 	void Wait(int ticks);
 	void Log(char *message);
