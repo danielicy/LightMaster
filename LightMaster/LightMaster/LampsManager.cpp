@@ -90,22 +90,14 @@ void LampsManager::SetLamps(int lampindex)
 	//delay(1000);
 	for (int i = 0; i < size; i++)
 	{
-
 		m_lamps[i].LampName = col[i];
 		m_lamps[i].State = 0;
-#if defined(ARDUINO) && ARDUINO >= 100
-		Serial.print("Loading: ");
-		Serial.println(i);
-		Serial.print("col[i]: ");
-		Serial.println(col[i]);
-		delay(1000);
-#endif
-	}  
+	} 
+	
+	delay(500);
 	m_size = size;
-
 	 
 	m_isLampChanged = true;
-
 	
 
 	delete[] col;
@@ -128,9 +120,8 @@ void LampsManager::ResetLamps()
 		{
 			for (int ix = 0; ix < m_size; ix++)
 			{				
-				SetLampState(m_lamps[ix].LampName, 0);
-				m_outputManager->Log("m_lamps[ix].LampName: ", m_lamps[ix].LampName);
-				//m_outputManager->Wait(1000);
+				SetLampState(ix, 0);
+				m_outputManager->Log("reseted LampName: ", m_lamps[ix].LampName);				
 
 			}
 		}
@@ -144,49 +135,37 @@ void LampsManager::ResetLamps()
 void LampsManager::SetCurrentLampState(int state)
 {
 	 
-	Serial.println("SettingCurrentLampState began");
+	m_outputManager->Log("LampsManager SettingCurrentLampState began\n LampState: ", m_lamps[m_CurrentIndex].State);
 	m_lamps[m_CurrentIndex].State = state;
 	AnaloglWrite(GetCurrentLamp().LampName, state);
-	Serial.println("SettingCurrentLampState ended");
+	m_outputManager->Log("LampsManager SettingCurrentLampState ended\n LampName: ", GetCurrentLamp().LampName);
+	
 }
 
-void LampsManager::SetLampState(int lamp, int state)
+void LampsManager::SetLampState(int lampIndex, int state)
 {	 
-	m_lamps[lamp].State = state;
-	AnaloglWrite(lamp, state);
+	m_lamps[lampIndex].State = state;
+	AnaloglWrite(m_lamps[lampIndex].LampName, state);
 }
 
 Lamp LampsManager::MoveNext()
 {
 	m_CurrentIndex++;
 
-	if (m_CurrentIndex== m_size)
+	if (m_CurrentIndex == m_size)
 	{
 		m_CurrentIndex = 0;
 	}
 
+	m_outputManager->Log("Moving to Next Lamp\n ,m_CurrentIndex: ", m_CurrentIndex);
  
- 
-#if defined(ARDUINO) && ARDUINO >= 100
-	Serial.print("MoveNext: ");
-	Serial.print("m_CurrentIndex: ");
-	Serial.println(m_CurrentIndex);
-	//delay(1500);
-#endif
+	m_outputManager->Log("LampName: ", m_lamps[m_CurrentIndex].LampName);
 
 	return m_lamps[m_CurrentIndex];
 }
 
 Lamp LampsManager::GetCurrentLamp()
 {
-#if defined(ARDUINO) && ARDUINO >= 100
-	Serial.print("m_CurrentIndex: ");
-	Serial.println(m_CurrentIndex);
-	Lamp i = m_lamps[m_CurrentIndex];
-	Serial.print("lampName: ");
-	Serial.println(i.LampName);
-#endif
-
 	return m_lamps[m_CurrentIndex];
 }
 
@@ -204,8 +183,7 @@ Lamp * LampsManager::GetLamps()
 
 
 bool LampsManager::IsLampChanged()
-{
-	//m_outputManager->Log("IsLampChanged", m_isLampChanged);
+{	
 	return m_isLampChanged;
 }
 

@@ -46,13 +46,13 @@ void WriteWire()
 */
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "Arduino.h"
-volatile byte programInterruptCnt = 1;
-volatile byte colorInterruptCnt = 1;
+ int programInterruptCnt = 1;
+ int colorInterruptCnt = 1;
 
 
 #else
-volatile int programInterruptCnt = 1;
-volatile int colorInterruptCnt = 1;
+ int programInterruptCnt = 1;
+ int colorInterruptCnt = 1;
 
 #endif
 
@@ -86,8 +86,8 @@ LMSystem::LMSystem()
 	pinMode(PRGBTN, INPUT_PULLUP);
 	pinMode(COLRBTN, INPUT_PULLUP);
 
-	attachInterrupt(digitalPinToInterrupt(PRGBTN), handleProgramButton, FALLING);
-	attachInterrupt(digitalPinToInterrupt(COLRBTN), handleColorButton, FALLING);
+	attachInterrupt(digitalPinToInterrupt(PRGBTN), handleProgramButton, RISING);//FALLING
+	attachInterrupt(digitalPinToInterrupt(COLRBTN), handleColorButton, RISING);// FALLING
 
 
 	pinMode(REDPIN, OUTPUT);
@@ -129,16 +129,16 @@ void LMSystem::DigitalWrite(int  pins[], int value)
 void LMSystem::DoWork(char c)
 {	
  
-	if (colorInterruptCnt > 0 || c == 'c') {
-
-		colorInterruptCnt--;
+	if (colorInterruptCnt > 0)// || c == 'c') 
+	{
+		colorInterruptCnt = 0;
 		m_selector->SelectColors();
 
 	}
 
-	if (programInterruptCnt > 0 || c == 'p') {
-
-		programInterruptCnt--;
+	if (programInterruptCnt > 0)// || c == 'p') 
+	{
+		programInterruptCnt = 0;
 		m_selector->SelectProgram();
 		
 	}

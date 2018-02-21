@@ -34,9 +34,9 @@ void COutputManger::AnaloglWrite(int pin, int value)
 
 	analogWrite(pin, value);
 
-	Serial.print("wrote: ");
+	Serial.print("wrote lamp: ");
 	Serial.print(pin);
-	Serial.print('#');
+	Serial.print("# Val: ");
 	Serial.println(value);
 	
 	//delay(1000);
@@ -83,7 +83,9 @@ void COutputManger::Log(char *title, int message)
 	Serial.println(message);
 		delay(1000);
 #else
-	cout << message << endl;
+	cout << title << message  << endl;
+	//cout << message << endl;
+	Sleep(1000);
 #endif
 }
 
