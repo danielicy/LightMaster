@@ -73,7 +73,7 @@ void Selector::SelectColors()
 #if defined(ARDUINO) && ARDUINO >= 100
 	Serial.println("color index changed");
 	Serial.print(m_colorIndex);
-	//delay(1500);
+	delay(3000);
 #endif
 
 	m_lampsManager->SetLamps(m_colorIndex);

@@ -102,9 +102,7 @@ void LampsManager::SetLamps(int lampindex)
 
 	delete[] col;
 
-	m_outputManager->Log("deleted col ");
-
-	m_outputManager->Wait(3000);
+	m_outputManager->Log("deleted col ");	
 
 }
 
