@@ -77,6 +77,7 @@ void Selector::SelectColors()
 #endif
 	m_lampsManager->SetLamps(m_colorIndex);
 	 
+	m_actionManager->LoadAction(m_progIndex);
 }
 
 
@@ -87,8 +88,8 @@ void Selector::SelectProgram()
 
 #if defined(ARDUINO) && ARDUINO >= 100
 	
-	Serial.println("Loading Program: #");
-	Serial.print(m_progIndex);
+	Serial.print("Loading Program: #");
+	Serial.println(m_progIndex);
 	delay(1500);
 #endif
 	m_actionManager->LoadAction(m_progIndex);

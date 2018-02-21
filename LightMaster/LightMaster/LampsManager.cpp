@@ -16,7 +16,7 @@ LampsManager::LampsManager(ColorManager* colorManager, COutputManger* outputMang
 	m_size = 1;
 	m_CurrentIndex = 0;
 	m_outputManager = outputManger;
-	m_colorManager = new ColorManager();
+	m_colorManager = colorManager;
 }
 
 LampsManager::~LampsManager()
@@ -106,7 +106,8 @@ void LampsManager::SetLamps(int lampindex)
 	 
 	m_isLampChanged = true;
 
-	m_outputManager->Log("deleting col");
+	
+
 	delete[] col;
 
 	m_outputManager->Log("deleted col ");
@@ -129,7 +130,7 @@ void LampsManager::ResetLamps()
 			{				
 				SetLampState(m_lamps[ix].LampName, 0);
 				m_outputManager->Log("m_lamps[ix].LampName: ", m_lamps[ix].LampName);
-				m_outputManager->Wait(1000);
+				//m_outputManager->Wait(1000);
 
 			}
 		}
@@ -142,8 +143,11 @@ void LampsManager::ResetLamps()
 
 void LampsManager::SetCurrentLampState(int state)
 {
+	 
+	Serial.println("SettingCurrentLampState began");
 	m_lamps[m_CurrentIndex].State = state;
 	AnaloglWrite(GetCurrentLamp().LampName, state);
+	Serial.println("SettingCurrentLampState ended");
 }
 
 void LampsManager::SetLampState(int lamp, int state)
@@ -188,7 +192,7 @@ Lamp LampsManager::GetCurrentLamp()
 
 int LampsManager::GetSize()
 {
-	m_outputManager->Log("Getting size", m_size);
+	m_outputManager->Log("Getting size: ", m_size);
 	
 	return m_size;
 }

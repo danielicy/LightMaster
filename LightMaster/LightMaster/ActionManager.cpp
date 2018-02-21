@@ -44,7 +44,7 @@ void ActionManager::LoadAction(int index)
 		//m_action = nullptr;
 	}
 
-	m_lampManager->ResetLamps();
+	//m_lampManager->ResetLamps();
 
 	switch (index)
 	{
@@ -79,7 +79,9 @@ void ActionManager::LoadAction(int index)
 
 void ActionManager::Execute()
 {
-	if(m_action != nullptr)
-	m_action->Execute();
+	if (m_action != nullptr)
+	{
+		m_action->Execute();			
+	}
 }
 
