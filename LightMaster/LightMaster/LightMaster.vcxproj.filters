@@ -84,6 +84,9 @@
     <ClInclude Include="Fixed.h">
       <Filter>Actions\Header</Filter>
     </ClInclude>
+    <ClInclude Include="MCP23017Manager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LMSystem.cpp">
@@ -121,6 +124,9 @@
     </ClCompile>
     <ClCompile Include="Fixed.cpp">
       <Filter>Actions\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCP23017Manager.cpp">
+      <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
