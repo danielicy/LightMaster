@@ -75,6 +75,9 @@
     <ClInclude Include="..\LightMaster\MCP23017Manager.h">
       <Filter>LightMaster\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\libraries\MCP23017.h">
+      <Filter>LightMaster\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -123,6 +126,9 @@
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\LightMaster\MCP23017Manager.cpp">
+      <Filter>LightMaster\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MCP23017.cpp">
       <Filter>LightMaster\Source</Filter>
     </ClCompile>
   </ItemGroup>

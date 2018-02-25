@@ -24,6 +24,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "MCP23017.h"
+#include "Wire.h"
 
 MCP23017::MCP23017(int i2cAddress) {
 	_i2cAddress = (I2C_BASE_ADDRESS >> 1) | (i2cAddress & 0x07);
@@ -105,31 +106,31 @@ void MCP23017::internalPullupMask(word mask) {
 //PRIVATE
 void MCP23017::writeRegister(int regAddress, byte data) {
 	Wire.beginTransmission(_i2cAddress);
-	Wire.send(regAddress);
-	Wire.send(data);
+	Wire.write(regAddress);
+	Wire.write(data);
 	Wire.endTransmission();
 }
 
 void MCP23017::writeRegister(int regAddress, word data) {
 	Wire.beginTransmission(_i2cAddress);
-	Wire.send(regAddress);
-	Wire.send(highByte(data));
-	Wire.send(lowByte(data));
+	Wire.write(regAddress);
+	Wire.write(highByte(data));
+	Wire.write(lowByte(data));
 	Wire.endTransmission();
 }
 
 word MCP23017::readRegister(int regAddress) {
 	word returnword = 0x00;
 	Wire.beginTransmission(_i2cAddress);
-	Wire.send(regAddress);
+	Wire.write(regAddress);
 	Wire.endTransmission();
 	Wire.requestFrom((int)_i2cAddress, 2);
 	//Wait for our 2 bytes to become available
 	while (Wire.available() < 2) {}
 	//high byte
-	returnword = Wire.receive() << 8;
+	returnword = Wire.read() << 8;
 	//low byte
-	returnword |= Wire.receive();
+	returnword |= Wire.read();
 
 	return returnword;
 }

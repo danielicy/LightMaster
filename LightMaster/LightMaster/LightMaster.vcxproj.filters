@@ -31,6 +31,12 @@
     <Filter Include="Interfaces">
       <UniqueIdentifier>{1b7920ad-1d6b-4f2f-a40f-3abb8752961f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{c2c082e1-03f5-47c0-8b35-8fa6eba9a5a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\MCP23017">
+      <UniqueIdentifier>{595bd30a-27ee-4e99-b671-62ce97ff4509}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="LightMaster.ino" />
@@ -87,6 +93,9 @@
     <ClInclude Include="MCP23017Manager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="..\libraries\MCP23017.h">
+      <Filter>Utilities\MCP23017</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LMSystem.cpp">
@@ -127,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="MCP23017Manager.cpp">
       <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\MCP23017.cpp">
+      <Filter>Utilities\MCP23017</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
