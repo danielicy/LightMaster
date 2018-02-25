@@ -1,3 +1,5 @@
+#pragma once
+
 #include "MCP23017Manager.h"
 #include "Arduino.h"
 
@@ -17,9 +19,6 @@ MCP23017Manager::~MCP23017Manager()
 
 
 
-// setup the port expander
-Adafruit_MCP23017 mcp0;  // assign each expander its own mcp name
-Adafruit_MCP23017 mcp1;
 
 const unsigned int onTime = 300;
 const unsigned int offTime = 1000;
@@ -44,7 +43,7 @@ struct MCP_BUTTONS {
 MCP_BUTTONS btns;
 
 // http://forum.arduino.cc/index.php?topic=119261.0
-void displayBinary(int count) {
+void MCP23017Manager::DisplayBinary(int count) {
 	char binary[4] = { 0 };
 	count += 8;                 // fix the length to four bytes  3 + 8 = 11  = 0b1011
 	itoa(count, binary, 2);       // convert count to a base 2 char array  
@@ -55,7 +54,7 @@ void displayBinary(int count) {
 	}
 }
 
-boolean isButtonBeingPressed() {
+boolean MCP23017Manager::IsButtonBeingPressed() {
 
 	boolean b;
 
@@ -78,7 +77,7 @@ boolean isButtonBeingPressed() {
 	return false;
 }
 
-void doThingWithButton() {
+void MCP23017Manager::DoThingWithButton() {
 
 	boolean b;
 	// the fourth button switches all LEDs off and resets the button state
@@ -96,7 +95,7 @@ void doThingWithButton() {
 	}
 }
 
-void mcpSetup() {
+void MCP23017Manager::McpSetup() {
 
 	// setup the RGB LEDs - the RGB LEDs are common anode, so the output needs to be high to turn them off.
 	for (byte i = 0; i < 3; i++) {
@@ -115,7 +114,7 @@ void mcpSetup() {
 
 }
 
-void setup() {
+void MCP23017Manager::Setup() {
 	delay(1000);
 	Serial.begin(9600);
 
@@ -123,7 +122,7 @@ void setup() {
 	mcp0.begin(0);    // 0 = i2c address 0x20
 	mcp1.begin(1);    // 1 = i2c address 0x21
 
-	mcpSetup();
+	McpSetup();
 	mcp0.pinMode(blinkLED, OUTPUT);    // setup the blink led
 	mcp0.digitalWrite(blinkLED, LOW);
 
@@ -131,42 +130,42 @@ void setup() {
 
 }
 
-void loop() {
+//void loop() {
 
-	mcp0.digitalWrite(blinkLED, LEDstate);
+	//mcp0.digitalWrite(blinkLED, LEDstate);
 
-	// only change the RGB colour when the counter has changed
-	if (count != lastCount) {
-		displayBinary(count);
-		lastCount = count;
-	}
+	//// only change the RGB colour when the counter has changed
+	//if (count != lastCount) {
+	//	displayBinary(count);
+	//	lastCount = count;
+	//}
 
-	boolean btn = isButtonBeingPressed();
-	if (btn == true) {
-		doThingWithButton();
-	}
-	unsigned long currentMillis = millis();
+	//boolean btn = isButtonBeingPressed();
+	//if (btn == true) {
+	//	doThingWithButton();
+	//}
+	//unsigned long currentMillis = millis();
 
-	// the blinking LED is lit for a sorter time than it is off
-	// I forgot where I got this code from, but will update once I do.
-	if ((currentMillis - previousMillis) >= tt) {
-		if (LEDstate) {
-			tt = offTime;
-		}
-		else {
-			tt = onTime;
-		}
-		LEDstate = !(LEDstate);
-		previousMillis = currentMillis;
-	}
+	//// the blinking LED is lit for a sorter time than it is off
+	//// I forgot where I got this code from, but will update once I do.
+	//if ((currentMillis - previousMillis) >= tt) {
+	//	if (LEDstate) {
+	//		tt = offTime;
+	//	}
+	//	else {
+	//		tt = onTime;
+	//	}
+	//	LEDstate = !(LEDstate);
+	//	previousMillis = currentMillis;
+	//}
 
-	// increment the counter every rgbOnTime millis, then reset it when all three bits are true (0b111)
-	if ((currentMillis - rgbPMillis) >= rgbOnTime) {
-		count++;
-		if (count > 7) {
-			count = 0;
-		}
-		rgbPMillis = currentMillis;
-	}
+	//// increment the counter every rgbOnTime millis, then reset it when all three bits are true (0b111)
+	//if ((currentMillis - rgbPMillis) >= rgbOnTime) {
+	//	count++;
+	//	if (count > 7) {
+	//		count = 0;
+	//	}
+	//	rgbPMillis = currentMillis;
+	//}
 
-}
+//}
