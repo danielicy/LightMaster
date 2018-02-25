@@ -20,6 +20,25 @@
 #define YELLOWPIN  D_5
 #define GREENPIN  D_6
 
+#define REDPIN1		0
+#define REDPIN2		1
+#define YELLOW		2
+#define GREEN1		3
+#define GREEN2		4
+#define GREEN3		5
+#define GREEN4		6
+#define WRMWHITE1	7
+#define WRMWHITE2	8
+#define WRMWHITE3	9
+#define WHITE1		10
+#define WHITE2		11
+#define WHITE3		12
+#define PURPLE1		13
+#define PURPLE2		14
+#define PURPLE3		15
+#define BLUE1		16
+#define BLUE2		17
+#define BLUE3		18
 #endif
 
 #define DELAY 1000
