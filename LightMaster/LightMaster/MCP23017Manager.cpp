@@ -1,5 +1,5 @@
 #pragma once
-
+//http://www.g7smy.co.uk/2016/11/more-than-one-mcp23017/
 #include "MCP23017Manager.h"
 #include "Arduino.h"
 
@@ -9,6 +9,7 @@
 
 MCP23017Manager::MCP23017Manager()
 {
+	Setup();
 }
 
 
@@ -98,21 +99,37 @@ void MCP23017Manager::DoThingWithButton() {
 void MCP23017Manager::McpSetup() {
 
 	// setup the RGB LEDs - the RGB LEDs are common anode, so the output needs to be high to turn them off.
-	for (byte i = 0; i < 3; i++) {
+	for (byte i = 0; i < 16; i++) {
 		mcp0.pinMode(rgbLED[i], OUTPUT);
-		mcp0.digitalWrite(rgbLED[i], HIGH);  // turn LEDS off
+		mcp0.digitalWrite(rgbLED[i], LOW);  // turn LEDS off
 
 		mcp1.pinMode(rgbLED[i], OUTPUT);
-		mcp1.digitalWrite(rgbLED[i], HIGH);  // turn LEDS off
-	}
+		mcp1.digitalWrite(rgbLED[i], LOW);  // turn LEDS off
+	}//HIGH
 
 	// setup the buttons
-	for (byte i = 0; i < 4; i++) {
-		mcp1.pinMode(btns.buttns[i], INPUT);
-		mcp1.pullUp(btns.buttns[i], HIGH);       // activate internal pullup resistor
-	}
+	//for (byte i = 0; i < 4; i++) {
+	//	mcp1.pinMode(btns.buttns[i], INPUT);
+	//	mcp1.pullUp(btns.buttns[i], HIGH);       // activate internal pullup resistor
+	//}
 
 }
+
+byte MCP23017Manager::GetPin(byte lampName, byte & val)
+{
+	if (lampName < 15)
+	{
+		val = 0;
+	}
+	else
+	{
+		val = 1;
+		lampName = lampName - 15;
+	}
+	 
+	return lampName;
+}
+
 
 void MCP23017Manager::Setup() {
 	delay(1000);
@@ -129,6 +146,23 @@ void MCP23017Manager::Setup() {
 	Serial.println("ready");
 
 }
+
+void MCP23017Manager::DigitalWrite(int lampName, int val)
+{
+	byte expander = 0;
+	byte pin = GetPin(lampName, expander);
+	
+	switch (expander)
+	{
+	case 0:
+		mcp0.digitalWrite(pin, val);
+		break;
+	case 1:
+		mcp1.digitalWrite(pin, val);
+		break;
+	 }
+}
+
 
 //void loop() {
 

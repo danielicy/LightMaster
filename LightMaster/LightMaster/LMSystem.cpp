@@ -71,7 +71,6 @@ void handleColorButton() {
 LMSystem::LMSystem()
 {
 	m_outputManager = new COutputManger();
-
 	m_colorManager = new ColorManager();
 	m_lampsManager = new LampsManager(m_colorManager, m_outputManager);
 	m_ActionManager = new ActionManager(m_lampsManager);
@@ -100,7 +99,7 @@ LMSystem::LMSystem()
 #endif
 
 	
-	//SetWire();
+	
 
 }
 
