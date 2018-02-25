@@ -93,7 +93,7 @@
     <ClInclude Include="MCP23017Manager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="..\libraries\MCP23017.h">
+    <ClInclude Include="..\libraries\Adafruit_MCP23017.h">
       <Filter>Utilities\MCP23017</Filter>
     </ClInclude>
   </ItemGroup>
@@ -137,7 +137,7 @@
     <ClCompile Include="MCP23017Manager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="..\libraries\MCP23017.cpp">
+    <ClCompile Include="..\libraries\Adafruit_MCP23017.cpp">
       <Filter>Utilities\MCP23017</Filter>
     </ClCompile>
   </ItemGroup>

@@ -115,7 +115,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\libraries\MCP23017.h" />
+    <ClInclude Include="..\libraries\Adafruit_MCP23017.h" />
     <ClInclude Include="ActionBase.h" />
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="ColorManager.h" />
@@ -135,7 +135,7 @@
     <ClInclude Include="__vm\.LightMaster.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\libraries\MCP23017.cpp" />
+    <ClCompile Include="..\libraries\Adafruit_MCP23017.cpp" />
     <ClCompile Include="ActionBase.cpp" />
     <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="ColorManager.cpp" />
