@@ -1,26 +1,29 @@
 #include <Wire.h>
 
-void setup() { Wire.begin(); //creates a Wire object
+void DigitalWrite(unsigned char address, unsigned char val)
+{
 
-// set I/O pins to outputs
 Wire.beginTransmission(0x20); //begins talking to the slave device
-Wire.write(0x00); //selects the IODIRA register
-Wire.write(0x00); //this sets all port A pins to outputs
+Wire.write(address); //selects the IODIRA register
+Wire.write(val); //this sets all port A pins to outputs
 Wire.endTransmission(); //stops talking to device
-Wire.beginTransmission(0x20);//begins talking again to slave device
-Wire.write(0x01); //selects the IODIRB register
-Wire.write(0x00); // sets all port B pins to outputs
-Wire.endTransmission(); //ends communication with slave device
+}
+
+
+void setup() {
+  Wire.begin(); //creates a Wire object
+
+ DigitalWrite(0x00,0x00); //selects the IODIRA register and sets all port A pins to outputs
+
+
+DigitalWrite(0x01,0x00);//selects the IODIRB register and sets all port B pins to outputs
+
 }
 
 void loop()
 {
-Wire.beginTransmission(0x20); //starts talking to slave device
-Wire.write(0x12); //selects the GPIOA pins
-Wire.write(00000011); // turns on pins 0 and 1 of GPIOA
-Wire.endTransmission(); //ends communication with the device
-Wire.beginTransmission(0x20); //starts talking to slave device
-Wire.write(0x13); //selects the GPIOB pins
-Wire.write(00000001); //turns on pin 0 of GPIOA
-Wire.endTransmission();//ends communication with the device
+
+ // DigitalWrite(0x12,00000011);//selects the GPIOA pins and turns on pins 0 and 1 of GPIOA
+  //DigitalWrite(0x13,00000001);//selects the GPIOB pins and //turns on pin 0 of GPIOA
+
 }
