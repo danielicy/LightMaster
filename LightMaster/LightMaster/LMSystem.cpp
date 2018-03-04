@@ -89,13 +89,7 @@ LMSystem::LMSystem()
 	attachInterrupt(digitalPinToInterrupt(COLRBTN), handleColorButton, RISING);// FALLING
 
 
-	pinMode(REDPIN, OUTPUT);
-	pinMode(ORANGEPIN, OUTPUT);
-	pinMode(YELLOWPIN, OUTPUT);
-	pinMode(GREENPIN, OUTPUT);
-
-	// set initial LED state	 
-	DigitalWrite(new int[4]{ REDPIN,ORANGEPIN,YELLOWPIN,GREENPIN }, LOW);
+	
 #endif
 
 	

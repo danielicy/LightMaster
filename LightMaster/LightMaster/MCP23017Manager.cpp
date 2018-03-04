@@ -100,11 +100,11 @@ void MCP23017Manager::McpSetup() {
 
 	// setup the RGB LEDs - the RGB LEDs are common anode, so the output needs to be high to turn them off.
 	for (byte i = 0; i < 16; i++) {
-		mcp0.pinMode(rgbLED[i], OUTPUT);
-		mcp0.digitalWrite(rgbLED[i], LOW);  // turn LEDS off
+		mcp0.pinMode(i, OUTPUT);
+		mcp0.digitalWrite(i, LOW);  // turn LEDS off
 
-		mcp1.pinMode(rgbLED[i], OUTPUT);
-		mcp1.digitalWrite(rgbLED[i], LOW);  // turn LEDS off
+		mcp1.pinMode(i, OUTPUT);
+		mcp1.digitalWrite(i, LOW);  // turn LEDS off
 	}//HIGH
 
 	// setup the buttons

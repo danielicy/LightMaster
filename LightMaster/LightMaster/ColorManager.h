@@ -15,30 +15,30 @@
 */
 
 #ifndef ORANGEPIN
-#define REDPIN  D_3
-#define ORANGEPIN  D_4
-#define YELLOWPIN  D_5
-#define GREENPIN  D_6
+//#define REDPIN  D_3
+//#define ORANGEPIN  D_4
+//#define YELLOWPIN  D_5
+//#define GREENPIN  D_6
 
-#define REDPIN1		0
-#define REDPIN2		1
-#define YELLOW		2
-#define GREEN1		3
-#define GREEN2		4
-#define GREEN3		5
-#define GREEN4		6
-#define WRMWHITE1	7
-#define WRMWHITE2	8
-#define WRMWHITE3	9
-#define WHITE1		10
-#define WHITE2		11
-#define WHITE3		12
-#define PURPLE1		13
-#define PURPLE2		14
-#define PURPLE3		15
-#define BLUE1		16
-#define BLUE2		17
-#define BLUE3		18
+#define REDPIN1			0
+#define REDPIN2			1
+#define YELLOWPIN		2
+#define GREEN1PIN		3
+#define GREEN2PIN		4
+#define GREEN3PIN		5
+#define GREEN4PIN		6
+#define WRMWHITE1PIN	7
+#define WRMWHITE2PIN	8
+#define WRMWHITE3PIN	9
+#define WHITE1PIN		10
+#define WHITE2PIN		11
+#define WHITE3PIN		12
+#define PURPLE1PIN		13
+#define PURPLE2PIN		14
+#define PURPLE3PIN		15
+#define BLUE1PIN		16
+#define BLUE2PIN		17
+#define BLUE3PIN		18
 #endif
 
 #define DELAY 1000

@@ -11,12 +11,13 @@
 #endif
 
 #include "OutputManger.h"
+#include "MCP23017Manager.h"
 
 using namespace std;
  
 COutputManger::COutputManger()
 {
-
+	m_MCP2301 = new MCP23017Manager();
 }
 COutputManger::~COutputManger()
 {
@@ -32,7 +33,8 @@ void COutputManger::AnaloglWrite(int pin, int value)
 	Serial.print('#');
 	Serial.println(value);
 
-	analogWrite(pin, value);
+	//analogWrite(pin, value);
+	m_MCP2301->DigitalWrite(pin, value);
 
 	Serial.print("wrote lamp: ");
 	Serial.print(pin);
