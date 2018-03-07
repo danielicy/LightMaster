@@ -11,6 +11,7 @@ http://www.g7smy.co.uk/2016/11/more-than-one-mcp23017/
 https://www.14core.com/wiring-nodemcu-esp8266-12e-with-i2c-16x2-lcd-screen/
 https://www.youtube.com/watch?v=yvaSPqVF2lg
 https://electronics.stackexchange.com/questions/341102/nodemcu-misses-interrupts-of-mcp23017
+https://www.esp32.com/viewtopic.php?t=1035
 
 TLC5940:
 https://www.youtube.com/watch?v=FehBLNHMlfo
