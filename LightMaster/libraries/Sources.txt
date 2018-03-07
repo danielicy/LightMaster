@@ -2,6 +2,9 @@ interrupts:
 https://techtutorialsx.com/2016/12/11/esp8266-external-interrupts/
 
 mcp23017:
+current configuration:
+http://www.instructables.com/id/NODEMCU-LUA-MCP23017-16-Bit-Port-Expander-IC/
+
 https://www.youtube.com/watch?v=RPHP4fAisz8
 http://www.microchip.com/forums/m630276.aspx
 http://www.g7smy.co.uk/2016/11/more-than-one-mcp23017/
