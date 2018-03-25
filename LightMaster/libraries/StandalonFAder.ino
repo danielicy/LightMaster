@@ -12,40 +12,54 @@
 
   http://www.arduino.cc/en/Tutorial/Fade
 */
+
 #define PINCNT 6
 
+#define RED1 2
+#define RED2 3
+#define GREEN1 4
+#define GREEN2 5
+#define WHITE1 6
+#define WHITE 7
+
+
+
+
+
 //int ledarray[]={2,3,4,5,6,7,8,9,10,11,12};
-int ledarray[]={2,3,4,5,6,7};
+//int ledarray[]={2,3,4,5,6,7};
+
+
+
+int ledarray[]={RED1,RED2,GREEN1.GREEN2,WHITE1,WHITE2};
 int led = 15;     //5(5), 6(6),     // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 5;    // how many points to fade the LED by
 
 void FadeIn(int pin)
 {
-  
+  for(int brightness=0;brightness<255;brightness++)
+	{
+		analogWrite(pin, brightness);
+		delay(30);
+	}
 }
 
 void FadeOut(int pin)
 {
-
-  
+   for(int brightness=255;brightness>0;brightness--)
+	 {
+		analogWrite(pin, brightness);
+		 delay(30);
+	 }
 }
+
 
 void Fade(int led)
 {
-
-// set the brightness of pin 9:
-  analogWrite(led, brightness);
-Serial.print("fading");
-  // change the brightness for next time through the loop:
-  brightness = brightness + fadeAmount;
-
-  // reverse the direction of the fading at the ends of the fade:
-  if (brightness <= 0 || brightness >= 255) {
-    fadeAmount = -fadeAmount;
-  }
-  // wait for 30 milliseconds to see the dimming effect
-  delay(30);
+		FadeIn(led);
+		delay(1000);
+		FadeOut(led);
 }
 
 // the setup routine runs once when you press reset:
@@ -65,24 +79,49 @@ void SingleFader()
 {
   for(int led = 0;led<PINCNT;led++)
   {
-    for(int i=0;i<51;i++)
-    {
+    //for(int i=0;i<51;i++)
+   // {
       Fade(ledarray[led]);
-            delay(100);
-    }
-    analogWrite(ledarray[led], 0);  
+           // delay(100);
+   // }     
     
   } 
 }
 
-void MultipleFader()
+void IntermittentFader()
 {
-  
+  for(int led = 0;led<PINCNT;led++)
+  {
+		Fade(ledarray[led]);
+		Fade(ledarray[PINCNT-1-led]);
+	}
+
+}
+
+void Dawn()
+{
+		FadeIn()
+}
+
+void Evening()
+{
+
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
   
-  SingleFader();
-  
+		 for(int i=0;i<10;i++)
+     {
+      SingleFader();
+     }
+
+		 for(int i=0;i<10;i++)
+     {
+       IntermittentFader();
+     }
+
+		Dawn();
+
+		Evening();
 }
