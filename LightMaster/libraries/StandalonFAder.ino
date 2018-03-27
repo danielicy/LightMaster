@@ -94,13 +94,34 @@ void SingleFader()
   } 
 }
 
-void IntermittentFader()
+void DoubleFader()
 {
-  for(int led = 0;led<PINCNT;led++)
-  {
-		Fade(ledarray[led]);
-		Fade(ledarray[PINCNT-1-led]);
+  for(int led = 0; led<PINCNT; led++)
+  {Serial.println("IntermittentFader");
+    Serial.print(led);
+		FadeIn(ledarray[led]);
+		FadeIn(ledarray[PINCNT-1-led]);
+    FadeOut(ledarray[led]);
+    FadeOut(ledarray[PINCNT-1-led]);
 	}
+
+}
+
+void MultiFader()
+{
+  for(int led = 0; led<PINCNT; led++)
+  {
+    Serial.println("MultiFader");
+    Serial.print(led);
+    FadeIn(ledarray[led]);
+    FadeIn(ledarray[PINCNT-1-led]);
+     FadeIn(ledarray[led + 1]);
+      FadeIn(ledarray[led + 2]);
+    FadeOut(ledarray[led]);
+    FadeOut(ledarray[PINCNT-1-led]);
+     FadeOut(ledarray[led-1]);
+    FadeOut(ledarray[led-2]);
+  }
 
 }
 
@@ -116,7 +137,18 @@ void Evening()
 
 void Rattle()
 {
+  for(int t=0;t<PINCNT;t++)
+  {
+     analogWrite(ledarray[t], 255);
+     delay(30);
+  }
 
+  for(int t=0;t<PINCNT;t++)
+  {
+     analogWrite(ledarray[t], 0);
+      delay(30);
+  }
+  
 }
 
 // the loop routine runs over and over again forever:
@@ -127,11 +159,22 @@ void loop() {
       SingleFader();
      }
 
-		 for(int i=0;i<10;i++)
+		 for(int i=0;i<2;i++)
      {
-       IntermittentFader();
+       DoubleFader();
      }
-	   Rattle():
+	 
+	 
+	 for(int r = 0;r<20;r++)
+	 {
+		 Rattle():
+	 }	
+
+ for(int i=0;i<2;i++)
+     {
+       MultiFader();
+     }	 
+	   
 
 		Dawn();
 		
