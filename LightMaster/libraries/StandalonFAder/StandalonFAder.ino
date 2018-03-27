@@ -15,30 +15,29 @@
 
 #define PINCNT 11
 
-#define RED1 2
-#define RED2 3
-#define GREEN1 4
-#define GREEN2 5
-#define WHITE1 6
-#define WHITE 7
+#define RED 2
+#define RED1 3
+#define GREEN 4
+#define GREEN1 5
+#define YWHITE 6
+#define YWHITE1 7
+#define BWHITE 8
+#define BWHITE1 9  
+#define BLUE 10
+#define PURPLE 11
+#define YELLOW 12
 
 
 
 
-
-int ledarray[]={2,3,4,5,6,7,8,9,10,11,12};
-//int ledarray[]={2,3,4,5,6,7};
-
-
-
-//int ledarray[]={RED1,RED2,GREEN1.GREEN2,WHITE1,WHITE2};
+int ledarray[]={RED,RED1,GREEN,GREEN1,YWHITE,YWHITE1,BWHITE,BWHITE1,BLUE,PURPLE,YELLOW};
 int led = 15;     //5(5), 6(6),     // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 5;    // how many points to fade the LED by
 
 void FadeIn(int pin)
 {
-  for(int brightness = 0;brightness <= 255;brightness++)
+  for(int brightness=0;brightness<255;brightness++)
 	{
 		analogWrite(pin, brightness);
 		delay(30);
@@ -47,7 +46,7 @@ void FadeIn(int pin)
 
 void FadeOut(int pin)
 {
-   for(int brightness = 255;brightness >= 0;brightness--)
+   for(int brightness=255;brightness>0;brightness--)
 	 {
 		analogWrite(pin, brightness);
 		 delay(30);
@@ -57,8 +56,6 @@ void FadeOut(int pin)
 
 void Fade(int led)
 {
-   Serial.println("Fading");
-    Serial.print(led);
 		FadeIn(led);
 		delay(1000);
 		FadeOut(led);
@@ -66,9 +63,9 @@ void Fade(int led)
 
 // the setup routine runs once when you press reset:
 void setup() {
-  
-   Serial.begin(9600);
-   
+  // declare pin 9 to be an output:
+  pinMode(led, OUTPUT);
+
   for(int t=0;t<PINCNT;t++)
   {
     pinMode(ledarray[t], OUTPUT);
@@ -81,7 +78,11 @@ void SingleFader()
 {
   for(int led = 0;led<PINCNT;led++)
   {
-    Fade(ledarray[led]);        
+    //for(int i=0;i<51;i++)
+   // {
+      Fade(ledarray[led]);
+           // delay(100);
+   // }     
     
   } 
 }
@@ -117,6 +118,22 @@ void MultiFader()
 
 }
 
+void Dawn()
+{
+		
+}
+
+void Evening()
+{
+
+}
+
+void Forest()
+{
+
+
+}
+
 void Rattle()
 {
   for(int t=0;t<PINCNT;t++)
@@ -133,20 +150,10 @@ void Rattle()
   
 }
 
-void Dawn()
-{
-		//FadeIn()
-}
-
-void Evening()
-{
-
-}
-
 // the loop routine runs over and over again forever:
 void loop() {
   
-	 	for(int i=0;i<2;i++)
+		 for(int i=0;i<10;i++)
      {
       SingleFader();
      }
@@ -155,18 +162,22 @@ void loop() {
      {
        DoubleFader();
      }
- 
-    Rattle();
-     Rattle();
-      Rattle();
-     Rattle();
+	 
+	 
+	 for(int r = 0;r<20;r++)
+	 {
+		 Rattle();
+	 }	
 
-     for(int i=0;i<2;i++)
+ for(int i=0;i<2;i++)
      {
        MultiFader();
-     }
+     }	 
+	   
 
 		Dawn();
+		
+		Forest();
 
 		Evening();
 }
