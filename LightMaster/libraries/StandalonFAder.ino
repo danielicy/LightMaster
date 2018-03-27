@@ -19,8 +19,14 @@
 #define RED2 3
 #define GREEN1 4
 #define GREEN2 5
-#define WHITE1 6
-#define WHITE 7
+#define YWHITE1 6
+#define YWHITE2 7
+#define BWHITE1 8
+#define BWHITE2 9
+#define BLUE 10
+#define PURPLE 11
+#define YELLOW 12
+
 
 
 
@@ -31,7 +37,7 @@
 
 
 
-int ledarray[]={RED1,RED2,GREEN1.GREEN2,WHITE1,WHITE2};
+int ledarray[]={RED1,RED2,GREEN1.GREEN2,YWHITE1,YWHITE2,BWHITE1,BWHITE2,BLUE,PURPLE,YELLOW};
 int led = 15;     //5(5), 6(6),     // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 5;    // how many points to fade the LED by
@@ -108,6 +114,11 @@ void Evening()
 
 }
 
+void Rattle()
+{
+
+}
+
 // the loop routine runs over and over again forever:
 void loop() {
   
@@ -120,8 +131,11 @@ void loop() {
      {
        IntermittentFader();
      }
+	   Rattle():
 
 		Dawn();
+		
+		Forest();
 
 		Evening();
 }
