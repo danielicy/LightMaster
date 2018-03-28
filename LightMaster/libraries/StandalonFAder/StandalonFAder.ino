@@ -13,6 +13,8 @@
   http://www.arduino.cc/en/Tutorial/Fade
 */
 
+#define CONSTCOLORDELAY 300000
+
 #define PINCNT 11
 
 #define RED 2
@@ -125,7 +127,7 @@ void Dawn()
 		FadeIn(YWHITE);
 		FadeIn(YWHITE1);		
 		FadeIn(YELLOW);
-		delay(300000);
+		delay(CONSTCOLORDELAY);
 		FadeOut(RED);
 		FadeOut(RED1);
 		FadeOut(YWHITE);
@@ -142,7 +144,7 @@ void Evening()
 		FadeIn(BWHITE1);
 		FadeIn(PURPLE);
 		FadeIn(BLUE);
-		delay(300000);
+		delay(CONSTCOLORDELAY);
 		FadeOut(RED);
 		FadeOut(RED1);
 		FadeOut(BWHITE);
@@ -160,7 +162,7 @@ void Forest()
 		FadeIn(BWHITE1);
 		FadeIn(YWHITE);
 		FadeIn(YWHITE1);
-		delay(300000);
+		delay(CONSTCOLORDELAY);
 		FadeOut(GREEN);
 		FadeOut(GREEN1);
 		FadeOut(BWHITE);
@@ -183,6 +185,28 @@ void Rattle()
       delay(30);
   }
   
+}
+
+void  GreenRunner( )
+{
+		analogWrite(GREEN, 255);
+		analogWrite(GREEN, 0);
+		analogWrite(GREEN1, 255);
+		analogWrite(GREEN1, 0);
+		analogWrite(YWHITE, 255);
+		analogWrite(YWHITE, 0);
+
+}
+
+void  RedRunner()
+{
+		analogWrite(RED, 255);
+		analogWrite(RED, 0);
+		analogWrite(RED1, 255);
+		analogWrite(RED1, 0);
+		analogWrite(YWHITE, 255);
+		analogWrite(YWHITE, 0);
+
 }
 
 // the loop routine runs over and over again forever:
@@ -215,4 +239,14 @@ void loop() {
 		Forest();
 
 		Evening();
+
+		for (int g = 0; g  < 100; g++)
+		{
+				GreenRunner();
+		}
+
+		for (int n = 0;n < 100; n++)
+		{
+				RedRunner();
+		}
 }
