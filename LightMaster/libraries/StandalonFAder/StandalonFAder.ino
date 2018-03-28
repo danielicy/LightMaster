@@ -120,18 +120,42 @@ void MultiFader()
 
 void Dawn()
 {
-		
+	
 }
 
 void Evening()
 {
-
+		FadeIn(RED);
+		FadeIn(RED1);
+		FadeIn(BWHITE);
+		FadeIn(BWHITE1);
+		FadeIn(PURPLE);
+		FadeIn(BLUE);
+		delay(300000);
+		FadeOut(RED);
+		FadeOut(RED1);
+		FadeOut(BWHITE);
+		FadeOut(BWHITE1);
+		FadeOut(PURPLE);
+		FadeOut(BLUE);
 }
 
 void Forest()
 {
 
-
+		FadeIn(GREEN);
+		FadeIn(GREEN1);
+		FadeIn(BWHITE);
+		FadeIn(BWHITE1);
+		FadeIn(YWHITE);
+		FadeIn(YWHITE1);
+		delay(300000);
+		FadeOut(GREEN);
+		FadeOut(GREEN1);
+		FadeOut(BWHITE);
+		FadeOut(BWHITE1);
+		FadeOut(YWHITE);
+		FadeOut(YWHITE1);
 }
 
 void Rattle()
@@ -164,15 +188,15 @@ void loop() {
      }
 	 
 	 
-	 for(int r = 0;r<20;r++)
-	 {
+	  for(int r = 0;r<20;r++)
+	  {
 		 Rattle();
-	 }	
+	  }	
 
- for(int i=0;i<2;i++)
-     {
+    for(int i=0;i<2;i++)
+    {
        MultiFader();
-     }	 
+    }	 
 	   
 
 		Dawn();
