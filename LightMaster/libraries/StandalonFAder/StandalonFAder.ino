@@ -120,7 +120,18 @@ void MultiFader()
 
 void Dawn()
 {
-	
+		FadeIn(RED);
+		FadeIn(RED1);
+		FadeIn(YWHITE);
+		FadeIn(YWHITE1);		
+		FadeIn(YELLOW);
+		delay(300000);
+		FadeOut(RED);
+		FadeOut(RED1);
+		FadeOut(YWHITE);
+		FadeOut(YWHITE1);
+		FadeOut(YELLOW);
+		 
 }
 
 void Evening()
@@ -177,7 +188,7 @@ void Rattle()
 // the loop routine runs over and over again forever:
 void loop() {
   
-		 for(int i=0;i<10;i++)
+		 for(int i=0;i<3;i++)
      {
       SingleFader();
      }
