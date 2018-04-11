@@ -14,4 +14,6 @@ https://electronics.stackexchange.com/questions/341102/nodemcu-misses-interrupts
 https://www.esp32.com/viewtopic.php?t=1035
 
 TLC5940:
+http://tronixstuff.com/2013/10/21/tutorial-arduino-tlc5940-led-driver-ic/
+https://howtomechatronics.com/tutorials/arduino/how-to-extend-arduino-pwm-outputs-tlc5940-tutorial/
 https://www.youtube.com/watch?v=FehBLNHMlfo
