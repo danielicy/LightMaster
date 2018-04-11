@@ -13,9 +13,9 @@
   http://www.arduino.cc/en/Tutorial/Fade
 */
 
-#define CONSTCOLORDELAY 300000
+#define CONSTCOLORDELAY 15000//300000
 
-#define PINCNT 11
+#define PINCNT 6
 
 #define RED 2
 #define RED1 3
@@ -33,6 +33,8 @@
 
 
 int ledarray[]={RED,RED1,GREEN,GREEN1,YWHITE,YWHITE1,BWHITE,BWHITE1,BLUE,PURPLE,YELLOW};
+
+//int ledarray[]={RED,GREEN,GREEN1,YWHITE,BWHITE1,BLUE};
 int led = 15;     //5(5), 6(6),     // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount = 5;    // how many points to fade the LED by
@@ -208,6 +210,7 @@ void  RedRunner()
 		analogWrite(YWHITE, 0);
 
 }
+
 
 // the loop routine runs over and over again forever:
 void loop() {
