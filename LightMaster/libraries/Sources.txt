@@ -2,9 +2,18 @@ interrupts:
 https://techtutorialsx.com/2016/12/11/esp8266-external-interrupts/
 
 mcp23017:
+current configuration:
+http://www.instructables.com/id/NODEMCU-LUA-MCP23017-16-Bit-Port-Expander-IC/
+
 https://www.youtube.com/watch?v=RPHP4fAisz8
 http://www.microchip.com/forums/m630276.aspx
 http://www.g7smy.co.uk/2016/11/more-than-one-mcp23017/
 https://www.14core.com/wiring-nodemcu-esp8266-12e-with-i2c-16x2-lcd-screen/
 https://www.youtube.com/watch?v=yvaSPqVF2lg
 https://electronics.stackexchange.com/questions/341102/nodemcu-misses-interrupts-of-mcp23017
+https://www.esp32.com/viewtopic.php?t=1035
+
+TLC5940:
+http://tronixstuff.com/2013/10/21/tutorial-arduino-tlc5940-led-driver-ic/
+https://howtomechatronics.com/tutorials/arduino/how-to-extend-arduino-pwm-outputs-tlc5940-tutorial/
+https://www.youtube.com/watch?v=FehBLNHMlfo
